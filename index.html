@@ -981,8 +981,8 @@ strong { font-weight: 500; }
 }
 
 .results-badge-img {
-  width: clamp(108px, 12vw, 168px);
-  height: clamp(108px, 12vw, 168px);
+  width: clamp(150px, 17vw, 220px);
+  height: clamp(150px, 17vw, 220px);
   object-fit: contain;
   filter: drop-shadow(0 6px 18px rgba(0,0,0,0.35));
 }
@@ -1146,6 +1146,15 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 .assessment-eyebrow .cover-badge {
   font-size: 11px;
 }
+/* Plain (un-highlighted) second line for the assessment header */
+.eyebrow-plain {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.80);
+  font-weight: 400;
+}
 
 /* ── ASSESSMENT START HEADER ─────────────────────────────────── */
 .assessment-start-header {
@@ -1292,7 +1301,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
   /* Results hero */
   .results-hero { padding: 20px 20px 16px; }
   .results-hero-inner { grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
-  .results-badge-img { width: 130px; height: 130px; }
+  .results-badge-img { width: 170px; height: 170px; }
   .results-name { font-size: clamp(20px, 6vw, 32px); }
   .results-date { font-size: 11px; }
   .cover-badge { font-size: 9px; letter-spacing: 0.12em; padding: 4px 10px; }
@@ -1304,7 +1313,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
   .domain-result-card { padding: 14px 12px; }
   .domain-result-letter { font-size: 26px; }
   .domain-result-name { font-size: 11px; }
-  .domain-result-card-badge img { width: 47px !important; height: 47px !important; }
+  .domain-result-card-badge img { width: 64px !important; height: 64px !important; }
 
   /* CTA */
   .results-cta { padding: 14px 0; }
@@ -1347,7 +1356,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 
   /* Results: keep side-by-side, adjusted badge sizes */
   .results-hero-inner { grid-template-columns: 1fr auto; gap: 12px; }
-  .results-badge-img { width: 100px; height: 100px; }
+  .results-badge-img { width: 130px; height: 130px; }
   .results-name { font-size: clamp(18px, 5.5vw, 26px); }
 
   /* Domain cards: 2-col stays, compact but bigger badges */
@@ -1356,7 +1365,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
   .domain-result-letter { font-size: 22px; }
   .domain-result-name { font-size: 10px; }
   .domain-result-score { font-size: 9px; margin-top: 2px; }
-  .domain-result-card-badge img { width: 38px !important; height: 38px !important; }
+  .domain-result-card-badge img { width: 50px !important; height: 50px !important; }
 }
 
 </style>
@@ -1371,7 +1380,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
   <div class="cover-inner">
     <div class="cover-eyebrow assessment-eyebrow">
       <span class="cover-academy">ODEON · European Digital Health Academy</span>
-      <span class="cover-badge">Digital Health Capability Self-Assessment</span>
+      <span class="cover-badge">EU &amp; Middle East Edition</span>
     </div>
 
     <h1 class="cover-title">Digital Health<br><em>Capability</em><br>Self-Assessment</h1>
@@ -1728,7 +1737,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
     <div class="assessment-start-header-inner">
       <div class="cover-eyebrow assessment-eyebrow">
         <span class="cover-academy">ODEON · European Digital Health Academy</span>
-        <span class="cover-badge">Digital Health Capability Self-Assessment</span>
+        <span class="eyebrow-plain">Self-Assessment Tool</span>
       </div>
     </div>
   </div>
@@ -1772,9 +1781,9 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
     <div class="cover-grid"></div>
     <div class="results-hero-inner">
       <div>
-        <div style="margin-bottom:20px;">
-          <span class="cover-academy" style="display:block; margin-bottom:10px;">ODEON · European Digital Health Academy</span>
-          <span class="cover-badge">Digital Health Capability Self-Assessment</span>
+        <div class="cover-eyebrow assessment-eyebrow" style="margin-bottom:20px;">
+          <span class="cover-academy">ODEON · European Digital Health Academy</span>
+          <span class="cover-badge">Self-Assessment | Overall Level</span>
         </div>
         <h1 class="results-name" id="userNameDisplay"></h1>
         <div class="results-date" id="completionDate"></div>
@@ -2293,7 +2302,7 @@ function showResults() {
         <div class="domain-result-score">Score: ${avg.toFixed(1)} / 5.0</div>
       </div>
       <div class="domain-result-card-badge">
-        <img src="${badgeSrc}" alt="${domain.letter} ${level}" style="width:clamp(53px,6vw,77px); height:clamp(53px,6vw,77px); object-fit:contain; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));">
+        <img src="${badgeSrc}" alt="${domain.letter} ${level}" style="width:clamp(70px,8vw,100px); height:clamp(70px,8vw,100px); object-fit:contain; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));">
       </div>
     `;
     grid.appendChild(card);
