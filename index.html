@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Health Capability Self-Assessment | European Digital Health Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ── DESIGN TOKENS ───────────────────────────────────────────────── */
+:root {
+  --ink:        #0f0e0c;
+  --paper:      #faf8f4;
+  --cream:      #f0ece3;
+  --sand:       #d9d0bc;
+  --gold:       #b8953a;
+  --gold-light: #e8d08a;
+  --teal:       #0e4c6e;
+  --teal-mid:   #1a6b8a;
+  --teal-light: #3399b8;
+  --rust:       #9b3a2a;
+  --rust-light: #d4624d;
+  --slate:      #2c4058;
+  --warn:       #c27c2e;
+  /* domain accent colours */
+  --da: #3399b8;
+  --db: #1a6b8a;
+  --dc: #b8953a;
+  --dd: #0e4c6e;
+  --de: #9b3a2a;
+  --df: #6b3a9b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px; /* offset for sticky progress bar */
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 16px;
+  overscroll-behavior: contain;
+}
+
+/* ── TYPOGRAPHY ──────────────────────────────────────────────────── */
+h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.05; }
+h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; }
+h3 { font-family: 'DM Sans', sans-serif; font-weight: 500; line-height: 1.3; }
+h4 { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+p  { font-weight: 300; margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 500; }
+
+/* ── LAYOUT ──────────────────────────────────────────────────────── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.hidden { display: none !important; }
+
+/* ── COVER / HERO ────────────────────────────────────────────────── */
+.cover {
+  background: linear-gradient(145deg, #0a3550 0%, #0e4c6e 45%, #0d3d5a 100%);
+  color: var(--paper);
+  padding: 60px 60px 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,149,58,0.13) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cover::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(51,153,184,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cover-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.cover-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.cover-academy {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  opacity: 0.85;
+}
+
+.cover-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 4px 12px;
+  font-weight: 500;
+  border-radius: 2px;
+  box-shadow: 0 0 16px rgba(184,149,58,0.4);
+}
+
+.cover-title {
+  font-size: clamp(52px, 7vw, 96px);
+  margin-bottom: 20px;
+  max-width: 800px;
+  letter-spacing: -0.01em;
+}
+
+.cover-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.cover-subtitle {
+  font-size: 19px;
+  font-weight: 300;
+  opacity: 0.75;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.cover-meta-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 640px;
+}
+
+.cover-meta-item {
+  flex: 1;
+  padding: 18px 24px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.cover-meta-item:last-child { border-right: none; }
+
+.cover-meta-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 6px;
+}
+
+.cover-meta-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+/* ── BETA NOTICE ────────────────────────────────────── */
+.beta-notice {
+  margin-top: 20px;
+  max-width: 640px;
+  background: rgba(250, 248, 244, 0.10);
+  border: 1px solid rgba(232, 208, 138, 0.4);
+  border-left: 3px solid var(--gold);
+  border-radius: 3px;
+  padding: 16px 20px;
+}
+
+.beta-notice-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.beta-notice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.beta-notice-list li {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  padding-left: 14px;
+  position: relative;
+}
+
+.beta-notice-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.beta-notice-list li strong {
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
+}
+
+.cover-domain-strip {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.cover-domain-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 2px;
+  color: rgba(255,255,255,0.55);
+}
+
+.cover-domain-pill span {
+  color: var(--gold-light);
+  margin-right: 6px;
+}
+
+.cover-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ── SECTION LABEL ───────────────────────────────────────────────── */
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #c8d8e8;
+  margin: 0;
+}
+
+/* ── ACCORDION (Why / About / Domains intro) ─────────────────────── */
+.info-band {
+  background: var(--cream);
+  border-bottom: 1px solid var(--sand);
+}
+
+.accordion-block {
+  border-bottom: 1px solid var(--sand);
+}
+
+.accordion-block:last-child { border-bottom: none; }
+
+.accordion-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  cursor: pointer;
+  max-width: 960px;
+  margin: 0 auto;
+  gap: 20px;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.accordion-trigger:hover { background: rgba(0,0,0,0.02); }
+
+.accordion-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.accordion-trigger-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+}
+
+.accordion-trigger h3 {
+  font-size: 16px;
+  color: var(--ink);
+  margin: 0;
+}
+
+.accordion-chevron {
+  width: 18px;
+  height: 18px;
+  color: var(--slate);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.accordion-block.open .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  display: none;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px 28px;
+}
+
+.accordion-body p { font-size: 15px; color: var(--slate); }
+
+.accordion-block.open .accordion-body { display: block; }
+
+/* Quote within accordion */
+.pull-quote {
+  border-left: 3px solid var(--gold);
+  padding: 16px 20px;
+  margin: 20px 0;
+  background: white;
+  font-style: italic;
+  font-size: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--teal);
+}
+
+/* Level chips inside About section */
+.level-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.level-chip {
+  padding: 6px 14px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.level-chip.formative    { background: rgba(205,127,50,0.12); color: #a05a1a; border: 1px solid rgba(205,127,50,0.3); }
+.level-chip.intermediate { background: rgba(100,116,139,0.12); color: #475569; border: 1px solid rgba(100,116,139,0.3); }
+.level-chip.proficient   { background: rgba(184,149,58,0.12); color: #7a6020; border: 1px solid rgba(184,149,58,0.3); }
+
+/* ── DOMAIN OVERVIEW STRIP ───────────────────────────────────────── */
+.domains-strip {
+  background: linear-gradient(160deg, #0a3550 0%, #0e4c6e 100%);
+  border-top: 3px solid rgba(255,255,255,0.2);
+}
+
+.domains-strip-inner {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.domain-strip-item {
+  padding: 20px 16px 20px 0;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.domain-strip-item:first-child { padding-left: 0; }
+.domain-strip-item:last-child { border-right: none; padding-right: 0; }
+
+.domain-strip-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.domain-strip-name {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.3;
+}
+
+/* Domain letter colours */
+.domain-strip-item:nth-child(1) .domain-strip-letter { color: var(--da); }
+.domain-strip-item:nth-child(2) .domain-strip-letter { color: var(--db); }
+.domain-strip-item:nth-child(3) .domain-strip-letter { color: var(--dc); }
+.domain-strip-item:nth-child(4) .domain-strip-letter { color: var(--dd); }
+.domain-strip-item:nth-child(5) .domain-strip-letter { color: var(--de); }
+.domain-strip-item:nth-child(6) .domain-strip-letter { color: var(--df); }
+
+/* ── PERSONAL INFO FORM ───────────────────────────────────────────── */
+.form-section {
+  padding: 64px 0;
+  background: var(--paper);
+}
+
+.form-intro {
+  margin-bottom: 40px;
+}
+
+.form-intro h2 {
+  font-size: clamp(28px, 3vw, 42px);
+  margin-bottom: 12px;
+}
+
+.form-intro p {
+  font-size: 15px;
+  color: var(--slate);
+  max-width: 560px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+}
+
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full { grid-column: 1 / -1; }
+
+.form-group label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.form-group .required { color: var(--rust); }
+
+.form-group input,
+.form-group select {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 11px 14px;
+  border: 1px solid var(--sand);
+  border-radius: 3px;
+  background: white;
+  color: var(--ink);
+  transition: border-color 0.15s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus { border-color: var(--teal-light); }
+
+.form-group input.field-error,
+.form-group select.field-error { border-color: var(--rust) !important; background: rgba(155,58,42,0.04) !important; }
+
+.field-error-msg {
+  color: var(--rust);
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ── BUTTONS ─────────────────────────────────────────────────────── */
+.btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-block;
+  text-decoration: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: white;
+}
+
+.btn-primary:hover { background: var(--teal-mid); }
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--ink);
+  box-shadow: 0 0 20px rgba(184,149,58,0.35);
+}
+
+.btn-gold:hover { background: #c9a444; }
+
+.btn-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.btn-ghost:hover { color: white; border-color: rgba(255,255,255,0.5); }
+
+/* ── PROGRESS BAR ────────────────────────────────────────────────── */
+.progress-band {
+  background: linear-gradient(160deg, #0a3550 0%, #0e4c6e 100%);
+  padding: 20px 0;
+  position: -webkit-sticky; /* Safari < 13 */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid rgba(255,255,255,0.25);
+}
+
+.progress-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.progress-bar-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--teal-light));
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+.progress-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+}
+
+.progress-label strong {
+  color: var(--gold-light);
+  font-weight: 500;
+}
+
+/* ── DOMAIN SECTIONS ─────────────────────────────────────────────── */
+.domain-section {
+  border-bottom: 1px solid #c8d8e8;
+}
+
+.domain-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.domain-header:hover:not(.locked) { background: rgba(14,76,110,0.03); }
+
+.domain-header.locked {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.domain-header.completed {
+  background: rgba(14,76,110,0.04);
+}
+
+.domain-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex: 1;
+}
+
+.domain-letter-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  flex-shrink: 0;
+  color: white;
+}
+
+.domain-letter-badge.da { background: var(--da); }
+.domain-letter-badge.db { background: var(--db); }
+.domain-letter-badge.dc { background: var(--dc); }
+.domain-letter-badge.dd { background: var(--dd); }
+.domain-letter-badge.de { background: var(--de); }
+.domain-letter-badge.df { background: var(--df); }
+
+.domain-header-text h3 {
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.domain-goal-text {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.45;
+}
+
+.domain-status-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 2px;
+  border: 1px solid var(--sand);
+  color: var(--slate);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.domain-status-badge.in-progress {
+  background: rgba(14,76,110,0.08);
+  border-color: var(--teal-light);
+  color: var(--teal);
+}
+
+/* Domain content area */
+.domain-content {
+  display: none;
+  background: #f7f4ef;
+  border-top: 1px solid #c8d8e8;
+}
+
+.domain-content.active { display: block; }
+
+.domain-content-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 40px 40px;
+}
+
+/* Domain context callout */
+.domain-context-block {
+  background: white;
+  border-left: 3px solid var(--teal-light);
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  border-radius: 0 4px 4px 0;
+}
+
+.domain-context-block p {
+  font-size: 14px;
+  color: var(--slate);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Question groups */
+.question-group {
+  background: white;
+  border: 1px solid var(--sand);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.question-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--cream);
+}
+
+.question-code-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.question-code {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal-mid);
+  background: rgba(14,76,110,0.06);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.question-statement {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.question-keypoints {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.7;
+  white-space: pre-line;
+  padding: 10px 14px;
+  background: var(--cream);
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.question-keypoints-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+/* Rating scale */
+.rating-options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--cream);
+}
+
+/* Score hint line — hidden on desktop, shown on mobile */
+.rating-scale-hint {
+  display: none;
+}
+
+.rating-option {
+  padding: 12px 10px;
+  cursor: pointer;
+  border-right: 1px solid var(--cream);
+  transition: background 0.12s;
+  text-align: center;
+  position: relative;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rating-option:last-child { border-right: none; }
+.rating-option:hover { background: rgba(14,76,110,0.04); }
+
+.rating-option.selected {
+  background: rgba(14,76,110,0.07);
+}
+
+.rating-option.selected::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--teal);
+}
+
+.rating-option input { display: none; }
+
+.rating-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--teal-light);
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+.rating-option.selected .rating-number { color: var(--teal); }
+
+.rating-label {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate);
+  line-height: 1.3;
+}
+
+.rating-option.selected .rating-label { color: var(--teal); font-weight: 500; }
+
+/* Complete domain button */
+.complete-btn-row {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-complete-domain {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: all 0.2s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-complete-domain:not(:disabled) { opacity: 1; }
+.btn-complete-domain:not(:disabled):hover { background: var(--teal-mid); }
+.btn-complete-domain:disabled { cursor: not-allowed; }
+
+/* ── RESULTS SECTION ─────────────────────────────────────────────── */
+.results-section {
+  display: none;
+  min-height: 100svh;
+  min-height: 100dvh;
+  flex-direction: column;
+}
+
+.results-section.active {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.results-hero {
+  background: linear-gradient(145deg, #0a3550 0%, #0e4c6e 45%, #0d3d5a 100%);
+  padding: 28px 60px 24px;
+  position: relative;
+  overflow: hidden;
+  color: var(--paper);
+  flex-shrink: 0;
+}
+
+.results-hero .cover-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+}
+
+.results-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+.results-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  opacity: 0.75;
+  margin-bottom: 8px;
+}
+
+.results-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.2vw, 48px);
+  font-weight: 400;
+  margin-bottom: 6px;
+  line-height: 1.05;
+}
+
+.results-date {
+  font-size: 12px;
+  font-weight: 300;
+  opacity: 0.55;
+  font-family: 'DM Mono', monospace;
+}
+
+.results-overall-level {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 2px;
+  margin-top: 12px;
+  display: inline-block;
+}
+
+.results-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.results-badge-img {
+  width: clamp(108px, 12vw, 168px);
+  height: clamp(108px, 12vw, 168px);
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.35));
+}
+
+/* Domain breakdown */
+.results-domains {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+}
+
+.results-domains-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+}
+
+.results-domains h2 {
+  font-size: clamp(18px, 2vw, 26px);
+  margin-bottom: 12px;
+}
+
+.domain-results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--sand);
+}
+
+.domain-result-card {
+  background: var(--paper);
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 0;
+  align-items: start;
+}
+
+.domain-result-card-left {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-right: 10px;
+}
+
+.domain-result-card-badge {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.domain-result-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 2.5vw, 40px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.domain-result-name {
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.domain-result-score {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--slate);
+  margin-top: 4px;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+/* CTA section */
+.results-cta {
+  background: linear-gradient(160deg, #111c2b 0%, #0d2940 60%, #0a2035 100%);
+  border-top: 3px solid rgba(255,255,255,0.2);
+  padding: 20px 0;
+  color: var(--paper);
+  flex-shrink: 0;
+}
+
+.results-cta-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+.results-cta h2 {
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: white;
+  margin-bottom: 6px;
+}
+
+.results-cta p {
+  color: rgba(255,255,255,0.7);
+  font-size: clamp(12px, 1vw, 14px);
+  margin: 0;
+}
+
+.results-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+/* Results footer */
+.results-footer {
+  background: #080f18;
+  color: rgba(255,255,255,0.35);
+  padding: 10px 40px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────────── */
+footer {
+  background: #080f18;
+  color: rgba(255,255,255,0.35);
+  padding: 32px 40px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+/* ── INTEGRITY NOTICE ─────────────────────────────────────────── */
+.integrity-notice {
+  background: linear-gradient(135deg, #0a2535 0%, #0e3a52 100%);
+  border-left: 4px solid var(--gold);
+  border-bottom: 1px solid rgba(184,149,58,0.2);
+  padding: 28px 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+.integrity-notice-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.integrity-notice-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(184,149,58,0.15);
+  border: 1px solid rgba(184,149,58,0.35);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────── */
+
+/* 760px — tablet / large phone landscape */
+@media (max-width: 760px) {
+
+  /* Cover */
+  .cover { padding: 32px 20px 28px; }
+  .cover-title { font-size: clamp(36px, 9vw, 58px); margin-bottom: 12px; }
+  .cover-subtitle { font-size: 15px; margin-bottom: 24px; max-width: 100%; }
+  .cover-meta-row { max-width: 100%; }
+  .beta-notice { margin-top: 16px; padding: 12px 16px; }
+  .beta-notice-list li { font-size: 11px; }
+  .cover-meta-item { padding: 12px 14px; }
+  .cover-meta-value { font-size: 24px; }
+  .cover-eyebrow { flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+  /* Accordions */
+  .accordion-trigger { padding: 16px 20px; gap: 12px; }
+  .accordion-body { padding: 0 20px 22px; }
+  .accordion-body p { font-size: 14px; }
+  .pull-quote { font-size: 14px; padding: 12px 16px; }
+
+  /* About level cards: stack to single column */
+  .accordion-body [style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+  /* About Advanced/Professional: stack */
+  .accordion-body [style*="1fr 1fr"] { grid-template-columns: 1fr !important; }
+
+  /* Six domains grid */
+  #domainCardsGrid { grid-template-columns: 1fr !important; }
+
+  /* Levels strip */
+  .domains-strip > div { padding: 20px !important; }
+  .domains-strip [style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+  /* Form */
+  .form-section { padding: 36px 0; }
+  .form-section .container { padding: 0 20px; max-width: 100%; }
+  .form-intro h2 { font-size: 26px; }
+  .form-grid { grid-template-columns: 1fr; gap: 16px; max-width: 440px; }
+  .form-group.full { grid-column: 1; }
+  /* 16px minimum prevents iOS auto-zoom on focus */
+  .form-group input,
+  .form-group select { font-size: 16px; padding: 13px 14px; width: 100%; box-sizing: border-box; }
+  .form-section .btn-gold { max-width: 440px; width: 100%; text-align: center; box-sizing: border-box; display: block; padding: 16px 32px; font-size: 12px; }
+
+  /* Integrity notice */
+  .integrity-notice { padding: 20px 0; }
+  .integrity-notice-inner { padding: 0 20px; gap: 14px; }
+  .integrity-notice-inner p:first-of-type { font-size: 14px; }
+  .integrity-notice-inner p:last-of-type { font-size: 13px; }
+
+  /* Progress band */
+  .progress-inner { padding: 0 20px; gap: 10px; }
+  .progress-label:first-child { display: none; }
+
+  /* Domain section headers */
+  .domain-header { padding: 16px 20px; gap: 10px; }
+  .domain-header-left { gap: 12px; }
+  .domain-letter-badge { width: 38px; height: 38px; font-size: 20px; }
+  .domain-header-text h3 { font-size: 14px; line-height: 1.3; }
+  .domain-goal-text { display: none; }
+  .domain-status-badge { font-size: 9px; padding: 4px 8px; }
+
+  /* Domain content */
+  .domain-content-inner { padding: 16px 20px 24px; }
+  .domain-context-block { padding: 12px 16px; margin-bottom: 16px; }
+  .domain-context-block p { font-size: 13px; }
+  .question-header { padding: 14px 16px 12px; }
+  .question-statement { font-size: 14px; line-height: 1.5; }
+  .question-keypoints { font-size: 12px; padding: 10px 12px; }
+
+  /* Rating: always 5-col, hide labels, big tap targets */
+  .rating-options { grid-template-columns: repeat(5, 1fr); }
+  .rating-option { padding: 16px 4px; }
+  .rating-number { font-size: 20px; }
+  .rating-label { display: none; }
+
+  /* Score description hint above rating bar */
+  .rating-scale-hint {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--slate);
+    opacity: 0.7;
+    letter-spacing: 0.04em;
+    padding: 6px 16px 4px;
+    background: var(--cream);
+    border-top: 1px solid var(--sand);
+  }
+
+  /* Complete button: full width */
+  .complete-btn-row { justify-content: stretch; }
+  .btn-complete-domain { width: 100%; padding: 16px; font-size: 11px; }
+
+  /* Hide standalone footer when results shown */
+  .results-section.active ~ footer { display: none; }
+
+  /* Results hero */
+  .results-hero { padding: 20px 20px 16px; }
+  .results-hero-inner { grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+  .results-badge-img { width: 130px; height: 130px; }
+  .results-name { font-size: clamp(20px, 6vw, 32px); }
+  .results-date { font-size: 11px; }
+  .cover-badge { font-size: 9px; letter-spacing: 0.12em; padding: 4px 10px; }
+
+  /* Domain breakdown */
+  .results-domains { padding: 24px 0; }
+  .results-domains-inner { padding: 0 20px; }
+  .domain-results-grid { grid-template-columns: repeat(2, 1fr); }
+  .domain-result-card { padding: 14px 12px; }
+  .domain-result-letter { font-size: 26px; }
+  .domain-result-name { font-size: 11px; }
+  .domain-result-card-badge img { width: 47px !important; height: 47px !important; }
+
+  /* CTA */
+  .results-cta { padding: 14px 0; }
+  .results-cta-inner { padding: 0 20px; grid-template-columns: 1fr; gap: 10px; }
+  .results-cta h2 { font-size: 15px; margin-bottom: 3px; }
+  .results-cta p { font-size: 12px; }
+  .results-cta-actions { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  .results-cta-actions .btn { padding: 9px 16px; font-size: 10px; }
+
+  /* Results footer */
+  .results-footer { padding: 8px 20px; font-size: 9px; }
+}
+
+/* 480px — phone portrait */
+@media (max-width: 480px) {
+
+  /* Cover */
+  .cover { padding: 24px 16px 20px; }
+  .cover-title { font-size: clamp(30px, 9vw, 44px); }
+  .cover-subtitle { font-size: 14px; margin-bottom: 20px; }
+
+  /* Meta: 2×2 grid */
+  .cover-meta-row { flex-wrap: wrap; }
+  .cover-meta-item { flex: 1 1 48%; padding: 10px 12px; }
+  .cover-meta-item:nth-child(2) { border-right: none; }
+  .cover-meta-item:nth-child(3) {
+    border-right: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cover-meta-item:nth-child(4) {
+    border-right: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .cover-meta-value { font-size: 20px; }
+  .cover-meta-label { font-size: 8px; }
+
+  /* Integrity notice: hide icon, single col */
+  .integrity-notice-icon { display: none; }
+  .integrity-notice-inner { grid-template-columns: 1fr; }
+
+  /* Results: keep side-by-side, adjusted badge sizes */
+  .results-hero-inner { grid-template-columns: 1fr auto; gap: 12px; }
+  .results-badge-img { width: 100px; height: 100px; }
+  .results-name { font-size: clamp(18px, 5.5vw, 26px); }
+
+  /* Domain cards: 2-col stays, compact but bigger badges */
+  .domain-results-grid { grid-template-columns: repeat(2, 1fr); }
+  .domain-result-card { padding: 10px; }
+  .domain-result-letter { font-size: 22px; }
+  .domain-result-name { font-size: 10px; }
+  .domain-result-score { font-size: 9px; margin-top: 2px; }
+  .domain-result-card-badge img { width: 38px !important; height: 38px !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     COVER
+════════════════════════════════════════════ -->
+<div class="cover" id="coverSection">
+  <div class="cover-grid"></div>
+  <div class="cover-inner">
+    <div class="cover-eyebrow">
+      <span class="cover-academy">European Digital Health Academy</span>
+      <span class="cover-badge">EU &amp; Middle East Edition</span>
+    </div>
+
+    <h1 class="cover-title">Digital Health<br><em>Capability</em><br>Self-Assessment</h1>
+    <p class="cover-subtitle">Discover where you stand across six EU-aligned competency domains — and where to focus your development.</p>
+
+    <div class="cover-meta-row">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Domains</div>
+        <div class="cover-meta-value">6</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Questions</div>
+        <div class="cover-meta-value">30</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Time</div>
+        <div class="cover-meta-value">~30'</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Alignment</div>
+        <div class="cover-meta-value" style="font-size:18px; padding-top:4px;">WHO · EIT · EHDS</div>
+      </div>
+    </div>
+
+    <div class="beta-notice">
+      <div class="beta-notice-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0; margin-top:1px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Beta Release &nbsp;·&nbsp; Your data is safe</span>
+      </div>
+      <ul class="beta-notice-list">
+        <li>This is a <strong>beta version</strong> of the assessment. It is fully functional.</li>
+        <li>Your responses are stored <strong>only in your browser</strong> for the duration of this session.</li>
+        <li>A <strong>login function</strong> will be introduced in a future version for a more personalised experience.</li>
+        <li>This assessment is <strong>personal</strong> — your results are visible only to you.</li>
+        <li>ODEON uses only <strong>fully anonymised, aggregated</strong> data to report on organisations' overall digital capability levels.</li>
+        <li>Your <strong>personal information is never shared</strong> with third parties.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     INFO ACCORDIONS
+════════════════════════════════════════════ -->
+<div class="info-band" id="infoBand">
+
+  <!-- Why This Matters -->
+  <div class="accordion-block" id="acc-why-matters">
+    <div class="accordion-trigger" onclick="toggleInfo('why-matters')">
+      <div class="accordion-trigger-left">
+        <div class="accordion-trigger-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <h3>Why This Matters</h3>
+      </div>
+      <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+    </div>
+    <div class="accordion-body">
+      <p>You didn't train to become a digital health expert. You trained to care for patients. But the reality of clinical practice today is that digital tools are everywhere — in the consultation room, the ward, the operating theatre, and the outpatient clinic. The technology has arrived. The question is whether the workforce has been given what it needs to use it well.</p>
+      <p>Most haven't. Not through any fault of their own — but because digital competency for clinicians has never been systematically built into medical or nursing education the way clinical skills have. The result is a growing gap between the tools being deployed and the confidence of the people expected to use them every day.</p>
+      <div class="pull-quote">"The best digital health tools in the world don't improve care on their own. The clinician using them does."</div>
+      <p><strong>Digital competency for clinicians is the modern foundation for better outcomes and safer care.</strong> This assessment is where that journey starts.</p>
+    </div>
+  </div>
+
+  <!-- About The Tool -->
+  <div class="accordion-block" id="acc-about-tool">
+    <div class="accordion-trigger" onclick="toggleInfo('about-tool')">
+      <div class="accordion-trigger-left">
+        <div class="accordion-trigger-icon" style="background: var(--teal-mid);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </div>
+        <h3>About the Assessment</h3>
+      </div>
+      <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+    </div>
+    <div class="accordion-body">
+      <p>Grounded in internationally recognised frameworks — WHO Digital Health Competency Framework, EIT Health Competency Model, FEDIP professional standards, and EU regulatory requirements including EHDS, EU AI Act, NIS2, and DigComp 2.2 — and specifically adapted for the European and Middle Eastern health contexts.</p>
+
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--sand); margin: 20px 0 8px;">
+
+        <div style="background: var(--paper); padding: 28px 24px; border-top: 3px solid #cd7f32; display:flex; flex-direction:column; gap:12px;">
+          <img src="https://static.wixstatic.com/media/08b7dd_328c5fbe474046b59f633f1c52d06ad9~mv2.png" alt="Formative Badge" style="width:80px; height:80px; object-fit:contain;">
+          <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#cd7f32;">Formative</div>
+          <div style="font-size:16px; font-weight:500; color:var(--ink);">Building Foundations</div>
+          <div style="font-size:14px; font-weight:300; color:var(--slate); line-height:1.6;">Developing foundational awareness of digital health concepts, tools, and responsibilities. Beginning to apply these in your daily practice.</div>
+          <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--sand); margin-top:4px;">Avg score &lt; 2.5</div>
+        </div>
+
+        <div style="background: var(--paper); padding: 28px 24px; border-top: 3px solid #808080; display:flex; flex-direction:column; gap:12px;">
+          <img src="https://static.wixstatic.com/media/08b7dd_093e56797d2a4aa591e8dd1a13779031~mv2.png" alt="Intermediate Badge" style="width:80px; height:80px; object-fit:contain;">
+          <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#808080;">Intermediate</div>
+          <div style="font-size:16px; font-weight:500; color:var(--ink);">Applying Independently</div>
+          <div style="font-size:14px; font-weight:300; color:var(--slate); line-height:1.6;">Applying digital health capabilities confidently and independently in your clinical or administrative role with working knowledge across all six domains.</div>
+          <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--sand); margin-top:4px;">Avg score 2.5 – 3.9</div>
+        </div>
+
+        <div style="background: var(--paper); padding: 28px 24px; border-top: 3px solid var(--gold); display:flex; flex-direction:column; gap:12px;">
+          <img src="https://static.wixstatic.com/media/08b7dd_b1b7cc64cff04f3c8843357ff4be67c0~mv2.png" alt="Proficient Badge" style="width:80px; height:80px; object-fit:contain;">
+          <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold);">Proficient</div>
+          <div style="font-size:16px; font-weight:500; color:var(--ink);">Leading &amp; Championing</div>
+          <div style="font-size:14px; font-weight:300; color:var(--slate); line-height:1.6;">Guiding colleagues, championing digital change, and actively contributing to governance and strategy in your organisation and professional community.</div>
+          <div style="font-family:'DM Mono',monospace; font-size:11px; color:var(--sand); margin-top:4px;">Avg score ≥ 4.0</div>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 20px; display:grid; grid-template-columns:1fr 1fr; gap: 2px; background: var(--sand);">
+        <div style="background: var(--paper); padding: 24px; border-top: 3px solid #2d6a9f;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#2d6a9f; margin-bottom:10px;">Year 2 — Advanced</div>
+          <div style="font-size:15px; font-weight:500; color:var(--ink); margin-bottom:8px;">Specialist Practitioner</div>
+          <div style="font-size:13px; font-weight:300; color:var(--slate); line-height:1.6;">Domain-specialist tracks for clinical leads and digital health implementation roles. Requires Year 1 completion. Covers Data Governance, Interoperability Standards, and AI Implementation &amp; Governance.</div>
+        </div>
+        <div style="background: var(--paper); padding: 24px; border-top: 3px solid #5b3d8a;">
+          <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#5b3d8a; margin-bottom:10px;">Year 2 — Professional</div>
+          <div style="font-size:15px; font-weight:500; color:var(--ink); margin-bottom:8px;">Strategic Leader</div>
+          <div style="font-size:13px; font-weight:300; color:var(--slate); line-height:1.6;">Strategic and governance-level certification for department heads and digital health leaders. Covers Digital Health Strategy, Cybersecurity Leadership, and Digital Health Research Methods.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- The Six Domains -->
+  <div class="accordion-block accordion-block--open" id="acc-six-domains">
+    <div class="accordion-trigger" onclick="toggleInfo('six-domains')">
+      <div class="accordion-trigger-left">
+        <div class="accordion-trigger-icon" style="background: var(--gold);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/></svg>
+        </div>
+        <h3>The Six Competency Domains</h3>
+      </div>
+      <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+    </div>
+    <div class="accordion-body" id="six-domains-body" style="display:block;">
+      <p style="margin-bottom: 20px;">Five questions per domain. Each maps to a specific EU regulatory obligation or competency framework.</p>
+      <div id="domainCardsGrid" style="display:grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--sand); margin-bottom:8px;"></div>
+    </div>
+  </div>
+
+</div><!-- /info-band -->
+
+<!-- Assessment levels band — replaces the old domain strip -->
+<div class="domains-strip">
+  <div style="max-width: 960px; margin: 0 auto; padding: 28px 40px;">
+    <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color: rgba(255,255,255,0.5); margin-bottom:20px;">Assessment Levels — Year 1</div>
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap: 24px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: #cd7f32; margin-bottom:6px;">Formative</div>
+        <div style="font-size:14px; font-weight:400; color: rgba(255,255,255,0.85); line-height:1.45;">Building foundational awareness across all six domains. Entry point for all learners.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: #b0b8c0; margin-bottom:6px;">Intermediate</div>
+        <div style="font-size:14px; font-weight:400; color: rgba(255,255,255,0.85); line-height:1.45;">Applying capabilities confidently and independently in your everyday clinical role.</div>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--gold-light); margin-bottom:6px;">Proficient</div>
+        <div style="font-size:14px; font-weight:400; color: rgba(255,255,255,0.85); line-height:1.45;">Guiding colleagues, driving digital change, and contributing to governance and strategy.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PERSONAL INFO FORM
+════════════════════════════════════════════ -->
+<div class="form-section" id="personalInfoSection">
+  <div class="container">
+    <div class="form-intro">
+      <div class="section-label">Step 01 — Your Details</div>
+      <h2>Before we begin</h2>
+      <p>Your responses are confidential and used only to generate your personalised results. All fields are required.</p>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Given Name <span class="required">*</span></label>
+        <input type="text" id="givenName" oninput="clearFieldError('givenName')" name="given-name" autocomplete="given-name" placeholder="Given name">
+      </div>
+      <div class="form-group">
+        <label>Family Name <span class="required">*</span></label>
+        <input type="text" id="familyName" oninput="clearFieldError('familyName')" name="family-name" autocomplete="family-name" placeholder="Family name">
+      </div>
+      <div class="form-group full">
+        <label>Email Address <span class="required">*</span></label>
+        <input type="email" id="email" oninput="clearFieldError('email')" name="email" autocomplete="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group full">
+        <label>Profession <span class="required">*</span></label>
+        <select id="profession" onchange="clearFieldError('profession')" name="profession">
+          <option value="">Select your profession...</option>
+          <option value="Academic / Educator / Researcher">Academic / Educator / Researcher</option>
+          <option value="Account Manager / Business Development / Sales">Account Manager / Business Development / Sales</option>
+          <option value="Allied Health / Dental">Allied Health / Dental</option>
+          <option value="Business Analyst">Business Analyst</option>
+          <option value="CCIO / CMIO / CNIO / CXIO">CCIO / CMIO / CNIO / CXIO</option>
+          <option value="CEO / GM / MD">CEO / GM / MD</option>
+          <option value="CIO / CTO">CIO / CTO</option>
+          <option value="Consultant">Consultant</option>
+          <option value="COO / Operations Manager">COO / Operations Manager</option>
+          <option value="Data Analyst / Data Scientist">Data Analyst / Data Scientist</option>
+          <option value="Digital Health Lead / Strategy Manager">Digital Health Lead / Strategy Manager</option>
+          <option value="Finance / Procurement">Finance / Procurement</option>
+          <option value="Founder / Start-up">Founder / Start-up</option>
+          <option value="Govt Employee / Public Servant">Govt Employee / Public Servant</option>
+          <option value="Health Informatician">Health Informatician</option>
+          <option value="Health Information Manager (HIM)">Health Information Manager (HIM)</option>
+          <option value="Manager / Head of Department">Manager / Head of Department</option>
+          <option value="Midwife">Midwife</option>
+          <option value="Nurse">Nurse</option>
+          <option value="Pharmacist">Pharmacist</option>
+          <option value="Physician / General Practitioner">Physician / General Practitioner</option>
+          <option value="Program Manager / Product Manager">Program Manager / Product Manager</option>
+          <option value="Project Manager / Project Officer">Project Manager / Project Officer</option>
+          <option value="Student">Student</option>
+          <option value="Other Health Professional">Other Health Professional</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Team / Unit Name <span class="required">*</span></label>
+        <input type="text" id="teamName" oninput="clearFieldError('teamName')" name="team-name" autocomplete="organization" placeholder="Team or unit name">
+      </div>
+      <div class="form-group">
+        <label>Organisation Name <span class="required">*</span></label>
+        <input type="text" id="organisationName" oninput="clearFieldError('organisationName')" name="organization" autocomplete="organization" placeholder="Organisation name">
+      </div>
+      <div class="form-group">
+        <label>City <span class="required">*</span></label>
+        <input type="text" id="city" oninput="clearFieldError('city')" name="city" autocomplete="address-level2" placeholder="City">
+      </div>
+      <div class="form-group">
+        <label>Country <span class="required">*</span></label>
+        <select id="country" onchange="clearFieldError('country')" name="country" autocomplete="country-name">
+          <option value="">Select your country...</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Albania">Albania</option>
+          <option value="Algeria">Algeria</option>
+          <option value="Andorra">Andorra</option>
+          <option value="Angola">Angola</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Armenia">Armenia</option>
+          <option value="Australia">Australia</option>
+          <option value="Austria">Austria</option>
+          <option value="Azerbaijan">Azerbaijan</option>
+          <option value="Bahrain">Bahrain</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Belarus">Belarus</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Bulgaria">Bulgaria</option>
+          <option value="Cambodia">Cambodia</option>
+          <option value="Canada">Canada</option>
+          <option value="Chile">Chile</option>
+          <option value="China">China</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Croatia">Croatia</option>
+          <option value="Cyprus">Cyprus</option>
+          <option value="Czech Republic">Czech Republic</option>
+          <option value="Denmark">Denmark</option>
+          <option value="Egypt">Egypt</option>
+          <option value="Estonia">Estonia</option>
+          <option value="Ethiopia">Ethiopia</option>
+          <option value="Finland">Finland</option>
+          <option value="France">France</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Germany">Germany</option>
+          <option value="Ghana">Ghana</option>
+          <option value="Greece">Greece</option>
+          <option value="Hungary">Hungary</option>
+          <option value="Iceland">Iceland</option>
+          <option value="India">India</option>
+          <option value="Indonesia">Indonesia</option>
+          <option value="Iran">Iran</option>
+          <option value="Iraq">Iraq</option>
+          <option value="Ireland">Ireland</option>
+          <option value="Israel">Israel</option>
+          <option value="Italy">Italy</option>
+          <option value="Japan">Japan</option>
+          <option value="Jordan">Jordan</option>
+          <option value="Kazakhstan">Kazakhstan</option>
+          <option value="Kenya">Kenya</option>
+          <option value="Korea, South">Korea, South</option>
+          <option value="Kuwait">Kuwait</option>
+          <option value="Latvia">Latvia</option>
+          <option value="Lebanon">Lebanon</option>
+          <option value="Libya">Libya</option>
+          <option value="Lithuania">Lithuania</option>
+          <option value="Luxembourg">Luxembourg</option>
+          <option value="Malaysia">Malaysia</option>
+          <option value="Malta">Malta</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Moldova">Moldova</option>
+          <option value="Mongolia">Mongolia</option>
+          <option value="Morocco">Morocco</option>
+          <option value="Netherlands">Netherlands</option>
+          <option value="New Zealand">New Zealand</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="North Macedonia">North Macedonia</option>
+          <option value="Norway">Norway</option>
+          <option value="Oman">Oman</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Palestine">Palestine</option>
+          <option value="Philippines">Philippines</option>
+          <option value="Poland">Poland</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Qatar">Qatar</option>
+          <option value="Romania">Romania</option>
+          <option value="Russia">Russia</option>
+          <option value="Rwanda">Rwanda</option>
+          <option value="Saudi Arabia">Saudi Arabia</option>
+          <option value="Serbia">Serbia</option>
+          <option value="Singapore">Singapore</option>
+          <option value="Slovakia">Slovakia</option>
+          <option value="Slovenia">Slovenia</option>
+          <option value="South Africa">South Africa</option>
+          <option value="Spain">Spain</option>
+          <option value="Sri Lanka">Sri Lanka</option>
+          <option value="Sweden">Sweden</option>
+          <option value="Switzerland">Switzerland</option>
+          <option value="Syria">Syria</option>
+          <option value="Taiwan">Taiwan</option>
+          <option value="Tanzania">Tanzania</option>
+          <option value="Thailand">Thailand</option>
+          <option value="Tunisia">Tunisia</option>
+          <option value="Turkey">Turkey</option>
+          <option value="Uganda">Uganda</option>
+          <option value="Ukraine">Ukraine</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="United States">United States</option>
+          <option value="Uzbekistan">Uzbekistan</option>
+          <option value="Vietnam">Vietnam</option>
+          <option value="Yemen">Yemen</option>
+          <option value="Zambia">Zambia</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="margin-top: 36px;">
+      <button class="btn btn-gold" onclick="startAssessment()">Start Assessment →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ASSESSMENT SECTION
+════════════════════════════════════════════ -->
+<div id="assessmentSection" class="hidden">
+
+  <!-- Integrity Notice -->
+  <div class="integrity-notice">
+    <div class="integrity-notice-inner">
+      <div class="integrity-notice-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8d08a" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold-light); margin-bottom:8px;">Important Note — Assessment Integrity</div>
+        <p style="font-size:15px; font-weight:400; color:rgba(255,255,255,0.9); line-height:1.65; margin-bottom:8px;">Your scores and results are <strong style="color:white;">visible only to you</strong>, unless you choose to share them. No one else — not your employer, your team, or the Academy — can access your individual responses.</p>
+        <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.65); line-height:1.6; margin:0;">In the interest of your own professional growth, we encourage you to answer each question honestly — reflecting your true, day-to-day capabilities rather than your aspirations or best-case performance. The most useful results are the most accurate ones.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress-band" id="progressBand">
+    <div class="progress-inner">
+      <div class="progress-label">Progress</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-label"><strong id="progressText">0 of 6 domains</strong></div>
+    </div>
+  </div>
+
+  <!-- Domain sections injected here -->
+  <div id="domainsContainer"></div>
+
+</div>
+
+<!-- ════════════════════════════════════════════
+     RESULTS SECTION
+════════════════════════════════════════════ -->
+<div id="resultsSection" class="results-section">
+
+  <div class="results-hero">
+    <div class="cover-grid"></div>
+    <div class="results-hero-inner">
+      <div>
+        <div style="margin-bottom:20px;">
+          <span class="cover-academy" style="display:block; margin-bottom:10px;">ODEON · European Digital Health Academy</span>
+          <span class="cover-badge">Digital Health Capability Self-Assessment</span>
+        </div>
+        <h1 class="results-name" id="userNameDisplay"></h1>
+        <div class="results-date" id="completionDate"></div>
+      </div>
+      <div class="results-badge-wrap">
+        <img id="badgeImage" class="results-badge-img" src="" alt="Achievement Badge">
+      </div>
+    </div>
+  </div>
+
+  <div class="results-domains">
+    <div class="results-domains-inner">
+      <div class="section-label" style="font-size:13px; letter-spacing:0.26em;">Domain Breakdown</div>
+      <h2 style="font-size:clamp(36px, 4vw, 52px); margin-bottom:36px;">Your Results Across All Six Domains</h2>
+      <div class="domain-results-grid" id="domainResultsGrid"></div>
+    </div>
+  </div>
+
+  <div class="results-cta">
+    <div class="results-cta-inner">
+      <div>
+        <div class="section-label" style="color: var(--gold-light); opacity: 0.7;">Next Steps</div>
+        <h2 style="color: white; margin-bottom: 6px;">Build on your results</h2>
+        <p>Your capability profile maps directly to Academy modules designed for your level. Each domain has a tailored learning pathway — from Formative foundations to Proficient leadership tracks.</p>
+      </div>
+      <div class="results-cta-actions">
+        <button class="btn btn-gold" onclick="viewRelevantCourses()">View Relevant Courses →</button>
+        <button class="btn btn-ghost" onclick="retakeAssessment()">Retake Assessment</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="results-footer">© March 2026 Dr. Mehdi Khaled · All rights reserved</div>
+
+</div>
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer>
+  <span>© March 2026 Dr. Mehdi Khaled · All rights reserved</span>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────
+// ASSESSMENT DATA  (v45 content — EU/Middle East edition)
+// ─────────────────────────────────────────────────────────────
+const assessmentData = [
+  {
+    name: "Domain A: Digital Professionalism & Ethics",
+    goal: "Health workers maintain professional attitudes, ethical behaviours, and regulatory compliance in the digital environment.",
+    context: "Digital professionalism is not just about how you use technology — it's about the values and judgement you bring to it. In a clinical context, that means protecting patient privacy, acting responsibly online, understanding your legal obligations, and recognising that every digital action leaves a footprint. This domain also addresses equity: not all patients have equal access to digital tools, and being a digitally capable clinician means recognising and responding to that.",
+    letter: "A", letterClass: "da",
+    questions: [
+      { code:"A1", statement:"I make an effort to keep up with digital tools and technologies relevant to my clinical work — and I look for learning opportunities (such as training courses or professional development) to improve my digital skills over time.", keyPoints:"• Seek CPD/CME opportunities related to digital health — through your professional body, academy, or organisation\n• Embrace new technologies introduced in your workplace and ask for training where needed\n• Stay informed via professional journals, newsletters, and digital health networks\n• Reflect regularly on how your digital skills directly improve care quality and patient outcomes" },
+      { code:"A2", statement:"I know and follow the rules my organisation has about using digital systems and handling patient information — including rules about keeping patient data private and getting their agreement (consent) before sharing it.", keyPoints:"• Read and follow your organisation's digital health policies and codes of conduct\n• Understand your obligations regarding patient data: purpose limitation, minimisation, and consent (GDPR Articles 5–7)\n• Know where to find your data protection officer (DPO — the person responsible for data privacy in your organisation) and how to raise a privacy concern\n• Report potential policy breaches through your organisation's appropriate channel" },
+      { code:"A3", statement:"When a new digital service or tool is introduced in my workplace, I think about whether all my patients can actually use it — including those who are elderly, less confident with technology, or who face language, cultural, or financial barriers.", keyPoints:"• Understand that not all patients have equal access to devices, connectivity, or digital literacy\n• Consider how digital tools may disadvantage elderly, rural, or lower-income patient groups\n• Advocate for alternative pathways for patients who cannot access digital health services\n• Recognise cultural sensitivities in how health information is shared and accessed digitally" },
+      { code:"A4", statement:"I am mindful of how I present myself online as a health professional — for example on social media — and I avoid sharing anything that could embarrass my organisation, mislead the public, or identify a patient without their explicit consent.", keyPoints:"• Keep your professional profile (LinkedIn or national professional register) current and accurate\n• Understand that posts made in a personal capacity can affect your professional standing and your organisation's reputation\n• Follow your professional body's social media guidance for health workers\n• Never share identifiable patient information or images online — even with apparent consent" },
+      { code:"A5", statement:"I communicate with patients and colleagues through digital channels (such as email, secure messaging, or patient portals) in a way that is professional, clear, and respectful — and I know what types of information should never be shared through informal digital channels.", keyPoints:"• Follow your organisation's policy on which digital channels are approved for clinical communication\n• Never share identifiable patient information via personal email, WhatsApp, or other unapproved messaging apps\n• Maintain the same standards of professionalism in written digital communication as you would in person\n• Be aware that digital messages form part of the clinical or professional record and may be reviewed" }
+    ]
+  },
+  {
+    name: "Domain B: Digital Health Leadership & Transformation",
+    goal: "Health workers lead digital change, advocate for patients' digital rights, and engage with the European digital health policy landscape.",
+    context: "Leadership in digital health isn't reserved for managers or CIOs. Every clinician who champions a better system, advocates for a patient's right to access their own records, or pushes back on a poorly designed digital tool is exercising digital leadership. In the EU context, this also means understanding the policy environment — the European Health Data Space, national eHealth strategies, and the rights these frameworks give both patients and professionals.",
+    letter: "B", letterClass: "db",
+    questions: [
+      { code:"B1", statement:"I help my patients understand and use digital health services — such as online appointment booking, patient portals, or electronic prescriptions — and I know that patients in the EU have a legal right to access their own health records digitally.", keyPoints:"• Know what digital patient services are available in your setting (patient portals, MyHealth@EU, e-prescription)\n• Support patients in accessing and understanding their own health records — this is a legal right in the EU (EHDS, GDPR Article 15)\n• Address digital literacy barriers — not all patients have equal confidence with digital tools\n• Ensure patients are informed when digital or AI tools contribute to decisions about their care" },
+      { code:"B2", statement:"When a new digital tool or system is introduced in my workplace, I try to understand what it is meant to do, what its limitations are, and whether it is genuinely good for patients — and I raise concerns through the right channels if I have doubts.", keyPoints:"• Know the clinical and operational benefits of the digital tools used in your workplace\n• Understand the risks: data security, system downtime, equity of access, and over-reliance on technology\n• Raise concerns about digital tools through your organisation's governance or patient safety reporting process\n• Champion evidence-based digital adoption — not all new tools represent genuine clinical improvement" },
+      { code:"B3", statement:"In my workplace, I play an active role in decisions about digital systems and services — for example by giving feedback on new tools, supporting colleagues during change, or advocating for digital training within my team.", keyPoints:"• Know your organisation's digital health governance structures and where clinical input is valued\n• Engage with digital change processes — provide feedback on new system roll-outs and evaluations\n• Advocate for CPD/CME on digital health within your team and professional community\n• Support colleagues who may be uncertain or resistant to digital change — leadership is a shared responsibility" },
+      { code:"B4", statement:"I look for opportunities where a digital solution could genuinely improve care or reduce unnecessary work in my area — and I bring those ideas forward to managers or colleagues rather than waiting for change to happen to me.", keyPoints:"• Identify specific areas of your work that could be improved through digital solutions — bring ideas to your manager\n• Research what digital health tools exist beyond your current workplace — learn from other settings and countries\n• Contribute to innovation discussions and pilots within your organisation or professional network\n• Evaluate proposed digital innovations critically — consider evidence, feasibility, equity, and patient benefit" },
+      { code:"B5", statement:"I have a basic awareness of the direction of digital health policy in Europe — including the European Health Data Space (EHDS — an EU initiative to allow safe sharing of health data across borders) — and I follow relevant developments that affect my work.", keyPoints:"• Familiarise yourself with your country's national eHealth strategy and how it aligns with EU objectives\n• Understand what the European Health Data Space (EHDS) means for patients and for your organisation\n• Follow digital health policy developments through your professional association or ministry of health\n• Contribute your clinical perspective to digital health strategy — frontline voices shape better policy" }
+    ]
+  },
+  {
+    name: "Domain C: Data Quality & Information Governance",
+    goal: "Health workers ensure the capture and stewardship of quality health data, and understand their obligations as handlers of patient information.",
+    context: "Every time you enter data into a clinical system, you're contributing to something much larger than a single patient record. That data feeds clinical decisions, department reporting, national health indicators, and research. Errors compound. Good data starts at the point of entry — and that's you. This domain also covers the governance side: understanding patient data rights, knowing what GDPR requires of you in practice, and understanding how health data is used beyond the bedside.",
+    letter: "C", letterClass: "dc",
+    questions: [
+      { code:"C1", statement:"I take care to enter patient information accurately and completely into clinical systems — and if I notice a mistake or gap in a record (mine or someone else's), I know how to correct it or report it through the right process.", keyPoints:"• Know how to correctly use the clinical and administrative systems in your workplace\n• Understand why your data entry matters — inaccurate records can directly harm patient safety and distort clinical reporting\n• Report data errors and anomalies through your organisation's designated incident or discrepancy reporting process\n• Follow your organisation's data entry standards and coding conventions (e.g. ICD-11, SNOMED CT — international systems used to classify diagnoses and clinical terms)" },
+      { code:"C2", statement:"I understand the key terms used in health data governance — such as who is responsible for patient data, what patients can ask organisations to do with their data, and what 'sharing' data with other services actually means in practice.", keyPoints:"• Know the key terms: data controller (who decides how data is used), data processor (who handles it on their behalf), data minimisation (only collect what is needed), pseudonymisation (replacing names with codes to protect identity)\n• Understand patient data rights under GDPR: the right to access, correct, restrict, and move their data\n• Know what it means when data is described as 'anonymised' or 'aggregated' — and why that matters for research and reporting\n• Be able to explain these concepts clearly to a patient or colleague who asks" },
+      { code:"C3", statement:"I understand that patients have rights over their own health data — for example, the right to see it, correct it, or ask how it is being used — and I know what my own responsibilities are as someone who handles patient information every day.", keyPoints:"• Know the purpose and structure of the electronic health record systems you use in your workplace\n• Understand patient data rights: access, rectification, restriction, and portability (GDPR Articles 15–20 — the EU law governing personal data)\n• Know your organisation's data governance framework and your role within it\n• Understand how anonymised and aggregated data supports research and service improvement without compromising individual privacy" },
+      { code:"C4", statement:"I understand that the information I record about individual patients doesn't just affect that patient — it also feeds into wider reports and statistics used by managers, planners, and national health systems to make decisions about services and resources.", keyPoints:"• Know how your individual data entries contribute to department-level dashboards and national health indicators\n• Understand how combining data from multiple sources creates population-level insights\n• Be aware that errors in individual records are amplified when data is aggregated — accuracy at entry matters at scale\n• Know how to interpret basic data outputs (charts, tables, trend lines) in a clinical context" },
+      { code:"C5", statement:"When patients share data from their own apps or devices with me — such as step counts, sleep data, or blood pressure readings from a smartwatch — I understand the privacy and consent implications of incorporating that data into their clinical record.", keyPoints:"• Know that patient-generated data from consumer devices is subject to the same privacy protections as other health data under GDPR\n• Understand the importance of obtaining clear consent before recording or acting on patient-generated data in the clinical record\n• Be aware of who owns and can access data from third-party health apps — patients may not always know their data is being shared with other parties\n• Know your organisation's policy on whether and how patient-generated data can be incorporated into the official health record" }
+    ]
+  },
+  {
+    name: "Domain D: Person-Centred Digital Care Delivery",
+    goal: "Health workers use digital technologies to deliver safe, connected care — from clinical decision support and telehealth to EU cross-border patient services.",
+    context: "Digital tools are changing how care is delivered — and increasingly, where it's delivered. Telehealth, remote monitoring, AI-assisted diagnosis, and patient portals are now part of everyday clinical work. This domain covers what it means to use those tools safely and effectively: how to critically evaluate clinical decision support outputs, how to support patients through digital services, and — in the EU context — how cross-border care coordination works through tools like the EU Patient Summary and e-prescription.",
+    letter: "D", letterClass: "dd",
+    questions: [
+      { code:"D1", statement:"When a clinical system pulls together information about a patient from different sources — for example combining GP records, hospital notes, and test results — I know how to use that combined picture to support my decisions while staying alert to gaps or errors.", keyPoints:"• Know how different systems in your workplace share data to form a more complete patient picture\n• Understand that linking data sources introduces privacy and accuracy risks as well as clinical benefits\n• Know that errors in individual records may be amplified when combined with data from other systems\n• Apply critical appraisal before acting on linked data outputs — consider source quality, recency, and completeness" },
+      { code:"D2", statement:"I use data outputs available to me — such as dashboards, audit reports, or trend summaries — to monitor the quality of care I and my team are delivering, and to spot areas where practice could be improved.", keyPoints:"• Know what data reports or dashboards are available in your workplace and what they measure\n• Use data outputs to identify patterns — for example, referral delays, missed follow-ups, or variation in outcomes across patient groups\n• Understand the difference between data that describes what is happening (descriptive) and data that helps explain why (analytical)\n• Know when to escalate a concern identified through data — and who in your organisation is responsible for acting on it" },
+      { code:"D3", statement:"I can see how digital tools and technologies are changing the way care is delivered — and I think critically about whether those changes are genuinely improving things for my patients, or introducing new risks I need to be aware of.", keyPoints:"• Consider how digital tools in your workplace have changed the patient journey — for better and for worse\n• Understand how your role is evolving with digital health — and what new capabilities are expected of you\n• Evaluate digital innovations critically: evidence base, equity of access, feasibility, and patient safety implications\n• Support new technology roll-outs constructively — your frontline experience is essential to effective implementation" },
+      { code:"D4", statement:"I am able to deliver a consultation or follow-up remotely (by video or phone) when it is clinically appropriate — and I actively support patients who may find it difficult to use digital services, making sure remote care doesn't become a barrier to good care.", keyPoints:"• Know the telehealth platforms and protocols used in your organisation and when they are clinically appropriate\n• Understand the limitations of remote assessment — what cannot be adequately evaluated via video or phone\n• Support patients who may have limited digital confidence or connectivity — consider equity of access in every consultation\n• Document remote consultations appropriately in accordance with clinical record-keeping and legal standards" },
+      { code:"D5", statement:"I am aware that EU citizens travelling or living in another EU country can share key health information — such as their medication list or allergy record — digitally across borders, and I know how this affects my practice when caring for patients from other countries.", keyPoints:"• Know which EU cross-border digital health services are active in your country (EU Patient Summary, e-prescription via MyHealth@EU)\n• Understand what the EU Patient Summary contains and how it supports safe cross-border care for EU citizens\n• Know how interoperability standards (the technical rules that allow different systems to share data) enable health information to be shared across providers and borders\n• Understand your obligations when accessing or contributing to cross-border health data (EHDS, GDPR)" }
+    ]
+  },
+  {
+    name: "Domain E: Data Security & Cybersecurity in Healthcare",
+    goal: "Health workers recognise cyber threats, apply safe digital behaviours every day, and fulfil their NIS2 and GDPR security responsibilities.",
+    context: "Healthcare is the most targeted sector for cyberattacks in Europe. Ransomware, phishing, and credential theft are not abstract IT problems — they shut down hospitals, delay surgeries, and put patients at risk. Since October 2024, the NIS2 Directive requires all health organisations to treat cybersecurity as a clinical governance issue. Every clinician has a role: using strong passwords, locking screens, reporting suspicious emails, and knowing what to do when something goes wrong. This isn't IT's job alone — it's yours too.",
+    letter: "E", letterClass: "de",
+    questions: [
+      { code:"E1", statement:"I understand that hospitals and health services are frequent targets for cyberattacks — and that protecting patient data and digital systems is part of every clinician's professional responsibility, not just the IT department's.", keyPoints:"• Know the most common cyber threats in healthcare: phishing emails (fraudulent messages designed to steal login details), ransomware (malicious software that locks systems until a ransom is paid), credential theft, and insider misuse\n• Understand that a cyberattack on a hospital is a patient safety incident — it can halt care delivery and endanger lives\n• All health workers share responsibility for security behaviours, not just IT teams (NIS2 Directive, GDPR Article 32)\n• Report suspicious emails, unusual system behaviour, or potential breaches immediately — do not wait" },
+      { code:"E2", statement:"In my daily work, I follow safe habits when using clinical systems — such as using a strong password, locking my screen when I step away, and only using work-approved devices for anything involving patient information.", keyPoints:"• Use strong, unique passwords and enable multi-factor authentication (MFA — a second verification step such as a text code) wherever your systems support it\n• Lock your screen when away from your workstation — even briefly\n• Use only organisation-approved devices and systems for clinical work — avoid personal devices for patient data\n• Know that non-compliance with security policies can have legal and professional consequences (GDPR Article 32, NIS2)" },
+      { code:"E3", statement:"I know that many medical devices in clinical settings are connected to the internet or hospital networks — and I take basic precautions around them, such as reporting unusual behaviour or not plugging in unknown USB drives.", keyPoints:"• Know which devices in your clinical setting are network-connected (infusion pumps, monitoring equipment, imaging systems)\n• Report unusual device behaviour or unexpected connectivity prompts to your IT or biomedical team\n• Do not connect personal devices or unvetted USB drives to clinical equipment or networked systems\n• Understand that connected medical devices are a recognised cybersecurity risk in healthcare" },
+      { code:"E4", statement:"I know the warning signs that a cyberattack or data breach may be happening — and I know exactly who to contact and what to do first, including how to keep delivering safe care if the systems go down.", keyPoints:"• Know the signs of a cybersecurity incident: ransomware lock screens, unusual login alerts, unexpected data access, system slowdowns\n• Know your organisation's incident reporting process and your data protection officer's contact details\n• A personal data breach must be reported to your DPO immediately — your organisation has 72 hours to notify the supervisory authority if required (GDPR Article 33)\n• Know your organisation's manual downtime procedure — how to continue safe care delivery without digital systems" },
+      { code:"E5", statement:"I help create a culture in my team where people feel comfortable reporting security mistakes or concerns quickly — because I know that early reporting prevents far greater harm than staying silent out of embarrassment or fear.", keyPoints:"• Encourage colleagues who make security mistakes to report them promptly — a blame-free culture prevents cover-up and reduces harm\n• Share good security practices with your team — use meetings or handovers as opportunities to raise awareness\n• Provide feedback on digital systems that make secure behaviour difficult — poor design drives unsafe workarounds\n• Understand that cybersecurity culture is a clinical governance priority, not just a technical one" }
+    ]
+  },
+  {
+    name: "Domain F: Artificial Intelligence in Clinical Practice",
+    goal: "Health workers critically understand, ethically apply, and responsibly govern AI tools — maintaining clinical judgement and patient safety at every step.",
+    context: "AI is already in your workplace — in diagnostic imaging, clinical decision support, documentation tools, and administrative systems. The question isn't whether to use it, but how to use it well. That means understanding what AI can and can't do, knowing when its outputs should be questioned, understanding the legal framework that governs it (EU AI Act, GDPR, MDR), and making sure patients are informed when AI plays a role in their care. Your professional judgement doesn't switch off because a tool made a recommendation — it matters more.",
+    letter: "F", letterClass: "df",
+    questions: [
+      { code:"F1", statement:"I have a basic understanding of what AI (artificial intelligence) is and how it works in a healthcare context — and when I come across an AI tool being used in my workplace, I can think critically about whether it is reliable and appropriate for the task.", keyPoints:"• Understand basic AI concepts: machine learning (systems that learn from data), natural language processing (AI that understands text or speech), generative AI (AI that creates new content)\n• Know that AI tools can produce biased, inaccurate, or fabricated outputs (known as 'hallucinations')\n• Evaluate AI tools before relying on them — check evidence, validation, and appropriateness for your patient population\n• Understand how the data used to train AI can introduce bias that affects patient outcomes\n• Distinguish between evidence-based AI applications and unvalidated or overhyped claims" },
+      { code:"F2", statement:"When an AI tool makes a recommendation or supports a clinical decision, I understand that I remain responsible for that decision — and I make sure my patients know when AI has played a role in their care.", keyPoints:"• Understand that AI should support, not replace, professional clinical judgement\n• Know that patients should be informed when AI contributes to decisions about their care\n• Recognise the importance of human oversight — AI recommendations must always be reviewed by a qualified professional\n• Understand fairness: AI tools should work equitably across different patient populations\n• Be aware of algorithmic bias (when AI performs less accurately for certain groups) and how it can lead to health inequities" },
+      { code:"F3", statement:"I have a basic awareness of the laws and rules that govern how AI can be used in healthcare in Europe — including the EU AI Act and GDPR — particularly around high-risk uses and patients' rights when automated systems are involved.", keyPoints:"• Know that the EU AI Act classifies AI systems by level of risk — many clinical AI tools are considered 'high-risk' and face strict requirements\n• Understand that GDPR (EU data protection law) gives patients the right not to be subject to decisions made entirely by automated systems, without any human review\n• Know when an AI tool qualifies as a medical device under MDR (Medical Device Regulation) and what compliance obligations that brings\n• Be aware of liability implications — who is responsible when AI contributes to a clinical error?" },
+      { code:"F4", statement:"I can use the AI tools available in my workplace confidently and safely — and I always review what they produce before acting on it, using my own clinical knowledge to check whether the output makes sense.", keyPoints:"• Know how to use AI tools available in your workplace (clinical decision support, documentation AI, administrative AI)\n• Always cross-reference AI outputs with your professional knowledge and clinical evidence\n• Check AI-generated outputs for errors, outdated information, or content that sounds plausible but is wrong\n• Know when AI is appropriate to use and when it is not\n• Maintain accountability — you are responsible for decisions even when AI assists" },
+      { code:"F5", statement:"I help my colleagues understand and adapt to AI tools being introduced in our workplace — and I contribute to conversations about how AI should be used safely and responsibly, rather than leaving those decisions entirely to managers or IT teams.", keyPoints:"• Engage positively with AI-driven change in the workplace\n• Support colleagues who may be uncertain or anxious about AI adoption\n• Provide feedback on AI tools to inform their improvement and safe use\n• Participate in AI governance processes such as evaluation, risk assessment, and policy development\n• Advocate for responsible AI that benefits patients, workers, and the health system" }
+    ]
+  }
+];
+
+const ratingScale = [
+  { value:1, label:"No experience yet" },
+  { value:2, label:"Basic understanding" },
+  { value:3, label:"Familiar" },
+  { value:4, label:"Confident" },
+  { value:5, label:"Lead & support others" }
+];
+
+const BADGE_URLS = {
+  formative:    'https://static.wixstatic.com/media/08b7dd_328c5fbe474046b59f633f1c52d06ad9~mv2.png',
+  intermediate: 'https://static.wixstatic.com/media/08b7dd_093e56797d2a4aa591e8dd1a13779031~mv2.png',
+  proficient:   'https://static.wixstatic.com/media/08b7dd_b1b7cc64cff04f3c8843357ff4be67c0~mv2.png'
+};
+
+const DOMAIN_BADGE_URLS = {
+  A_formative:    'https://static.wixstatic.com/media/08b7dd_9c40163edb6a468fb1df5ca6c5961c23~mv2.png',
+  A_intermediate: 'https://static.wixstatic.com/media/08b7dd_0629a5e8ddf04785b23efd455fa42294~mv2.png',
+  A_proficient:   'https://static.wixstatic.com/media/08b7dd_10c8533ffb0c4e67ac5d8e9595ec0639~mv2.png',
+  B_formative:    'https://static.wixstatic.com/media/08b7dd_d670142378974b6381990005bd65e484~mv2.png',
+  B_intermediate: 'https://static.wixstatic.com/media/08b7dd_3fd30b86a2ab44dc87632aa66793f23e~mv2.png',
+  B_proficient:   'https://static.wixstatic.com/media/08b7dd_e063dfcb07e840b797db17df1778454f~mv2.png',
+  C_formative:    'https://static.wixstatic.com/media/08b7dd_635d64ff58184a3199d7734a43faeabc~mv2.png',
+  C_intermediate: 'https://static.wixstatic.com/media/08b7dd_23f0bbfc0d2443629add584676bd83f9~mv2.png',
+  C_proficient:   'https://static.wixstatic.com/media/08b7dd_021f69e4198443379f06917eb47a385b~mv2.png',
+  D_formative:    'https://static.wixstatic.com/media/08b7dd_2550ad69bd574cb6927d58100fded2d2~mv2.png',
+  D_intermediate: 'https://static.wixstatic.com/media/08b7dd_3300305f5b8e486eb1fad26a7dd24902~mv2.png',
+  D_proficient:   'https://static.wixstatic.com/media/08b7dd_f5887bfaa0dd4c1396654773cc987b56~mv2.png',
+  E_formative:    'https://static.wixstatic.com/media/08b7dd_35c8ec74529e486c8cf4bafec7180173~mv2.png',
+  E_intermediate: 'https://static.wixstatic.com/media/08b7dd_859d0c93480f42479fc1e309f4daff8f~mv2.png',
+  E_proficient:   'https://static.wixstatic.com/media/08b7dd_da1fc6e208b84fea9848e327e2afcba2~mv2.png',
+  F_formative:    'https://static.wixstatic.com/media/08b7dd_d950f1d31c5a47a8bf91c352112e9ab1~mv2.png',
+  F_intermediate: 'https://static.wixstatic.com/media/08b7dd_2da2f9801b594708b80438805014f35b~mv2.png',
+  F_proficient:   'https://static.wixstatic.com/media/08b7dd_36b6c4ddab634526bbeda88b6885499b~mv2.png'
+};
+
+// ─── STATE ────────────────────────────────────────────────────
+let responses = {};
+let userData  = {};
+
+// ─── INIT ─────────────────────────────────────────────────────
+// buildDomainCards runs immediately (small, needed for visible accordion).
+// generateDomainSections is deferred with setTimeout(0) so it runs
+// after the first paint — this prevents it blocking touch events on
+// mobile during the 1-3 second DOM construction burst.
+document.addEventListener('DOMContentLoaded', function() {
+  buildDomainCards();
+  setTimeout(function() {
+    generateDomainSections();
+  }, 0);
+});
+
+// ─── DOMAIN OVERVIEW CARDS (in accordion) ─────────────────────
+function buildDomainCards() {
+  const grid = document.getElementById('domainCardsGrid');
+  if (!grid) return;
+  assessmentData.forEach(domain => {
+    const shortName = domain.name.replace('Domain '+domain.letter+': ','');
+    const card = document.createElement('div');
+    card.style.cssText = `background:#faf8f4; padding:28px 24px; border-top:2px solid var(--${domain.letterClass}); position:relative;`;
+    card.innerHTML = `
+      <div style="font-size:17px; font-weight:500; color:var(--${domain.letterClass}); margin-bottom:10px; line-height:1.3; font-family:'DM Sans',sans-serif;">${domain.letter} &mdash; ${shortName}</div>
+      <div style="font-size:14px; font-weight:300; color:var(--slate); font-style:italic; line-height:1.55;">${domain.goal}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// ─── ACCORDION TOGGLES ────────────────────────────────────────
+function toggleInfo(id) {
+  const block = document.getElementById('acc-' + id);
+  if (!block) return;
+  block.classList.toggle('open');
+  const body = document.getElementById(id + '-body') || block.querySelector('.accordion-body');
+  if (body && id !== 'six-domains') {
+    body.style.display = block.classList.contains('open') ? 'block' : 'none';
+  }
+}
+
+// ─── SCROLL TO FORM ───────────────────────────────────────────
+function scrollToForm() {
+  const el = document.getElementById('personalInfoSection');
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ─── FIELD VALIDATION ─────────────────────────────────────────
+function clearFieldError(fieldId) {
+  const field = document.getElementById(fieldId);
+  if (!field) return;
+  field.classList.remove('field-error');
+  const err = document.getElementById(fieldId + '_error');
+  if (err) err.remove();
+}
+
+function showFieldError(fieldId, message) {
+  const field = document.getElementById(fieldId);
+  if (!field) return;
+  field.classList.add('field-error');
+  let err = document.getElementById(fieldId + '_error');
+  if (!err) {
+    err = document.createElement('div');
+    err.id = fieldId + '_error';
+    err.className = 'field-error-msg';
+    field.parentNode.appendChild(err);
+  }
+  err.innerHTML = '⚠ ' + message;
+}
+
+// ─── SCROLL ENGINE ────────────────────────────────────────────
+// Direct-hosted page: scrollIntoView works natively on all browsers
+// (Chrome, Firefox, Edge, Safari — desktop and mobile).
+//
+// Target: #progressBand — brings the sticky progress bar to the top
+// of the viewport, with completed domain headers and the active domain
+// visible below. scroll-padding-top on <html> compensates for the
+// sticky bar height so content lands in the right place.
+//
+// Blur guard: document.activeElement.blur() called in startAssessment
+// and completeDomain before scrolling. Without it, mobile browsers
+// transfer focus to the next tabbable element in newly-shown content
+// and auto-scroll to it, overriding our programmatic scroll.
+
+// domainId kept for API compatibility; scroll target is always #progressBand.
+function scrollToDomainHeader(domainId) {
+  // Double rAF ensures DOM changes (show/hide) are painted before scrolling.
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      var progress = document.getElementById('progressBand');
+      if (!progress) return;
+      progress.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+
+// ─── START ASSESSMENT ─────────────────────────────────────────
+function startAssessment() {
+  // Mandatory field validation currently inactive — all fields optional.
+  ['givenName','familyName','email','profession','teamName','organisationName','city','country'].forEach(clearFieldError);
+  const gn  = document.getElementById('givenName').value.trim()  || 'Test';
+  const fn  = document.getElementById('familyName').value.trim() || 'User';
+  const em  = document.getElementById('email').value.trim()      || 'test@test.com';
+  const pr  = document.getElementById('profession').value        || 'physician';
+  const tn  = document.getElementById('teamName').value.trim()   || 'Test Team';
+  const org = document.getElementById('organisationName').value.trim() || 'Test Org';
+  const ci  = document.getElementById('city').value.trim()       || 'Athens';
+  const co  = document.getElementById('country').value           || 'GR';
+  userData = { givenName:gn, familyName:fn, email:em, profession:pr, teamName:tn, organisationName:org, city:ci, country:co };
+
+  document.getElementById('personalInfoSection').classList.add('hidden');
+  document.getElementById('infoBand').classList.add('hidden');
+  document.getElementById('coverSection').classList.add('hidden');
+  const strip = document.querySelector('.domains-strip');
+  if (strip) strip.classList.add('hidden');
+  document.getElementById('assessmentSection').classList.remove('hidden');
+
+  // Open domain 1
+  document.getElementById('domain1Content').classList.add('active');
+  document.getElementById('domain1StatusBadge').textContent = 'In Progress';
+  document.getElementById('domain1StatusBadge').classList.add('in-progress');
+
+  // Blur focused button — prevents mobile browsers auto-scrolling to the
+  // next tabbable element in newly-shown content and overriding our scroll.
+  try { if (document.activeElement) document.activeElement.blur(); } catch(e) {}
+
+  scrollToDomainHeader(1);
+}
+
+// ─── GENERATE DOMAIN SECTIONS ─────────────────────────────────
+function generateDomainSections() {
+  const container = document.getElementById('domainsContainer');
+  assessmentData.forEach((domain, idx) => {
+    const id = idx + 1;
+    const isFirst = id === 1;
+    const section = document.createElement('div');
+    section.className = 'domain-section';
+    section.id = `domainSection${id}`;
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'domain-header' + (isFirst ? '' : ' locked');
+    header.id = `domain${id}Header`;
+    header.onclick = () => toggleDomain(id);
+    header.innerHTML = `
+      <div class="domain-header-left">
+        <div class="domain-letter-badge ${domain.letterClass}">${domain.letter}</div>
+        <div class="domain-header-text">
+          <h3>${domain.name}</h3>
+          <div class="domain-goal-text">${domain.goal}</div>
+        </div>
+      </div>
+      <div class="domain-status-badge${isFirst ? '' : ''}" id="domain${id}StatusBadge">${isFirst ? 'Not Started' : 'Locked'}</div>
+    `;
+
+    // Content
+    const content = document.createElement('div');
+    content.className = 'domain-content';
+    content.id = `domain${id}Content`;
+
+    let html = `<div class="domain-content-inner">
+      <div class="domain-context-block"><p>${domain.context}</p></div>`;
+
+    domain.questions.forEach((q, qi) => {
+      html += `
+        <div class="question-group">
+          <div class="question-header">
+            <div class="question-code-row"><span class="question-code">${q.code}</span></div>
+            <div class="question-statement">${q.statement}</div>
+            ${q.keyPoints ? `<div class="question-keypoints"><div class="question-keypoints-label">Do you —</div>${q.keyPoints}</div>` : ''}
+          </div>
+          <div class="rating-scale-hint">1 = No experience yet &nbsp;·&nbsp; 3 = Familiar &nbsp;·&nbsp; 5 = Lead &amp; support others</div>
+          <div class="rating-options">`;
+      ratingScale.forEach(opt => {
+        html += `
+            <label class="rating-option" onclick="selectRating(${id},${qi+1},${opt.value},this)">
+              <input type="radio" name="d${id}_q${qi+1}" value="${opt.value}">
+              <div class="rating-number">${opt.value}</div>
+              <div class="rating-label">${opt.label}</div>
+            </label>`;
+      });
+      html += `</div></div>`;
+    });
+
+    html += `
+      <div class="complete-btn-row">
+        <button class="btn-complete-domain" id="completeDomain${id}Btn" onclick="completeDomain(${id})" disabled>
+          Complete Domain ${domain.letter} →
+        </button>
+      </div>
+    </div>`;
+
+    content.innerHTML = html;
+    section.appendChild(header);
+    section.appendChild(content);
+    container.appendChild(section);
+  });
+}
+
+// ─── TOGGLE DOMAIN ────────────────────────────────────────────
+function toggleDomain(id) {
+  const header  = document.getElementById(`domain${id}Header`);
+  const content = document.getElementById(`domain${id}Content`);
+  if (header.classList.contains('locked')) return;
+  content.classList.toggle('active');
+}
+
+// ─── SELECT RATING ────────────────────────────────────────────
+function selectRating(domainId, qId, value, el) {
+  if (!responses[domainId]) responses[domainId] = {};
+  responses[domainId][qId] = value;
+  el.parentElement.querySelectorAll('.rating-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  const btn = document.getElementById(`completeDomain${domainId}Btn`);
+  const done = Object.keys(responses[domainId]).length === assessmentData[domainId-1].questions.length;
+  btn.disabled = !done;
+}
+
+// ─── LEVEL HELPERS ────────────────────────────────────────────
+function getLevel(avg) {
+  if (avg >= 4)   return 'Proficient';
+  if (avg >= 2.5) return 'Intermediate';
+  return 'Formative';
+}
+
+function getLevelColors(level) {
+  if (level === 'Proficient')   return { bg:'rgba(184,149,58,0.15)',  text:'#7a6020', border:'#b8953a' };
+  if (level === 'Intermediate') return { bg:'rgba(100,116,139,0.12)', text:'#475569', border:'#64748b' };
+  return                                { bg:'rgba(155,58,42,0.12)',   text:'#7a2a1a', border:'#9b3a2a' };
+}
+
+// ─── COMPLETE DOMAIN ──────────────────────────────────────────
+function completeDomain(id) {
+  const dom   = assessmentData[id-1];
+  const resps = responses[id] || {};
+  if (Object.keys(resps).length < dom.questions.length) {
+    alert(`Please answer all ${dom.questions.length} questions in this domain.`);
+    return;
+  }
+  const avg   = Object.values(resps).reduce((a,b)=>a+b,0) / dom.questions.length;
+  const level = getLevel(avg);
+  const colors= getLevelColors(level);
+
+  // Update status badge
+  const badge = document.getElementById(`domain${id}StatusBadge`);
+  badge.textContent = level;
+  badge.style.cssText = `font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:5px 12px; border-radius:2px; border:1px solid ${colors.border}; background:${colors.bg}; color:${colors.text}; white-space:nowrap; flex-shrink:0; margin-top:4px;`;
+
+  // Mark header
+  const header = document.getElementById(`domain${id}Header`);
+  header.classList.add('completed');
+  header.classList.remove('locked');
+  header.style.borderLeft = `3px solid ${colors.border}`;
+
+  // Close content
+  document.getElementById(`domain${id}Content`).classList.remove('active');
+
+  updateProgress();
+
+  const nextId = id + 1;
+  if (nextId <= 6) {
+    const nextHeader = document.getElementById(`domain${nextId}Header`);
+    const nextBadge  = document.getElementById(`domain${nextId}StatusBadge`);
+    nextHeader.classList.remove('locked');
+    nextBadge.textContent = 'In Progress';
+    nextBadge.classList.add('in-progress');
+    document.getElementById(`domain${nextId}Content`).classList.add('active');
+    // Blur focused button — prevents mobile browsers auto-scrolling to the
+    // next tabbable element inside the newly-opened domain.
+    try { if (document.activeElement) document.activeElement.blur(); } catch(e) {}
+    scrollToDomainHeader(nextId);
+  } else {
+    showResults();
+  }
+}
+
+// ─── UPDATE PROGRESS ──────────────────────────────────────────
+function updateProgress() {
+  let done = 0;
+  for (let i=1; i<=6; i++) {
+    if (responses[i] && Object.keys(responses[i]).length === 5) done++;
+  }
+  const pct = (done/6)*100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `${done} of 6 domains`;
+}
+
+// ─── SHOW RESULTS ─────────────────────────────────────────────
+function showResults() {
+  document.getElementById('assessmentSection').classList.add('hidden');
+  const resultsEl = document.getElementById('resultsSection');
+  resultsEl.classList.add('active');
+  requestAnimationFrame(function() {
+    var rs = document.querySelector('.results-section');
+    if (rs) rs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  document.getElementById('userNameDisplay').textContent = `${userData.givenName} ${userData.familyName}`;
+  const today = new Date();
+  document.getElementById('completionDate').textContent = today.toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
+
+  let total = 0;
+  const domainLevels = [];
+  for (let i=1; i<=6; i++) {
+    const vals  = Object.values(responses[i]);
+    const avg   = vals.reduce((a,b)=>a+b,0)/vals.length;
+    total += avg;
+    domainLevels.push({avg, level:getLevel(avg), colors:getLevelColors(getLevel(avg))});
+  }
+  const overallAvg   = total/6;
+  const overallLevel = getLevel(overallAvg);
+  const overallColors= getLevelColors(overallLevel);
+
+  // Overall badge only
+  document.getElementById('badgeImage').src = BADGE_URLS[overallLevel.toLowerCase()];
+
+  // Domain result cards — letter+name left, badge top-right, score below
+  const grid = document.getElementById('domainResultsGrid');
+  grid.innerHTML = '';
+  assessmentData.forEach((domain, idx) => {
+    const {level, avg} = domainLevels[idx];
+    const badgeSrc = DOMAIN_BADGE_URLS[`${domain.letter}_${level.toLowerCase()}`] || '';
+    const shortName = domain.name.replace('Domain '+domain.letter+': ','');
+    const card = document.createElement('div');
+    card.className = 'domain-result-card';
+    card.innerHTML = `
+      <div class="domain-result-card-left">
+        <div class="domain-result-letter" style="color:var(--${domain.letterClass})">${domain.letter}</div>
+        <div class="domain-result-name">${shortName}</div>
+        <div class="domain-result-score">Score: ${avg.toFixed(1)} / 5.0</div>
+      </div>
+      <div class="domain-result-card-badge">
+        <img src="${badgeSrc}" alt="${domain.letter} ${level}" style="width:clamp(53px,6vw,77px); height:clamp(53px,6vw,77px); object-fit:contain; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));">
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// ─── RETAKE ───────────────────────────────────────────────────
+function retakeAssessment() {
+  if (!confirm('Retake the assessment? Current responses will be cleared.')) return;
+  responses = {};
+  for (let i=1; i<=6; i++) {
+    const h = document.getElementById(`domain${i}Header`);
+    const c = document.getElementById(`domain${i}Content`);
+    const b = document.getElementById(`domain${i}StatusBadge`);
+    h.classList.remove('completed');
+    h.style.borderLeft = '';
+    if (i>1) { h.classList.add('locked'); b.textContent='Locked'; b.classList.remove('in-progress'); }
+    else { b.textContent='Not Started'; b.style.cssText=''; }
+    c.classList.remove('active');
+    c.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+    c.querySelectorAll('.rating-option').forEach(o=>o.classList.remove('selected'));
+    document.getElementById(`completeDomain${i}Btn`).disabled = true;
+  }
+  document.getElementById('progressFill').style.width='0%';
+  document.getElementById('progressText').textContent='0 of 6 domains';
+  document.getElementById('resultsSection').classList.remove('active');
+  document.getElementById('assessmentSection').classList.remove('hidden');
+  document.getElementById('domain1Content').classList.add('active');
+  document.getElementById('domain1StatusBadge').textContent='In Progress';
+  document.getElementById('domain1StatusBadge').classList.add('in-progress');
+  var cover = document.getElementById('coverSection');
+  if (cover) cover.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ─── VIEW COURSES ─────────────────────────────────────────────
+function viewRelevantCourses() {
+  let overall = 'Unknown';
+  const img = document.getElementById('badgeImage');
+  if (img && img.alt) { overall = img.alt.includes('formative') ? 'Formative' : img.alt.includes('intermediate') ? 'Intermediate' : 'Proficient'; }
+  alert(`Relevant Courses for ${overall} Level\n\nThis feature will redirect you to courses tailored to your capability profile. The course catalogue is currently being developed.`);
+}
+
+// Auto-save responses every 30 seconds
+setInterval(() => {
+  try { localStorage.setItem('edha_assessment', JSON.stringify({userData, responses, ts: new Date().toISOString()})); }
+  catch(e) {}
+}, 30000);
+
+</script>
+</body>
+</html>
