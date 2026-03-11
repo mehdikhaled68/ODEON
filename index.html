@@ -35,7 +35,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px; /* offset for sticky progress bar */
 }
 
 body {
@@ -1968,27 +1967,29 @@ function showFieldError(fieldId, message) {
 }
 
 // ─── SCROLL ENGINE ────────────────────────────────────────────
-// Direct-hosted page: scrollIntoView works natively on all browsers
-// (Chrome, Firefox, Edge, Safari — desktop and mobile).
+// Target: #progressBand — scrolls so the progress bar sits at the very
+// top of the viewport, with completed domain headers and the active
+// domain visible below.
 //
-// Target: #progressBand — brings the sticky progress bar to the top
-// of the viewport, with completed domain headers and the active domain
-// visible below. scroll-padding-top on <html> compensates for the
-// sticky bar height so content lands in the right place.
+// Why window.scrollTo instead of scrollIntoView:
+//   position:sticky elements are considered "already visible" by browsers
+//   so scrollIntoView() on #progressBand is silently ignored. We compute
+//   the exact document Y with getBoundingClientRect + pageYOffset instead.
 //
 // Blur guard: document.activeElement.blur() called in startAssessment
 // and completeDomain before scrolling. Without it, mobile browsers
 // transfer focus to the next tabbable element in newly-shown content
-// and auto-scroll to it, overriding our programmatic scroll.
+// and auto-scroll to it, overriding our scroll.
 
 // domainId kept for API compatibility; scroll target is always #progressBand.
 function scrollToDomainHeader(domainId) {
-  // Double rAF ensures DOM changes (show/hide) are painted before scrolling.
+  // Double rAF ensures DOM reflow from show/hide is complete before measuring.
   requestAnimationFrame(function() {
     requestAnimationFrame(function() {
       var progress = document.getElementById('progressBand');
       if (!progress) return;
-      progress.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var y = progress.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     });
   });
 }
