@@ -1132,6 +1132,35 @@ footer {
 
 footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 
+/* ── STACKED EYEBROW (cover · assessment · results) ─────────── */
+/* inline-flex column makes the container as wide as its widest child;
+   align-items:stretch then stretches the badge to that same width.   */
+.assessment-eyebrow {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.assessment-eyebrow .cover-badge {
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ── ASSESSMENT START HEADER ─────────────────────────────────── */
+.assessment-start-header {
+  background: linear-gradient(135deg, #0a2535 0%, #0e3a52 100%);
+  padding: 28px 0 22px;
+}
+.assessment-start-header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 /* ── INTEGRITY NOTICE ─────────────────────────────────────────── */
 .integrity-notice {
   background: linear-gradient(135deg, #0a2535 0%, #0e3a52 100%);
@@ -1203,6 +1232,10 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
   .form-group input,
   .form-group select { font-size: 16px; padding: 13px 14px; width: 100%; box-sizing: border-box; }
   .form-section .btn-gold { max-width: 440px; width: 100%; text-align: center; box-sizing: border-box; display: block; padding: 16px 32px; font-size: 12px; }
+
+  /* Assessment start header */
+  .assessment-start-header { padding: 20px 0 16px; }
+  .assessment-start-header-inner { padding: 0 20px; }
 
   /* Integrity notice */
   .integrity-notice { padding: 20px 0; }
@@ -1336,9 +1369,9 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 <div class="cover" id="coverSection">
   <div class="cover-grid"></div>
   <div class="cover-inner">
-    <div class="cover-eyebrow">
-      <span class="cover-academy">European Digital Health Academy</span>
-      <span class="cover-badge">EU &amp; Middle East Edition</span>
+    <div class="cover-eyebrow assessment-eyebrow">
+      <span class="cover-academy">ODEON · European Digital Health Academy</span>
+      <span class="cover-badge">Digital Health Capability Self-Assessment</span>
     </div>
 
     <h1 class="cover-title">Digital Health<br><em>Capability</em><br>Self-Assessment</h1>
@@ -1689,6 +1722,16 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
      ASSESSMENT SECTION
 ════════════════════════════════════════════ -->
 <div id="assessmentSection" class="hidden">
+
+  <!-- Assessment Start Header -->
+  <div class="assessment-start-header">
+    <div class="assessment-start-header-inner">
+      <div class="cover-eyebrow assessment-eyebrow">
+        <span class="cover-academy">ODEON · European Digital Health Academy</span>
+        <span class="cover-badge">Digital Health Capability Self-Assessment</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Integrity Notice -->
   <div class="integrity-notice">
@@ -2042,7 +2085,9 @@ function startAssessment() {
   // next tabbable element in newly-shown content and overriding our scroll.
   try { if (document.activeElement) document.activeElement.blur(); } catch(e) {}
 
-  scrollToDomainHeader(1);
+  // Scroll to the very top so the assessment header, integrity notice,
+  // and progress bar are all visible when the assessment opens.
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 // ─── GENERATE DOMAIN SECTIONS ─────────────────────────────────
@@ -2279,8 +2324,7 @@ function retakeAssessment() {
   document.getElementById('domain1Content').classList.add('active');
   document.getElementById('domain1StatusBadge').textContent='In Progress';
   document.getElementById('domain1StatusBadge').classList.add('in-progress');
-  var cover = document.getElementById('coverSection');
-  if (cover) cover.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 // ─── VIEW COURSES ─────────────────────────────────────────────
