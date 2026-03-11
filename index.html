@@ -1132,28 +1132,58 @@ footer {
 
 footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 
-/* ── STACKED EYEBROW (cover · assessment · results) ─────────── */
-/* inline-flex column: container shrinks to widest child (academy
-   text); badge stretches to that same width via align-items:stretch.
-   Both lines are left-aligned within the page.                    */
-.assessment-eyebrow {
-  display: inline-flex;
+/* ── EYEBROW V2 — two-line ODEON branding ────────────────────── */
+.eyebrow-v2 {
+  display: flex;
   flex-direction: column;
-  align-items: stretch;
-  gap: 10px;
-  flex-wrap: nowrap;
+  gap: 4px;
+  margin-bottom: 24px;
 }
-.assessment-eyebrow .cover-badge {
-  font-size: 11px;
-}
-/* Plain (un-highlighted) second line for the assessment header */
-.eyebrow-plain {
+.eyebrow-v2-org {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.25em;
+  font-size: 14px;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.80);
-  font-weight: 400;
+  color: var(--gold-light);
+  font-weight: 700;
+}
+.eyebrow-v2-acad {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  opacity: 0.75;
+}
+/* Inline badge (only as wide as its text) — assessment page */
+.eyebrow-v2-badge {
+  margin-top: 8px;
+  align-self: flex-start;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: #fff;
+  padding: 5px 14px;
+  border-radius: 2px;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(184,149,58,0.4);
+}
+/* Results hero: "Self-Assessment | Overall" — color set via JS */
+#resultsSATBadge {
+  margin-top: 8px;
+  align-self: flex-start;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #0f2535;
+  padding: 5px 14px;
+  border-radius: 2px;
+  font-weight: 700;
+  /* default gold; overridden by JS based on achieved level */
+  background: linear-gradient(135deg, #5c3a0a 0%, #b8953a 45%, #e8c86e 65%, #b8953a 80%, #5c3a0a 100%);
 }
 
 /* ── ASSESSMENT START HEADER ─────────────────────────────────── */
@@ -1368,6 +1398,66 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
   .domain-result-card-badge img { width: 50px !important; height: 50px !important; }
 }
 
+/* ─────────────────────────────────────────────────────────────
+   RESULTS HERO LAYOUT TOGGLE
+   Layout A (default): 1fr auto grid, badge auto-width.
+   Layout C (split): add class "layout-c" to .results-hero
+                     Remove it to revert to Layout A instantly.
+───────────────────────────────────────────────────────────────*/
+.results-hero.layout-c {
+  padding: 0;
+}
+.results-hero.layout-c .results-hero-inner {
+  max-width: 100%;
+  grid-template-columns: 58% 42%;
+  gap: 0;
+  align-items: stretch;
+}
+.results-hero.layout-c .results-hero-inner > div:first-child {
+  padding: 36px 40px 32px 60px;
+  max-width: 640px; /* keeps text line-length comfortable on wide screens */
+}
+.results-hero.layout-c .results-badge-wrap {
+  background: rgba(255,255,255,0.06);
+  border-left: 1px solid rgba(255,255,255,0.14);
+  justify-content: center;
+  align-items: center;
+  padding: 28px 48px;
+}
+.results-hero.layout-c .results-badge-img {
+  width: clamp(190px, 22vw, 270px);
+  height: clamp(190px, 22vw, 270px);
+}
+/* Layout C — tablet */
+@media (max-width: 640px) {
+  .results-hero.layout-c { padding: 0; }
+  .results-hero.layout-c .results-hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .results-hero.layout-c .results-hero-inner > div:first-child {
+    padding: 20px 20px 16px;
+    max-width: 100%;
+  }
+  .results-hero.layout-c .results-badge-wrap {
+    border-left: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 20px;
+    order: -1; /* badge on top on mobile */
+  }
+  .results-hero.layout-c .results-badge-img {
+    width: 150px; height: 150px;
+  }
+}
+/* Layout C — small phone */
+@media (max-width: 480px) {
+  .results-hero.layout-c .results-hero-inner > div:first-child {
+    padding: 14px 16px;
+  }
+  .results-hero.layout-c .results-badge-img {
+    width: 130px; height: 130px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1378,9 +1468,9 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 <div class="cover" id="coverSection">
   <div class="cover-grid"></div>
   <div class="cover-inner">
-    <div class="cover-eyebrow assessment-eyebrow">
-      <span class="cover-academy">ODEON · European Digital Health Academy</span>
-      <span class="cover-badge">EU &amp; Middle East Edition</span>
+    <div class="eyebrow-v2">
+      <span class="eyebrow-v2-org">ODEON</span>
+      <span class="eyebrow-v2-acad">European Digital Health Academy</span>
     </div>
 
     <h1 class="cover-title">Digital Health<br><em>Capability</em><br>Self-Assessment</h1>
@@ -1735,9 +1825,10 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
   <!-- Assessment Start Header -->
   <div class="assessment-start-header">
     <div class="assessment-start-header-inner">
-      <div class="cover-eyebrow assessment-eyebrow">
-        <span class="cover-academy">ODEON · European Digital Health Academy</span>
-        <span class="eyebrow-plain">Self-Assessment Tool</span>
+      <div class="eyebrow-v2">
+        <span class="eyebrow-v2-org">ODEON</span>
+        <span class="eyebrow-v2-acad">European Digital Health Academy</span>
+        <span class="eyebrow-v2-badge">Self-Assessment Tool</span>
       </div>
     </div>
   </div>
@@ -1781,9 +1872,10 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
     <div class="cover-grid"></div>
     <div class="results-hero-inner">
       <div>
-        <div class="cover-eyebrow assessment-eyebrow" style="margin-bottom:20px;">
-          <span class="cover-academy">ODEON · European Digital Health Academy</span>
-          <span class="cover-badge">Self-Assessment | Overall Level</span>
+        <div class="eyebrow-v2">
+          <span class="eyebrow-v2-org">ODEON</span>
+          <span class="eyebrow-v2-acad">European Digital Health Academy</span>
+          <span id="resultsSATBadge">Self-Assessment | Overall</span>
         </div>
         <h1 class="results-name" id="userNameDisplay"></h1>
         <div class="results-date" id="completionDate"></div>
@@ -2283,8 +2375,20 @@ function showResults() {
   const overallLevel = getLevel(overallAvg);
   const overallColors= getLevelColors(overallLevel);
 
-  // Overall badge only
+  // Overall achievement badge image
   document.getElementById('badgeImage').src = BADGE_URLS[overallLevel.toLowerCase()];
+
+  // Metallic gradient on "Self-Assessment | Overall" badge — matches level colour
+  const _metallic = {
+    formative:    'linear-gradient(135deg,#7a4518 0%,#cd7f32 40%,#f0b060 60%,#cd7f32 80%,#7a4518 100%)',
+    intermediate: 'linear-gradient(135deg,#3a3a3a 0%,#a0a0a0 40%,#dedede 60%,#a0a0a0 80%,#3a3a3a 100%)',
+    proficient:   'linear-gradient(135deg,#5c3a0a 0%,#b8953a 40%,#e8c86e 60%,#b8953a 80%,#5c3a0a 100%)'
+  };
+  const satBadge = document.getElementById('resultsSATBadge');
+  if (satBadge) {
+    satBadge.style.background = _metallic[overallLevel.toLowerCase()] || _metallic.proficient;
+    satBadge.style.color = overallLevel.toLowerCase() === 'intermediate' ? '#111' : '#0f2535';
+  }
 
   // Domain result cards — letter+name left, badge top-right, score below
   const grid = document.getElementById('domainResultsGrid');
