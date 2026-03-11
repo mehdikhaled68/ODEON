@@ -1133,18 +1133,20 @@ footer {
 footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 
 /* ── STACKED EYEBROW (cover · assessment · results) ─────────── */
-/* inline-flex column makes the container as wide as its widest child;
-   align-items:stretch then stretches the badge to that same width.   */
+/* Block-level flex column: both lines span full parent width so
+   text-align:center produces identical visual alignment on both. */
 .assessment-eyebrow {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 10px;
-  flex-wrap: nowrap;
+}
+.assessment-eyebrow .cover-academy,
+.assessment-eyebrow .cover-badge {
+  text-align: center;
 }
 .assessment-eyebrow .cover-badge {
   font-size: 11px;
-  text-align: center;
 }
 
 /* ── ASSESSMENT START HEADER ─────────────────────────────────── */
