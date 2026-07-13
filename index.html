@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Dr Mehdi Khaled">
-<meta name="last-updated" content="2026-05-26">
+<meta name="last-updated" content="2026-07-13">
 <title>ODEON · Digital Health Self-Assessment · EN / GR</title>
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
@@ -1646,7 +1646,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
       </div>
       <div class="cover-meta-item">
         <div class="cover-meta-label">Questions</div>
-        <div class="cover-meta-value">30</div>
+        <div class="cover-meta-value">32</div>
       </div>
       <div class="cover-meta-item">
         <div class="cover-meta-label">Time</div>
@@ -1770,7 +1770,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
       <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
     </div>
     <div class="accordion-body" id="six-domains-body" style="display:block;">
-      <p style="margin-bottom: 20px;">Five questions per domain. Each maps to a specific EU regulatory obligation or competency framework.</p>
+      <p style="margin-bottom: 20px;">Five or six questions per domain. Each maps to a specific EU regulatory obligation or competency framework.</p>
       <div id="domainCardsGrid" style="display:grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--sand); margin-bottom:8px;"></div>
     </div>
   </div>
@@ -2110,7 +2110,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
       </div>
       <div class="cover-meta-item">
         <div class="cover-meta-label">Ερωτήσεις</div>
-        <div class="cover-meta-value">30</div>
+        <div class="cover-meta-value">32</div>
       </div>
       <div class="cover-meta-item">
         <div class="cover-meta-label">Χρόνος</div>
@@ -2234,7 +2234,7 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
       <svg class="accordion-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
     </div>
     <div class="accordion-body" id="six-domains-body-el" style="display:block;">
-      <p style="margin-bottom: 20px;">Πέντε ερωτήσεις ανά τομέα. Καθεμία αντιστοιχεί σε συγκεκριμένη κανονιστική υποχρέωση ΕΕ ή πλαίσιο ικανοτήτων.</p>
+      <p style="margin-bottom: 20px;">Πέντε ή έξι ερωτήσεις ανά τομέα. Καθεμία αντιστοιχεί σε συγκεκριμένη κανονιστική υποχρέωση ΕΕ ή πλαίσιο ικανοτήτων.</p>
       <div id="domainCardsGrid-el" style="display:grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--sand); margin-bottom:8px;"></div>
     </div>
   </div>
@@ -2547,83 +2547,181 @@ footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 // ─────────────────────────────────────────────────────────────
 const assessmentData = [
   {
-    name: "Domain A: Digital Professionalism & Ethics",
-    goal: "Health professionals uphold professional standards, ethical conduct, and regulatory compliance across digital environments.",
-    context: "Digital professionalism is not just about how you use technology — it's about the values and judgement you bring to it. In a clinical context, that means protecting patient privacy, acting responsibly online, understanding your legal obligations, and recognising that every digital action leaves a footprint. This domain also addresses equity: not all patients have equal access to digital tools, and being a digitally capable clinician means recognising and responding to that.",
+    name: `Domain A: Digital Professionalism & Ethics`,
+    goal: `Health professionals uphold professional standards, ethical conduct, and regulatory compliance across digital environments.`,
+    context: `Digital professionalism is not just about how you use technology — it's about the values and judgement you bring to it. In a clinical context, that means protecting patient privacy, acting responsibly online, understanding your legal obligations, and recognising that every digital action leaves a footprint. This domain also addresses equity: not all patients have equal access to digital tools, and being a digitally capable clinician means recognising and responding to that.`,
     letter: "A", letterClass: "da",
     questions: [
-      { code:"A1", statement:"I actively develop my digital health capabilities through ongoing learning and continuing professional development (CPD) — for the benefit of my role and my patients.", keyPoints:"• Seek continuing professional development (CPD) and continuing medical education (CME) opportunities related to digital health tools and innovations\n• Embrace new digital technologies introduced in your workplace\n• Stay informed via professional bodies, journals, and Academy resources\n• Reflect on how your digital skills directly improve care quality and patient outcomes" },
-      { code:"A2", statement:"I comply with legislation, professional codes, and organisational policy on digital health and data, including General Data Protection Regulation (GDPR) obligations on patient privacy and consent.", keyPoints:"• Follow your organisation's digital health policies and codes of conduct\n• Know your patient data privacy and consent obligations (General Data Protection Regulation — GDPR, Article 5)\n• Understand the consequences of breaching data privacy rules — personal and organisational liability\n• Report potential breaches or non-compliance through your organisation's designated process" },
-      { code:"A3", statement:"I am aware of cultural, ethical, and socioeconomic dimensions of digital health and consider equity of access when delivering digital services.", keyPoints:"• Recognise that not all patients have equal access to digital tools — age, language, disability, connectivity\n• Consider equity of access when recommending or using digital services with patients\n• Be sensitive to cultural and ethical differences in attitudes toward digital health and data sharing\n• Advocate for inclusive design and digital equity within your organisation" },
-      { code:"A4", statement:"I maintain an appropriate professional online presence and understand that my digital conduct — including social media — reflects on my profession and public trust in healthcare.", keyPoints:"• Maintain an up-to-date professional profile on relevant platforms (LinkedIn or national professional register)\n• Remember that posts in personal spaces — even in private accounts — can permanently affect your professional standing\n• Act online in alignment with your professional body's code of conduct for digital spaces\n• Never share patient-related content online — even anonymised cases can be identifiable" },
-      { code:"A5", statement:"I understand the ethical dimensions of digital health — including responsible use of artificial intelligence (AI)-generated content — and apply consistent professional standards across all digital spaces.", keyPoints:"• Be aware of accuracy and bias risks when sharing AI (artificial intelligence)-generated health content publicly\n• Apply the same professional standards online as in face-to-face settings\n• Treat digital conduct as a shared team responsibility — your behaviour online reflects on your colleagues and institution\n• Consider the impact of your online activity on public trust in health institutions and professionals" }
+      { code:"A1", statement:`Keep developing my digital health skills through ongoing learning — for my patients and my role.`, keyPoints:`• Seek continuing professional development (CPD) and continuing medical education (CME) opportunities related to digital health tools and innovations
+• Embrace new digital technologies introduced in your workplace
+• Stay informed via professional bodies, journals, and Academy resources
+• Reflect on how your digital skills directly improve care quality and patient outcomes` },
+      { code:"A2", statement:`Know my legal duties on patient data privacy and consent under GDPR.`, keyPoints:`• Follow your organisation's digital health policies and codes of conduct
+• Know your patient data privacy and consent obligations (General Data Protection Regulation — GDPR, Article 5)
+• Understand the consequences of breaching data privacy rules — personal and organisational liability
+• Report potential breaches or non-compliance through your organisation's designated process` },
+      { code:"A3", statement:`Notice when a patient may struggle to access digital care, and adjust how I work with them.`, keyPoints:`• Recognise that not all patients have equal access to digital tools — age, language, disability, connectivity
+• Consider equity of access when recommending or using digital services with patients
+• Be sensitive to cultural and ethical differences in attitudes toward digital health and data sharing
+• Advocate for inclusive design and digital equity within your organisation` },
+      { code:"A4", statement:`Keep my conduct online consistent with my profession's code — including on social media.`, keyPoints:`• Maintain an up-to-date professional profile on relevant platforms (LinkedIn or national professional register)
+• Remember that posts in personal spaces — even in private accounts — can permanently affect your professional standing
+• Act online in alignment with your professional body's code of conduct for digital spaces
+• Never share patient-related content online — even anonymised cases can be identifiable` },
+      { code:"A5", statement:`Check AI-generated health content for accuracy and bias before sharing it, and hold the same standards online as in person.`, keyPoints:`• Be aware of accuracy and bias risks when sharing AI (artificial intelligence)-generated health content publicly
+• Apply the same professional standards online as in face-to-face settings
+• Treat digital conduct as a shared team responsibility — your behaviour online reflects on your colleagues and institution
+• Consider the impact of your online activity on public trust in health institutions and professionals` }
     ]
   },
   {
-    name: "Domain B: Digital Health Leadership & System Transformation",
-    goal: "Health professionals advocate for patients, champion responsible digital health use, and engage with EU digital health policy and organisational strategy.",
-    context: "Leadership in digital health isn't reserved for managers or Chief Information Officers (CIOs). Every clinician who champions a better system, advocates for a patient's right to access their own records, or pushes back on a poorly designed digital tool is exercising digital leadership. In the EU context, this also means understanding the policy environment — the European Health Data Space (EHDS), national eHealth strategies, and the rights these frameworks give both patients and professionals.",
+    name: `Domain B: Digital Health Leadership & System Transformation`,
+    goal: `Health professionals advocate for patients, champion responsible digital health use, and engage with EU digital health policy and organisational strategy.`,
+    context: `Leadership in digital health isn't reserved for managers or Chief Information Officers (CIOs). Every clinician who champions a better system, advocates for a patient's right to access their own records, or pushes back on a poorly designed digital tool is exercising digital leadership. In the EU context, this also means understanding the policy environment — the European Health Data Space (EHDS), national eHealth strategies, and the rights these frameworks give both patients and professionals.`,
     letter: "B", letterClass: "db",
     questions: [
-      { code:"B1", statement:"I advocate for patients' right to access their own health information digitally and support them in using digital services to participate in their care.", keyPoints:"• Know the digital patient services available — portals, EU Patient Summary, e-prescription\n• Support patients in accessing and understanding their own health records (European Health Data Space — EHDS; General Data Protection Regulation — GDPR, Article 15)\n• Address digital literacy barriers — not all patients have equal access or confidence with digital tools\n• Ensure patients are informed when digital tools, including artificial intelligence (AI), contribute to decisions about their care" },
-      { code:"B2", statement:"I understand the benefits and risks of digital health technologies and champion their appropriate, responsible use in my workplace.", keyPoints:"• Evaluate any digital health tool: does it improve care? What are the privacy implications?\n• Understand the risks of unsanctioned or unvalidated tools in clinical settings\n• Advocate for evidence-based adoption through your organisation's governance process\n• Raise concerns about tools that may not meet professional or regulatory standards" },
-      { code:"B3", statement:"I champion digital health in my workplace — encouraging colleagues to engage constructively with digital change and contributing to a culture of continuous improvement.", keyPoints:"• Identify areas where digital solutions could improve efficiency, safety, or patient experience\n• Encourage colleagues to engage positively with digital change rather than resist it\n• Provide constructive feedback through your organisation's evaluation processes\n• Support colleagues who find digital change challenging — mentoring and peer support matter" },
-      { code:"B4", statement:"I explore emerging digital technologies and engage with strategy and policy development relevant to my role and setting.", keyPoints:"• Research digital health innovations relevant to your specialty or clinical area\n• Engage with your organisation's digital health strategy — attend consultations, join working groups\n• Familiarise yourself with the European Health Data Space (EHDS) and its implications for your practice\n• Contribute to national or EU digital health policy consultations through your professional association" },
-      { code:"B5", statement:"I actively participate in digital change — embracing new systems, supporting colleagues through transition, and contributing to the evaluation and governance of digital tools.", keyPoints:"• Stay current with all digital systems in your workplace, including updates and new implementations\n• Engage with digital change: attend training, participate in pilots, give feedback\n• Support colleagues through system transitions — share knowledge and provide informal peer support\n• Participate in digital health governance: evaluation committees, policy review, quality improvement" }
+      { code:"B1", statement:`Help patients exercise their right to access their own health records digitally (GDPR, EHDS).`, keyPoints:`• Know the digital patient services available — portals, EU Patient Summary, e-prescription
+• Support patients in accessing and understanding their own health records (European Health Data Space — EHDS; General Data Protection Regulation — GDPR, Article 15)
+• Address digital literacy barriers — not all patients have equal access or confidence with digital tools
+• Ensure patients are informed when digital tools, including artificial intelligence (AI), contribute to decisions about their care` },
+      { code:"B2", statement:`Weigh the benefits and risks of a digital tool before supporting its use.`, keyPoints:`• Evaluate any digital health tool: does it improve care? What are the privacy implications?
+• Understand the risks of unsanctioned or unvalidated tools in clinical settings
+• Advocate for evidence-based adoption through your organisation's governance process
+• Raise concerns about tools that may not meet professional or regulatory standards` },
+      { code:"B3", statement:`Encourage colleagues to engage constructively with digital change.`, keyPoints:`• Identify areas where digital solutions could improve efficiency, safety, or patient experience
+• Encourage colleagues to engage positively with digital change rather than resist it
+• Provide constructive feedback through your organisation's evaluation processes
+• Support colleagues who find digital change challenging — mentoring and peer support matter` },
+      { code:"B4a", statement:`Stay informed about new digital health tools relevant to my specialty.`, keyPoints:`• Research digital health innovations relevant to your specialty or clinical area
+• Follow professional networks, journals, and Academy resources for new developments
+• Try out new tools introduced in your workplace with an open mind
+• Share useful discoveries with colleagues` },
+      { code:"B4b", statement:`Engage with digital health policy relevant to my role, including EU or national consultations, where the opportunity exists.`, keyPoints:`• Engage with your organisation's digital health strategy — attend consultations, join working groups
+• Familiarise yourself with the European Health Data Space (EHDS) and its implications for your practice
+• Contribute to national or EU digital health policy consultations through your professional association
+• Recognise that policy engagement may not be available to every clinician — participate where the opportunity exists` },
+      { code:"B5", statement:`Adapt to new digital systems and support colleagues through the transition.`, keyPoints:`• Stay current with all digital systems in your workplace, including updates and new implementations
+• Engage with digital change: attend training, participate in pilots, give feedback
+• Support colleagues through system transitions — share knowledge and provide informal peer support
+• Participate in digital health governance: evaluation committees, policy review, quality improvement` }
     ]
   },
   {
-    name: "Domain C: Data Quality & Information Governance",
-    goal: "Health professionals capture accurate health data, understand how it is governed and used, and treat data quality as a patient safety obligation.",
-    context: "Every time you enter data into a clinical system, you're contributing to something much larger than a single patient record. That data feeds clinical decisions, department reporting, national health indicators, and research. Errors compound. Good data starts at the point of entry — and that's you. This domain also covers the governance side: understanding patient data rights, knowing what the General Data Protection Regulation (GDPR) requires of you in practice, and understanding how health data is used beyond the bedside.",
+    name: `Domain C: Data Quality & Information Governance`,
+    goal: `Health professionals capture accurate health data, understand how it is governed and used, and treat data quality as a patient safety obligation.`,
+    context: `Every time you enter data into a clinical system, you're contributing to something much larger than a single patient record. That data feeds clinical decisions, department reporting, national health indicators, and research. Errors compound. Good data starts at the point of entry — and that's you. This domain also covers the governance side: understanding patient data rights, knowing what the General Data Protection Regulation (GDPR) requires of you in practice, and understanding how health data is used beyond the bedside.`,
     letter: "C", letterClass: "dc",
     questions: [
-      { code:"C1", statement:"I take responsibility for capturing accurate, complete, and timely health data, understanding that data quality is a direct patient safety obligation.", keyPoints:"• Know how to correctly use all clinical and administrative systems in your workplace\n• Understand that data quality directly affects patient safety — inaccurate records harm clinical reporting and care decisions\n• Apply a consistent personal approach to minimising data entry errors (protocols, double-checking)\n• Understand how the data you document feeds downstream clinical decisions and organisational reporting" },
-      { code:"C2", statement:"I understand digital health terminology related to data capture, governance, and use, and apply it in daily practice.", keyPoints:"• Know core data terms: Electronic Health Record (EHR), interoperability, data governance, data minimisation, pseudonymisation\n• Understand data entry standards relevant to your setting (e.g. structured coding, ICD-11 — International Classification of Diseases 11th Revision; SNOMED CT — Systematized Nomenclature of Medicine Clinical Terms)\n• Know the difference between data, information, and knowledge — and how each is used in healthcare\n• Stay current with evolving terminology via professional networks and Academy resources" },
-      { code:"C3", statement:"I understand how health data flows through the system — from point of capture to quality reporting, clinical audits, and service improvement.", keyPoints:"• Know where data goes once captured — local record, national register, anonymised reporting\n• Understand how your data feeds quality dashboards, performance indicators, and clinical audits\n• Know the difference between primary use (direct care) and aggregated secondary use across the health system\n• Understand your organisation's data retention and deletion policies (General Data Protection Regulation — GDPR, national legislation)" },
-      { code:"C4", statement:"I recognise how accurate, structured data informs decisions at every level — and understand that poor-quality data directly produces poor-quality outcomes.", keyPoints:"• Understand how multiple data sources combine to produce clinical and operational insights\n• Read simple dashboards and reports and draw relevant conclusions for your practice area\n• Recognise when data anomalies or inconsistencies may indicate a quality or safety concern\n• Recognise that poor-quality data leads to poor outcomes — at patient, team, and system level" },
-      { code:"C5", statement:"I understand the benefits and limitations of patient-generated data and know how to evaluate and incorporate it appropriately in care.", keyPoints:"• Know the range of patient-generated data sources: wearables, apps, home monitors, patient diaries\n• Evaluate consumer-grade device data carefully — accuracy standards are lower than clinical-grade equipment\n• Understand how to incorporate patient-generated data appropriately within a care plan\n• Be aware that patients have GDPR (General Data Protection Regulation) rights to access, correct, and share their own health data" }
+      { code:"C1", statement:`Enter accurate, complete, timely data, because errors can affect patient safety.`, keyPoints:`• Know how to correctly use all clinical and administrative systems in your workplace
+• Understand that data quality directly affects patient safety — inaccurate records harm clinical reporting and care decisions
+• Apply a consistent personal approach to minimising data entry errors (protocols, double-checking)
+• Understand how the data you document feeds downstream clinical decisions and organisational reporting` },
+      { code:"C2", statement:`Know key data terms I use daily, such as electronic health record and interoperability.`, keyPoints:`• Know core data terms: Electronic Health Record (EHR), interoperability, data governance, data minimisation, pseudonymisation
+• Understand data entry standards relevant to your setting (e.g. structured coding, ICD-11 — International Classification of Diseases 11th Revision; SNOMED CT — Systematized Nomenclature of Medicine Clinical Terms)
+• Know the difference between data, information, and knowledge — and how each is used in healthcare
+• Stay current with evolving terminology via professional networks and Academy resources` },
+      { code:"C3", statement:`Know how the data I enter feeds reporting, audits, and national records.`, keyPoints:`• Know where data goes once captured — local record, national register, anonymised reporting
+• Understand how your data feeds quality dashboards, performance indicators, and clinical audits
+• Know the difference between primary use (direct care) and aggregated secondary use across the health system
+• Understand your organisation's data retention and deletion policies (General Data Protection Regulation — GDPR, national legislation)` },
+      { code:"C4", statement:`Read a simple dashboard or report and draw conclusions for my work.`, keyPoints:`• Understand how multiple data sources combine to produce clinical and operational insights
+• Read simple dashboards and reports and draw relevant conclusions for your practice area
+• Recognise when data anomalies or inconsistencies may indicate a quality or safety concern
+• Recognise that poor-quality data leads to poor outcomes — at patient, team, and system level` },
+      { code:"C5", statement:`Check the accuracy of patient-generated data — wearables, apps — before using it in care.`, keyPoints:`• Know the range of patient-generated data sources: wearables, apps, home monitors, patient diaries
+• Evaluate consumer-grade device data carefully — accuracy standards are lower than clinical-grade equipment
+• Understand how to incorporate patient-generated data appropriately within a care plan
+• Be aware that patients have GDPR (General Data Protection Regulation) rights to access, correct, and share their own health data` }
     ]
   },
   {
-    name: "Domain D: Person-Centred Digital Care Delivery",
-    goal: "Health professionals use digital tools to deliver safe, person-centred care — including clinical decision support, telehealth, and EU cross-border coordination.",
-    context: "Digital tools are changing how care is delivered — and increasingly, where it's delivered. Telehealth, remote monitoring, AI (artificial intelligence)-assisted diagnosis, and patient portals are now part of everyday clinical work. This domain covers what it means to use those tools safely and effectively: how to critically evaluate clinical decision support outputs, how to support patients through digital services, and — in the EU context — how cross-border care coordination works through tools like the EU Patient Summary and e-prescription.",
+    name: `Domain D: Person-Centred Digital Care Delivery`,
+    goal: `Health professionals use digital tools to deliver safe, person-centred care — including clinical decision support, telehealth, and EU cross-border coordination.`,
+    context: `Digital tools are changing how care is delivered — and increasingly, where it's delivered. Telehealth, remote monitoring, AI (artificial intelligence)-assisted diagnosis, and patient portals are now part of everyday clinical work. This domain covers what it means to use those tools safely and effectively: how to critically evaluate clinical decision support outputs, how to support patients through digital services, and — in the EU context — how cross-border care coordination works through tools like the EU Patient Summary and e-prescription.`,
     letter: "D", letterClass: "dd",
     questions: [
-      { code:"D1", statement:"I understand how linking health data from different sources creates a more complete patient picture — and the privacy and accuracy risks involved.", keyPoints:"• Know how clinical systems share data to form a connected health record (e.g. General Practitioner — GP, hospital, pharmacy)\n• Understand that data linkage improves care continuity but also introduces privacy and accuracy risks\n• Be aware that errors in individual records are amplified when data is aggregated across systems\n• Know the consent requirements when health data is linked across care settings (General Data Protection Regulation — GDPR)" },
-      { code:"D2", statement:"I critically assess digital tools and data sources used in care delivery — including clinical decision support outputs — and apply professional judgement before acting on any digital recommendation.", keyPoints:"• Evaluate clinical decision support outputs — check the evidence base before acting\n• Understand that decision support tools assist — they do not replace — professional clinical judgement\n• Assess patient-generated data (wearables, apps) critically — it may not meet clinical-grade accuracy standards\n• Be aware that software used to support clinical decisions may qualify as SaMD (Software as a Medical Device) under EU MDR (Medical Device Regulation) Rule 11 — ask whether the tools you use in practice are certified, and raise concerns if they are not" },
-      { code:"D3", statement:"I understand how data analysis informs clinical decisions and service improvement, and know how to raise concerns when analytics conflict with my clinical observations.", keyPoints:"• Understand that the data you enter contributes to broader clinical and organisational analytics\n• Read and interpret basic clinical dashboards and quality reports in your practice area\n• Recognise how data-driven insights inform service changes, pathway redesign, and quality improvement\n• Know how to raise concerns when data or analytics appear inconsistent with your clinical observations" },
-      { code:"D4", statement:"I evaluate how digital technologies support new care models and improve patient experience, and actively contribute to digital service implementation.", keyPoints:"• Explore how digital tools in your specialty are changing care delivery — telehealth, remote monitoring, apps\n• Evaluate digital tools from the patient's perspective: do they genuinely improve experience and access?\n• Support implementation of new digital services in your workplace — engage with pilots and evaluations\n• Know the EU cross-border digital services available to patients (EU Patient Summary, e-prescription)" },
-      { code:"D5", statement:"I evaluate the impact of digital health on patients, health workers, and service quality — and advocate for tools that genuinely improve care.", keyPoints:"• Understand how your role has changed — and will continue to change — with digital tools\n• Assess tools from multiple perspectives: patient, clinician, organisation, and health system\n• Know how to report concerns about digital tools that may compromise patient safety or care quality\n• Advocate for tools that demonstrably improve care quality and patient experience — not just operational efficiency" }
+      { code:"D1", statement:`Know how linking records across services improves care — and requires patient consent under GDPR.`, keyPoints:`• Know how clinical systems share data to form a connected health record (e.g. General Practitioner — GP, hospital, pharmacy)
+• Understand that data linkage improves care continuity but also introduces privacy and accuracy risks
+• Be aware that errors in individual records are amplified when data is aggregated across systems
+• Know the consent requirements when health data is linked across care settings (General Data Protection Regulation — GDPR)` },
+      { code:"D2a", statement:`Use professional judgement before acting on any clinical decision-support recommendation.`, keyPoints:`• Evaluate clinical decision support outputs — check the evidence base before acting
+• Understand that decision support tools assist — they do not replace — professional clinical judgement
+• Assess patient-generated data (wearables, apps) critically — it may not meet clinical-grade accuracy standards
+• Document your own clinical reasoning alongside any tool-generated recommendation` },
+      { code:"D2b", statement:`Check whether the digital tools I use are certified as medical devices where required (EU MDR).`, keyPoints:`• Know that software used to support clinical decisions may qualify as SaMD (Software as a Medical Device) under EU MDR (Medical Device Regulation) Rule 11
+• Ask whether the tools you use in practice are certified, and raise concerns if they are not
+• Understand that certification requirements exist to protect patient safety
+• Report use of unvalidated or uncertified tools through your organisation's governance process` },
+      { code:"D3", statement:`Raise concerns when data or analytics conflict with what I observe clinically.`, keyPoints:`• Understand that the data you enter contributes to broader clinical and organisational analytics
+• Read and interpret basic clinical dashboards and quality reports in your practice area
+• Recognise how data-driven insights inform service changes, pathway redesign, and quality improvement
+• Know how to raise concerns when data or analytics appear inconsistent with your clinical observations` },
+      { code:"D4", statement:`Evaluate whether digital tools genuinely improve care, and speak up when they don't.`, keyPoints:`• Evaluate digital tools from the patient's perspective: do they genuinely improve experience and access?
+• Know the EU cross-border digital services available to patients (EU Patient Summary, e-prescription)
+• Assess tools from multiple perspectives: patient, clinician, organisation, and health system
+• Know how to report concerns about digital tools that may compromise patient safety or care quality` }
     ]
   },
   {
-    name: "Domain E: Data Security & Cybersecurity in Healthcare",
-    goal: "Health professionals recognise cyber threats, apply safe digital behaviours, and meet their regulatory obligations to protect patients, colleagues, and their organisation.",
-    context: "Healthcare is the most targeted sector for cyberattacks in Europe. Ransomware, phishing, and credential theft are not abstract information technology (IT) problems — they shut down hospitals, delay surgeries, and put patients at risk. Since October 2024, the NIS2 Directive (Network and Information Security Directive 2) requires all health organisations to treat cybersecurity as a clinical governance issue. Every clinician has a role: using strong passwords, locking screens, reporting suspicious emails, and knowing what to do when something goes wrong. This isn't IT's job alone — it's yours too.",
+    name: `Domain E: Data Security & Cybersecurity in Healthcare`,
+    goal: `Health professionals recognise cyber threats, apply safe digital behaviours, and meet their regulatory obligations to protect patients, colleagues, and their organisation.`,
+    context: `Healthcare is the most targeted sector for cyberattacks in Europe. Ransomware, phishing, and credential theft are not abstract information technology (IT) problems — they shut down hospitals, delay surgeries, and put patients at risk. Since October 2024, the NIS2 Directive (Network and Information Security Directive 2) requires all health organisations to treat cybersecurity as a clinical governance issue. Every clinician has a role: using strong passwords, locking screens, reporting suspicious emails, and knowing what to do when something goes wrong. This isn't IT's job alone — it's yours too.`,
     letter: "E", letterClass: "de",
     questions: [
-      { code:"E1", statement:"I understand the cybersecurity threat landscape in healthcare — including phishing, ransomware, and social engineering — and recognise that every health worker shares responsibility for cyber safety.", keyPoints:"• Know the most common cyber threats: phishing emails, ransomware, credential theft, social engineering\n• Treat a cybersecurity breach as a clinical risk — it can directly halt care and endanger patient safety\n• Know that all health workers share responsibility for cybersecurity — not just information technology (IT) teams (NIS2 — Network and Information Security Directive 2; GDPR — General Data Protection Regulation, Article 32)\n• Report suspicious emails, unusual system behaviour, or potential breaches immediately through your organisation's process" },
-      { code:"E2", statement:"I apply safe digital behaviours daily — including strong credential management, appropriate data handling, and awareness of risks from personal devices and connected technologies.", keyPoints:"• Use strong, unique passwords and enable multi-factor authentication (MFA — a second verification step, e.g. a text code sent to your phone) wherever systems support it\n• Keep patient data off personal devices and unsanctioned systems — use only approved organisational tools\n• Apply clean desk practices — lock your screen when away, never leave patient information visible\n• Be cautious with connected devices (Internet of Things — IoT, medical devices) — report unusual behaviour to IT (information technology) immediately" },
-      { code:"E3", statement:"I comply with data security legislation and organisational policy — including GDPR Article 32 and the NIS2 Directive — and understand my personal liability for non-compliance.", keyPoints:"• Know your organisation's data security policies and the consequences of non-compliance\n• Know that GDPR (General Data Protection Regulation) Article 32 requires appropriate technical and organisational security measures\n• Know the NIS2 Directive (Network and Information Security Directive 2) requirements for healthcare as an essential entity\n• Be aware that personal liability applies in the event of a breach caused by negligent or non-compliant behaviour" },
-      { code:"E4", statement:"I can recognise and report a cybersecurity incident or data breach — and understand the 72-hour notification obligation this triggers under GDPR (General Data Protection Regulation).", keyPoints:"• Know your incident reporting process and your Data Protection Officer's (DPO) contact details\n• Know what constitutes a personal data breach: any unauthorised access, disclosure, loss, or alteration of health data\n• Report internally immediately; GDPR (General Data Protection Regulation) Article 33 may require supervisory authority notification within 72 hours\n• Never attempt to manage or conceal a breach independently — always escalate through the correct channel" },
-      { code:"E5", statement:"I know how to maintain safe patient care during a cyber incident, and actively contribute to a blame-free security culture where concerns are reported promptly.", keyPoints:"• Know your organisation's manual downtime procedure for when digital systems are unavailable\n• Foster a blame-free reporting culture — delayed reporting consistently worsens incidents and puts patients at risk\n• Support colleagues who report concerns — never discourage security reporting, even if the concern proves minor\n• Recognise that a strong security culture is a shared team responsibility, not just an IT function" }
+      { code:"E1", statement:`Know the common cyber threats in healthcare — phishing, ransomware, social engineering — and that cyber safety is everyone's job.`, keyPoints:`• Know the most common cyber threats: phishing emails, ransomware, credential theft, social engineering
+• Treat a cybersecurity breach as a clinical risk — it can directly halt care and endanger patient safety
+• Know that all health workers share responsibility for cybersecurity — not just information technology (IT) teams (NIS2 — Network and Information Security Directive 2; GDPR — General Data Protection Regulation, Article 32)
+• Report suspicious emails, unusual system behaviour, or potential breaches immediately through your organisation's process` },
+      { code:"E2", statement:`Use strong passwords, multi-factor authentication, and keep patient data off personal devices.`, keyPoints:`• Use strong, unique passwords and enable multi-factor authentication (MFA — a second verification step, e.g. a text code sent to your phone) wherever systems support it
+• Keep patient data off personal devices and unsanctioned systems — use only approved organisational tools
+• Apply clean desk practices — lock your screen when away, never leave patient information visible
+• Be cautious with connected devices (Internet of Things — IoT, medical devices) — report unusual behaviour to IT (information technology) immediately` },
+      { code:"E3", statement:`Follow GDPR and NIS2 security requirements, and know I can be held personally liable for a breach.`, keyPoints:`• Know your organisation's data security policies and the consequences of non-compliance
+• Know that GDPR (General Data Protection Regulation) Article 32 requires appropriate technical and organisational security measures
+• Know the NIS2 Directive (Network and Information Security Directive 2) requirements for healthcare as an essential entity
+• Be aware that personal liability applies in the event of a breach caused by negligent or non-compliant behaviour` },
+      { code:"E4", statement:`Know how to spot and report a data breach, including the 72-hour GDPR notification rule.`, keyPoints:`• Know your incident reporting process and your Data Protection Officer's (DPO) contact details
+• Know what constitutes a personal data breach: any unauthorised access, disclosure, loss, or alteration of health data
+• Report internally immediately; GDPR (General Data Protection Regulation) Article 33 may require supervisory authority notification within 72 hours
+• Never attempt to manage or conceal a breach independently — always escalate through the correct channel` },
+      { code:"E5", statement:`Know my workplace's manual procedure for a system outage, and support colleagues who raise security concerns.`, keyPoints:`• Know your organisation's manual downtime procedure for when digital systems are unavailable
+• Foster a blame-free reporting culture — delayed reporting consistently worsens incidents and puts patients at risk
+• Support colleagues who report concerns — never discourage security reporting, even if the concern proves minor
+• Recognise that a strong security culture is a shared team responsibility, not just an IT function` }
     ]
   },
   {
-    name: "Domain F: Artificial Intelligence in Clinical Practice",
-    goal: "Health professionals develop AI (artificial intelligence) literacy, understand ethical and regulatory obligations, and engage critically with AI — whether or not it is currently used in their clinical setting.",
-    context: "Artificial intelligence (AI) is being introduced into health settings at different speeds across Europe and the Middle East. Some organisations are already using it in diagnostic imaging, clinical decision support, and documentation. Others are still exploring or piloting. Wherever you are in that journey, the foundations matter: understanding what AI can and can't do, the ethical principles that govern its use, and the regulatory landscape — so that when you encounter AI in your setting, you're ready to engage with it critically and safely.",
+    name: `Domain F: Artificial Intelligence in Clinical Practice`,
+    goal: `Health professionals develop AI (artificial intelligence) literacy, understand ethical and regulatory obligations, and engage critically with AI — whether or not it is currently used in their clinical setting.`,
+    context: `Artificial intelligence (AI) is being introduced into health settings at different speeds across Europe and the Middle East. Some organisations are already using it in diagnostic imaging, clinical decision support, and documentation. Others are still exploring or piloting. Wherever you are in that journey, the foundations matter: understanding what AI can and can't do, the ethical principles that govern its use, and the regulatory landscape — so that when you encounter AI in your setting, you're ready to engage with it critically and safely.`,
     letter: "F", letterClass: "df",
     questions: [
-      { code:"F1", statement:"I understand core artificial intelligence (AI) concepts — including machine learning and generative AI — and can critically evaluate AI tools for their capabilities, limitations, and potential for bias in healthcare.", keyPoints:"• Understand the difference between machine learning, deep learning, and generative AI (artificial intelligence) — and how each applies in healthcare\n• Be aware that AI tools can produce inaccurate, biased, or fabricated outputs (known as 'hallucinations') — always verify before acting\n• Evaluate AI tools against clinical evidence: Is it validated? On what population? What are the known failure modes?\n• Be aware that biased training data produces biased outputs — with real consequences for health equity" },
-      { code:"F2", statement:"I understand the ethical principles governing AI (artificial intelligence) in healthcare — transparency, fairness, and human oversight — and ensure AI never replaces my clinical judgement.", keyPoints:"• Understand that AI (artificial intelligence) augments — it does not replace — professional clinical judgement; you remain fully accountable for every decision\n• Check for fairness: AI tools should work equitably across different patient populations\n• Maintain transparency: understand how AI is being used in your care pathway and question it where unclear\n• Know that human oversight of high-risk AI (artificial intelligence) is a legal requirement under the EU AI Act — not optional" },
-      { code:"F3", statement:"I understand the regulatory landscape for AI (artificial intelligence) in healthcare — including EU AI Act risk classifications, GDPR automated decision-making rights, and when AI qualifies as a medical device.", keyPoints:"• Know that the EU AI Act classifies most clinical AI (artificial intelligence) as high-risk — requiring CE marking (Conformité Européenne — the EU safety certification), transparency, and human oversight\n• Know that GDPR (General Data Protection Regulation) Article 22 gives patients the right not to be subject to solely automated decisions affecting them\n• Be aware that AI tools used in clinical settings may qualify as SaMD (Software as a Medical Device) under EU MDR (Medical Device Regulation) — with compliance obligations for your organisation\n• Understand that when AI contributes to a clinical error, professional accountability remains with the clinician" },
-      { code:"F4", statement:"Where AI (artificial intelligence) tools are available in my setting, I use them effectively and validate their outputs — maintaining professional judgement and keeping patient safety central at all times.", keyPoints:"• If AI tools are available in your workplace (decision support, documentation AI, admin AI), know how to use them correctly\n• Always cross-reference AI outputs with your professional knowledge and current clinical evidence\n• Check generative AI outputs specifically for hallucinations (fabricated references, wrong dosages, inaccurate facts)\n• Remain accountable for every decision even when AI assists — always document your clinical reasoning" },
-      { code:"F5", statement:"I engage constructively with AI (artificial intelligence) in my setting — whether it is being explored, piloted, or already deployed — supporting colleagues and contributing to safe, responsible AI use.", keyPoints:"• Engage with AI developments in your context — whether exploring, piloting, or actively using AI tools\n• Support colleagues who may be anxious or uncertain about AI adoption\n• Where AI is in use: ensure patients are informed when it contributes to decisions about their care (EU AI Act; GDPR — General Data Protection Regulation)\n• Participate in evaluation or governance of AI tools where the opportunity exists — risk assessment, feedback, policy" }
+      { code:"F1", statement:`Check AI outputs for accuracy, bias, and hallucinations, understanding core concepts like generative AI.`, keyPoints:`• Understand the difference between machine learning, deep learning, and generative AI (artificial intelligence) — and how each applies in healthcare
+• Be aware that AI tools can produce inaccurate, biased, or fabricated outputs (known as 'hallucinations') — always verify before acting
+• Evaluate AI tools against clinical evidence: Is it validated? On what population? What are the known failure modes?
+• Be aware that biased training data produces biased outputs — with real consequences for health equity` },
+      { code:"F2", statement:`Let AI support my clinical decisions, but never let it replace my professional judgement.`, keyPoints:`• Understand that AI (artificial intelligence) augments — it does not replace — professional clinical judgement; you remain fully accountable for every decision
+• Check for fairness: AI tools should work equitably across different patient populations
+• Maintain transparency: understand how AI is being used in your care pathway and question it where unclear
+• Know that human oversight of high-risk AI (artificial intelligence) is a legal requirement under the EU AI Act — not optional` },
+      { code:"F3a", statement:`Know that AI used in patient care is regulated under the EU AI Act, with legal requirements for human oversight.`, keyPoints:`• Know that the EU AI Act classifies most clinical AI (artificial intelligence) as high-risk — requiring CE marking (Conformité Européenne — the EU safety certification), transparency, and human oversight
+• Be aware that AI tools used in clinical settings may qualify as SaMD (Software as a Medical Device) under EU MDR (Medical Device Regulation) — with compliance obligations for your organisation
+• Understand that when AI contributes to a clinical error, professional accountability remains with the clinician
+• Know who to ask in your organisation if you're unsure whether an AI tool is compliant` },
+      { code:"F3b", statement:`Know that patients have rights under GDPR when AI contributes to decisions about their care.`, keyPoints:`• Know that GDPR (General Data Protection Regulation) Article 22 gives patients the right not to be subject to solely automated decisions affecting them
+• Ensure patients are informed when AI contributes to decisions about their care
+• Know how to explain, in plain terms, when and how AI is used in a patient's care pathway
+• Escalate patient concerns or objections about automated decision-making through the correct process` },
+      { code:"F4", statement:`Use AI tools well when they're available, and always double-check their outputs.`, keyPoints:`• If AI tools are available in your workplace (decision support, documentation AI, admin AI), know how to use them correctly
+• Always cross-reference AI outputs with your professional knowledge and current clinical evidence
+• Check generative AI outputs specifically for hallucinations (fabricated references, wrong dosages, inaccurate facts)
+• Remain accountable for every decision even when AI assists — always document your clinical reasoning` },
+      { code:"F5", statement:`Engage constructively with AI at whatever stage my workplace is at, and support colleagues who are unsure about it.`, keyPoints:`• Engage with AI developments in your context — whether exploring, piloting, or actively using AI tools
+• Support colleagues who may be anxious or uncertain about AI adoption
+• Where AI is in use: ensure patients are informed when it contributes to decisions about their care (EU AI Act; GDPR — General Data Protection Regulation)
+• Participate in evaluation or governance of AI tools where the opportunity exists — risk assessment, feedback, policy` }
     ]
-  }
+  },
 ];
 
 const ratingScale = [
@@ -2965,7 +3063,7 @@ function completeDomain(id) {
 function updateProgress() {
   let done = 0;
   for (let i=1; i<=6; i++) {
-    if (responses[i] && Object.keys(responses[i]).length === 5) done++;
+    if (responses[i] && Object.keys(responses[i]).length === assessmentData[i-1].questions.length) done++;
   }
   const pct = (done/6)*100;
   document.getElementById('progressFill').style.width = pct + '%';
@@ -2987,17 +3085,37 @@ function showResults() {
   const today = new Date();
   document.getElementById('completionDate').textContent = today.toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
 
-  let total = 0;
+  const domainAvgs = [];
   const domainLevels = [];
   for (let i=1; i<=6; i++) {
     const vals  = Object.values(responses[i]);
     const avg   = vals.reduce((a,b)=>a+b,0)/vals.length;
-    total += avg;
+    domainAvgs.push(avg);
     domainLevels.push({avg, level:getLevel(avg), colors:getLevelColors(getLevel(avg))});
   }
-  const overallAvg   = total/6;
-  const overallLevel = getLevel(overallAvg);
-  const overallColors= getLevelColors(overallLevel);
+
+  // ─── OVERALL SCORE: weighted toward extremes, capped by lowest domain ───
+  // A plain average lets one weak domain hide behind five strong ones.
+  // Lowest and highest domain each count 1.5x; the middle four count once.
+  // A hard cap then ensures the overall tier can never sit more than one
+  // tier above the lowest single domain's tier — closing the "coast to
+  // Proficient while neglecting one domain" loophole regardless of the
+  // exact weighting.
+  const sortedAvgs  = [...domainAvgs].sort((a,b)=>a-b);
+  const lowestAvg   = sortedAvgs[0];
+  const highestAvg  = sortedAvgs[sortedAvgs.length-1];
+  const middleSum   = sortedAvgs.slice(1,-1).reduce((a,b)=>a+b,0);
+  const weightedAvg = (1.5*lowestAvg + 1.5*highestAvg + middleSum) / 7;
+
+  const TIER_RANK  = { Formative:0, Intermediate:1, Proficient:2 };
+  const RANK_TIER  = ['Formative','Intermediate','Proficient'];
+  const capRank    = Math.min(TIER_RANK[getLevel(lowestAvg)] + 1, 2);
+
+  let overallLevel = getLevel(weightedAvg);
+  if (TIER_RANK[overallLevel] > capRank) overallLevel = RANK_TIER[capRank];
+
+  const overallAvg    = weightedAvg;
+  const overallColors = getLevelColors(overallLevel);
 
   // Overall achievement badge image
   document.getElementById('badgeImage').src = BADGE_URLS[overallLevel.toLowerCase()];
@@ -3090,83 +3208,181 @@ setInterval(() => {
 // ─────────────────────────────────────────────────────────────
 const el_assessmentData = [
   {
-    name: "Τομέας Α: Ψηφιακός Επαγγελματισμός και Ηθική",
-    goal: "Οι επαγγελματίες υγείας τηρούν επαγγελματικά πρότυπα, ηθική συμπεριφορά και κανονιστική συμμόρφωση σε ψηφιακά περιβάλλοντα.",
-    context: "Ο ψηφιακός επαγγελματισμός δεν αφορά μόνο τον τρόπο χρήσης της τεχνολογίας — αφορά τις αξίες και την κρίση που φέρνετε σε αυτήν. Σε κλινικό πλαίσιο, αυτό σημαίνει προστασία της ιδιωτικότητας ασθενούς, υπεύθυνη διαδικτυακή συμπεριφορά, κατανόηση των νομικών σας υποχρεώσεων και αναγνώριση ότι κάθε ψηφιακή πράξη αφήνει ίχνος. Ο τομέας αυτός αφορά επίσης την ισότητα: δεν έχουν όλοι οι ασθενείς ίση πρόσβαση στα ψηφιακά εργαλεία, και το να είστε ψηφιακά ικανός κλινικός σημαίνει να το αναγνωρίζετε και να ανταποκρίνεστε σε αυτό.",
+    name: `Τομέας Α: Ψηφιακός Επαγγελματισμός και Ηθική`,
+    goal: `Οι επαγγελματίες υγείας τηρούν επαγγελματικά πρότυπα, ηθική συμπεριφορά και κανονιστική συμμόρφωση σε όλα τα ψηφιακά περιβάλλοντα.`,
+    context: `Ο ψηφιακός επαγγελματισμός δεν αφορά μόνο τον τρόπο χρήσης της τεχνολογίας — αφορά τις αξίες και την κρίση που φέρνετε σε αυτήν. Σε κλινικό πλαίσιο, αυτό σημαίνει προστασία της ιδιωτικότητας ασθενούς, υπεύθυνη διαδικτυακή συμπεριφορά, κατανόηση των νομικών σας υποχρεώσεων και αναγνώριση ότι κάθε ψηφιακή πράξη αφήνει ίχνος. Ο τομέας αυτός αφορά επίσης την ισότητα: δεν έχουν όλοι οι ασθενείς ίση πρόσβαση στα ψηφιακά εργαλεία, και το να είστε ψηφιακά ικανός κλινικός σημαίνει να το αναγνωρίζετε και να ανταποκρίνεστε σε αυτό.`,
     letter: "Α", letterClass: "da",
     questions: [
-      { code:"A1", statement:"Αναπτύσσω ενεργά τις ικανότητές μου στην ψηφιακή υγεία μέσω συνεχούς μάθησης και συνεχιζόμενης επαγγελματικής ανάπτυξης (CPD) — προς όφελος του ρόλου μου και των ασθενών μου.", keyPoints:"• Αναζητώ ευκαιρίες CPD και CME σχετικές με εργαλεία και καινοτομίες ψηφιακής υγείας\n• Υιοθετώ νέες ψηφιακές τεχνολογίες που εισάγονται στον χώρο εργασίας μου\n• Ενημερώνομαι μέσω επαγγελματικών φορέων, περιοδικών και πόρων της Ακαδημίας\n• Αναστοχάζομαι πώς οι ψηφιακές μου δεξιότητες βελτιώνουν άμεσα την ποιότητα φροντίδας" },
-      { code:"A2", statement:"Συμμορφώνομαι με τη νομοθεσία, τους επαγγελματικούς κώδικες και την οργανωσιακή πολιτική για την ψηφιακή υγεία και τα δεδομένα, συμπεριλαμβανομένων των υποχρεώσεων GDPR για ιδιωτικότητα και συναίνεση ασθενούς.", keyPoints:"• Ακολουθώ τις πολιτικές και κώδικες δεοντολογίας ψηφιακής υγείας του οργανισμού μου\n• Γνωρίζω τις υποχρεώσεις ιδιωτικότητας και συναίνεσης (GDPR, Άρθρο 5)\n• Κατανοώ τις συνέπειες παραβίασης κανόνων ιδιωτικότητας — προσωπική και οργανωσιακή ευθύνη\n• Αναφέρω πιθανές παραβιάσεις μέσω της ορισμένης διαδικασίας του οργανισμού μου" },
-      { code:"A3", statement:"Γνωρίζω τις πολιτισμικές, ηθικές και κοινωνικοοικονομικές διαστάσεις της ψηφιακής υγείας και λαμβάνω υπόψη την ισότητα πρόσβασης κατά την παροχή ψηφιακών υπηρεσιών.", keyPoints:"• Αναγνωρίζω ότι δεν έχουν όλοι οι ασθενείς ίση πρόσβαση — ηλικία, γλώσσα, αναπηρία, συνδεσιμότητα\n• Λαμβάνω υπόψη ισότητα πρόσβασης κατά τη σύσταση ψηφιακών υπηρεσιών\n• Είμαι ευαίσθητος στις πολιτισμικές και ηθικές διαφορές ως προς την ψηφιακή υγεία\n• Υπερασπίζομαι τον χωρίς αποκλεισμούς σχεδιασμό στον οργανισμό μου" },
-      { code:"A4", statement:"Διατηρώ κατάλληλη επαγγελματική διαδικτυακή παρουσία και κατανοώ ότι η ψηφιακή μου συμπεριφορά — συμπεριλαμβανομένων των μέσων κοινωνικής δικτύωσης — αντικατοπτρίζει το επάγγελμά μου και την εμπιστοσύνη του κοινού στην υγεία.", keyPoints:"• Διατηρώ ενημερωμένο επαγγελματικό προφίλ σε σχετικές πλατφόρμες\n• Θυμάμαι ότι ακόμη και ιδιωτικές αναρτήσεις μπορούν να επηρεάσουν μόνιμα την επαγγελματική μου υπόσταση\n• Ενεργώ διαδικτυακά σύμφωνα με τον κώδικα δεοντολογίας του επαγγελματικού μου φορέα\n• Δεν κοινοποιώ ποτέ περιεχόμενο σχετικό με ασθενείς — ακόμη και ανωνυμοποιημένες περιπτώσεις μπορούν να αναγνωριστούν" },
-      { code:"A5", statement:"Κατανοώ τις ηθικές διαστάσεις της ψηφιακής υγείας — συμπεριλαμβανομένης της υπεύθυνης χρήσης περιεχομένου τεχνητής νοημοσύνης (ΤΝ) — και εφαρμόζω συνεπή επαγγελματικά πρότυπα σε όλους τους ψηφιακούς χώρους.", keyPoints:"• Γνωρίζω τους κινδύνους ακρίβειας και μεροληψίας κατά κοινοποίηση περιεχομένου ΤΝ\n• Εφαρμόζω τα ίδια πρότυπα διαδικτυακά και πρόσωπο με πρόσωπο\n• Αντιμετωπίζω την ψηφιακή συμπεριφορά ως κοινή ευθύνη ομάδας\n• Λαμβάνω υπόψη τον αντίκτυπο στην εμπιστοσύνη του κοινού στους φορείς υγείας" }
+      { code:"A1", statement:`Αναπτύσσω ενεργά τις ικανότητές μου στην ψηφιακή υγεία μέσω συνεχούς μάθησης και συνεχιζόμενης επαγγελματικής ανάπτυξης (CPD) — προς όφελος του ρόλου μου και των ασθενών μου.`, keyPoints:`• Αναζητώ ευκαιρίες συνεχιζόμενης επαγγελματικής ανάπτυξης (CPD) και συνεχιζόμενης ιατρικής εκπαίδευσης (CME) σχετικές με εργαλεία και καινοτομίες ψηφιακής υγείας
+• Υιοθετώ νέες ψηφιακές τεχνολογίες που εισάγονται στον χώρο εργασίας μου
+• Ενημερώνομαι μέσω επαγγελματικών φορέων, επιστημονικών περιοδικών και πόρων της Ακαδημίας
+• Αναστοχάζομαι πώς οι ψηφιακές μου δεξιότητες βελτιώνουν άμεσα την ποιότητα της φροντίδας και τα αποτελέσματα για τους ασθενείς` },
+      { code:"A2", statement:`Συμμορφώνομαι με τη νομοθεσία, τους επαγγελματικούς κώδικες και τις πολιτικές του οργανισμού για την ψηφιακή υγεία και τα δεδομένα, συμπεριλαμβανομένων των υποχρεώσεων του Γενικού Κανονισμού Προστασίας Δεδομένων (GDPR) για την ιδιωτικότητα και τη συναίνεση των ασθενών.`, keyPoints:`• Ακολουθώ τις πολιτικές ψηφιακής υγείας και τους κώδικες δεοντολογίας του οργανισμού μου
+• Γνωρίζω τις υποχρεώσεις μου σχετικά με την ιδιωτικότητα των δεδομένων των ασθενών και τη συναίνεση (Γενικός Κανονισμός Προστασίας Δεδομένων — GDPR, Άρθρο 5)
+• Κατανοώ τις συνέπειες παραβίασης των κανόνων προστασίας δεδομένων — προσωπική και οργανωσιακή ευθύνη
+• Αναφέρω πιθανές παραβιάσεις ή περιπτώσεις μη συμμόρφωσης μέσω της προβλεπόμενης διαδικασίας του οργανισμού μου` },
+      { code:"A3", statement:`Γνωρίζω τις πολιτισμικές, ηθικές και κοινωνικοοικονομικές διαστάσεις της ψηφιακής υγείας και λαμβάνω υπόψη την ισότιμη πρόσβαση κατά την παροχή ψηφιακών υπηρεσιών.`, keyPoints:`• Αναγνωρίζω ότι δεν έχουν όλοι οι ασθενείς ίση πρόσβαση στα ψηφιακά εργαλεία — λόγω ηλικίας, γλώσσας, αναπηρίας ή συνδεσιμότητας
+• Λαμβάνω υπόψη την ισότιμη πρόσβαση κατά τη σύσταση ή τη χρήση ψηφιακών υπηρεσιών με ασθενείς
+• Δείχνω ευαισθησία στις πολιτισμικές και ηθικές διαφορές ως προς τις στάσεις απέναντι στην ψηφιακή υγεία και την κοινοποίηση δεδομένων
+• Υποστηρίζω τον συμπεριληπτικό σχεδιασμό και την ψηφιακή ισότητα στον οργανισμό μου` },
+      { code:"A4", statement:`Διατηρώ κατάλληλη επαγγελματική διαδικτυακή παρουσία και κατανοώ ότι η ψηφιακή μου συμπεριφορά — συμπεριλαμβανομένων των μέσων κοινωνικής δικτύωσης — αντανακλά στο επάγγελμά μου και στη δημόσια εμπιστοσύνη προς την υγειονομική περίθαλψη.`, keyPoints:`• Διατηρώ ενημερωμένο επαγγελματικό προφίλ σε σχετικές πλατφόρμες, όπως το LinkedIn ή εθνικό επαγγελματικό μητρώο
+• Αναγνωρίζω ότι οι αναρτήσεις σε προσωπικούς χώρους — ακόμη και σε ιδιωτικούς λογαριασμούς — μπορούν να επηρεάσουν μόνιμα την επαγγελματική μου υπόσταση
+• Ενεργώ διαδικτυακά σύμφωνα με τον κώδικα δεοντολογίας του επαγγελματικού μου φορέα για ψηφιακούς χώρους
+• Δεν κοινοποιώ ποτέ περιεχόμενο σχετικό με ασθενείς διαδικτυακά — ακόμη και ανωνυμοποιημένες περιπτώσεις μπορεί να είναι αναγνωρίσιμες` },
+      { code:"A5", statement:`Κατανοώ τις ηθικές διαστάσεις της ψηφιακής υγείας — συμπεριλαμβανομένης της υπεύθυνης χρήσης περιεχομένου που παράγεται από τεχνητή νοημοσύνη (ΤΝ) — και εφαρμόζω με συνέπεια επαγγελματικά πρότυπα σε όλους τους ψηφιακούς χώρους.`, keyPoints:`• Γνωρίζω τους κινδύνους ανακρίβειας και μεροληψίας κατά την κοινοποίηση περιεχομένου υγείας που παράγεται από ΤΝ
+• Εφαρμόζω τα ίδια επαγγελματικά πρότυπα διαδικτυακά όπως και στις δια ζώσης συνθήκες
+• Αναγνωρίζω ότι η ψηφιακή συμπεριφορά αποτελεί κοινή ευθύνη της ομάδας — η διαδικτυακή μου συμπεριφορά αντανακλά στους συναδέλφους και στον οργανισμό μου
+• Λαμβάνω υπόψη τον αντίκτυπο της διαδικτυακής μου δραστηριότητας στην εμπιστοσύνη του κοινού προς τους φορείς και τους επαγγελματίες υγείας` }
     ]
   },
   {
-    name: "Τομέας Β: Ηγεσία και Μετασχηματισμός στην Ψηφιακή Υγεία",
-    goal: "Οι επαγγελματίες υγείας υπερασπίζονται τους ασθενείς, προωθούν την υπεύθυνη χρήση ψηφιακής υγείας και εμπλέκονται με την πολιτική ψηφιακής υγείας της ΕΕ και την οργανωσιακή στρατηγική.",
-    context: "Η ηγεσία στην ψηφιακή υγεία δεν είναι αποκλειστικό προνόμιο διευθυντών ή υπεύθυνων πληροφορικής. Κάθε κλινικός που υποστηρίζει ένα καλύτερο σύστημα, υπερασπίζεται το δικαίωμα ενός ασθενούς να έχει πρόσβαση στα αρχεία του ή αμφισβητεί ένα κακά σχεδιασμένο ψηφιακό εργαλείο, ασκεί ψηφιακή ηγεσία. Στο πλαίσιο της ΕΕ, αυτό σημαίνει επίσης κατανόηση του πολιτικού περιβάλλοντος — του EHDS, των εθνικών στρατηγικών eHealth και των δικαιωμάτων που παρέχουν αυτά τα πλαίσια σε ασθενείς και επαγγελματίες.",
+    name: `Τομέας Β: Ηγεσία και Μετασχηματισμός στην Ψηφιακή Υγεία`,
+    goal: `Οι επαγγελματίες υγείας υπερασπίζονται τους ασθενείς, προωθούν την υπεύθυνη χρήση ψηφιακής υγείας και εμπλέκονται με την πολιτική ψηφιακής υγείας της ΕΕ και την οργανωσιακή στρατηγική.`,
+    context: `Η ηγεσία στην ψηφιακή υγεία δεν είναι αποκλειστικό προνόμιο διευθυντών ή υπεύθυνων πληροφορικής. Κάθε κλινικός που υποστηρίζει ένα καλύτερο σύστημα, υπερασπίζεται το δικαίωμα ενός ασθενούς να έχει πρόσβαση στα αρχεία του ή αμφισβητεί ένα κακά σχεδιασμένο ψηφιακό εργαλείο, ασκεί ψηφιακή ηγεσία. Στο πλαίσιο της ΕΕ, αυτό σημαίνει επίσης κατανόηση του πολιτικού περιβάλλοντος — του EHDS, των εθνικών στρατηγικών eHealth και των δικαιωμάτων που παρέχουν αυτά τα πλαίσια σε ασθενείς και επαγγελματίες.`,
     letter: "Β", letterClass: "db",
     questions: [
-      { code:"B1", statement:"Υπερασπίζομαι το δικαίωμα των ασθενών να έχουν ψηφιακή πρόσβαση στις πληροφορίες υγείας τους και τους στηρίζω στη χρήση ψηφιακών υπηρεσιών για συμμετοχή στη φροντίδα τους.", keyPoints:"• Γνωρίζω τις διαθέσιμες ψηφιακές υπηρεσίες — πύλες, EU Patient Summary, ηλεκτρονική συνταγογράφηση\n• Στηρίζω ασθενείς στην πρόσβαση στα αρχεία τους (EHDS· GDPR, Άρθρο 15)\n• Αντιμετωπίζω εμπόδια ψηφιακής εγγραμματοσύνης\n• Διασφαλίζω ότι ασθενείς ενημερώνονται για τη χρήση ΤΝ στη φροντίδα τους" },
-      { code:"B2", statement:"Κατανοώ τα οφέλη και τους κινδύνους των τεχνολογιών ψηφιακής υγείας και προωθώ την κατάλληλη, υπεύθυνη χρήση τους στον χώρο εργασίας μου.", keyPoints:"• Αξιολογώ κάθε εργαλείο ψηφιακής υγείας: βελτιώνει τη φροντίδα; Τι επιπτώσεις στην ιδιωτικότητα;\n• Κατανοώ τους κινδύνους μη εγκεκριμένων εργαλείων σε κλινικά περιβάλλοντα\n• Υπερασπίζομαι υιοθέτηση βάσει αποδεικτικών στοιχείων\n• Εκφράζω ανησυχίες για εργαλεία που δεν πληρούν επαγγελματικά ή κανονιστικά πρότυπα" },
-      { code:"B3", statement:"Προωθώ την ψηφιακή υγεία στον χώρο εργασίας μου — ενθαρρύνω συναδέλφους να εμπλακούν εποικοδομητικά με την ψηφιακή αλλαγή και συμβάλλω σε κουλτούρα συνεχούς βελτίωσης.", keyPoints:"• Εντοπίζω τομείς όπου ψηφιακές λύσεις βελτιώνουν αποδοτικότητα, ασφάλεια ή εμπειρία ασθενούς\n• Ενθαρρύνω τους συναδέλφους να εμπλακούν θετικά αντί να αντιστέκονται\n• Παρέχω εποικοδομητική ανατροφοδότηση μέσω των διαδικασιών αξιολόγησης\n• Στηρίζω συναδέλφους που δυσκολεύονται — καθοδήγηση και αμοιβαία υποστήριξη έχουν σημασία" },
-      { code:"B4", statement:"Εξερευνώ αναδυόμενες ψηφιακές τεχνολογίες και εμπλέκομαι με στρατηγική και ανάπτυξη πολιτικής σχετικής με τον ρόλο και το περιβάλλον μου.", keyPoints:"• Ερευνώ καινοτομίες ψηφιακής υγείας στην ειδικότητά μου\n• Εμπλέκομαι με τη στρατηγική ψηφιακής υγείας του οργανισμού μου\n• Εξοικειώνομαι με τον Ευρωπαϊκό Χώρο Δεδομένων Υγείας (EHDS) και τις επιπτώσεις του\n• Συμβάλλω σε διαβουλεύσεις πολιτικής μέσω της επαγγελματικής μου ένωσης" },
-      { code:"B5", statement:"Συμμετέχω ενεργά στην ψηφιακή αλλαγή — υιοθετώ νέα συστήματα, στηρίζω συναδέλφους κατά τη μετάβαση και συμβάλλω στην αξιολόγηση και διακυβέρνηση ψηφιακών εργαλείων.", keyPoints:"• Παρακολουθώ όλα τα ψηφιακά συστήματα στον χώρο εργασίας μου\n• Εμπλέκομαι με την αλλαγή: εκπαίδευση, pilots, ανατροφοδότηση\n• Στηρίζω συναδέλφους κατά τις μεταβάσεις συστημάτων\n• Συμμετέχω στη διακυβέρνηση ψηφιακής υγείας: επιτροπές, αναθεώρηση πολιτικών, βελτίωση ποιότητας" }
+      { code:"B1", statement:`Υποστηρίζω το δικαίωμα των ασθενών να έχουν ψηφιακή πρόσβαση στις πληροφορίες υγείας τους και τους στηρίζω στη χρήση ψηφιακών υπηρεσιών για συμμετοχή στη φροντίδα τους.`, keyPoints:`• Γνωρίζω τις διαθέσιμες ψηφιακές υπηρεσίες για ασθενείς — πύλες, Ευρωπαϊκή Περίληψη Ασθενούς, ηλεκτρονική συνταγογράφηση
+• Υποστηρίζω τους ασθενείς να έχουν πρόσβαση και να κατανοούν τα δικά τους ιατρικά αρχεία (Ευρωπαϊκός Χώρος Δεδομένων Υγείας — EHDS· GDPR, Άρθρο 15)
+• Αντιμετωπίζω εμπόδια ψηφιακής εγγραμματοσύνης — δεν έχουν όλοι οι ασθενείς ίση πρόσβαση ή αυτοπεποίθηση με τα ψηφιακά εργαλεία
+• Διασφαλίζω ότι οι ασθενείς ενημερώνονται όταν ψηφιακά εργαλεία, συμπεριλαμβανομένης της τεχνητής νοημοσύνης (ΤΝ), συμβάλλουν σε αποφάσεις για τη φροντίδα τους` },
+      { code:"B2", statement:`Κατανοώ τα οφέλη και τους κινδύνους των τεχνολογιών ψηφιακής υγείας και προωθώ την κατάλληλη, υπεύθυνη χρήση τους στον χώρο εργασίας μου.`, keyPoints:`• Αξιολογώ οποιοδήποτε εργαλείο ψηφιακής υγείας: βελτιώνει τη φροντίδα; Ποιες είναι οι επιπτώσεις στην ιδιωτικότητα;
+• Κατανοώ τους κινδύνους εργαλείων που δεν έχουν εγκριθεί ή επικυρωθεί σε κλινικά περιβάλλοντα
+• Υποστηρίζω την υιοθέτηση βάσει αποδεικτικών στοιχείων μέσω της προβλεπόμενης διαδικασίας διακυβέρνησης του οργανισμού μου
+• Εκφράζω ανησυχίες για εργαλεία που ενδέχεται να μην πληρούν επαγγελματικά ή κανονιστικά πρότυπα` },
+      { code:"B3", statement:`Προωθώ την ψηφιακή υγεία στον χώρο εργασίας μου — ενθαρρύνω τους συναδέλφους να εμπλακούν εποικοδομητικά με την ψηφιακή αλλαγή και συμβάλλω σε κουλτούρα συνεχούς βελτίωσης.`, keyPoints:`• Εντοπίζω τομείς όπου ψηφιακές λύσεις θα μπορούσαν να βελτιώσουν την αποτελεσματικότητα, την ασφάλεια ή την εμπειρία ασθενούς
+• Ενθαρρύνω τους συναδέλφους να εμπλακούν θετικά με την ψηφιακή αλλαγή αντί να αντιστέκονται
+• Παρέχω εποικοδομητική ανατροφοδότηση μέσω των διαδικασιών αξιολόγησης του οργανισμού μου
+• Υποστηρίζω συναδέλφους που δυσκολεύονται με την ψηφιακή αλλαγή — η καθοδήγηση και η αμοιβαία υποστήριξη έχουν σημασία` },
+      { code:"B4a", statement:`Διερευνώ αναδυόμενες ψηφιακές τεχνολογίες σχετικές με την ειδικότητα και το περιβάλλον μου.`, keyPoints:`• Ερευνώ καινοτομίες ψηφιακής υγείας σχετικές με την ειδικότητα ή την κλινική μου περιοχή
+• Ενημερώνομαι μέσω επαγγελματικών δικτύων, επιστημονικών περιοδικών και πόρων της Ακαδημίας
+• Δοκιμάζω νέα εργαλεία που εισάγονται στον χώρο εργασίας μου με ανοιχτό πνεύμα
+• Μοιράζομαι χρήσιμες ανακαλύψεις με τους συναδέλφους μου` },
+      { code:"B4b", statement:`Εμπλέκομαι με στρατηγική και ανάπτυξη πολιτικής ψηφιακής υγείας σχετικής με τον ρόλο μου, όπου υπάρχει η ευκαιρία.`, keyPoints:`• Εμπλέκομαι με τη στρατηγική ψηφιακής υγείας του οργανισμού μου — παρακολουθώ διαβουλεύσεις, συμμετέχω σε ομάδες εργασίας
+• Εξοικειώνομαι με τον Ευρωπαϊκό Χώρο Δεδομένων Υγείας (EHDS) και τις επιπτώσεις του στην πρακτική μου
+• Συμβάλλω σε εθνικές ή ευρωπαϊκές διαβουλεύσεις πολιτικής ψηφιακής υγείας μέσω της επαγγελματικής μου ένωσης
+• Αναγνωρίζω ότι η συμμετοχή σε πολιτική δεν είναι διαθέσιμη σε όλους τους κλινικούς — συμμετέχω όπου υπάρχει η ευκαιρία` },
+      { code:"B5", statement:`Συμμετέχω ενεργά στην ψηφιακή αλλαγή — υιοθετώ νέα συστήματα, στηρίζω τους συναδέλφους κατά τη μετάβαση και συμβάλλω στην αξιολόγηση και διακυβέρνηση ψηφιακών εργαλείων.`, keyPoints:`• Παρακολουθώ όλα τα ψηφιακά συστήματα στον χώρο εργασίας μου, συμπεριλαμβανομένων ενημερώσεων και νέων υλοποιήσεων
+• Εμπλέκομαι με την ψηφιακή αλλαγή: παρακολουθώ εκπαίδευση, συμμετέχω σε πιλοτικές εφαρμογές, παρέχω ανατροφοδότηση
+• Υποστηρίζω τους συναδέλφους κατά τις μεταβάσεις συστημάτων — μοιράζομαι γνώσεις και παρέχω ανεπίσημη αμοιβαία υποστήριξη
+• Συμμετέχω στη διακυβέρνηση ψηφιακής υγείας: επιτροπές αξιολόγησης, αναθεώρηση πολιτικών, βελτίωση ποιότητας` }
     ]
   },
   {
-    name: "Τομέας Γ: Ποιότητα Δεδομένων και Διακυβέρνηση Πληροφορίας",
-    goal: "Οι επαγγελματίες υγείας καταγράφουν ακριβή δεδομένα υγείας, κατανοούν πώς αυτά διακυβερνώνται και χρησιμοποιούνται, και αντιμετωπίζουν την ποιότητα δεδομένων ως υποχρέωση ασφάλειας ασθενούς.",
-    context: "Κάθε φορά που εισάγετε δεδομένα σε ένα κλινικό σύστημα, συμβάλλετε σε κάτι πολύ μεγαλύτερο από ένα μεμονωμένο αρχείο ασθενούς. Αυτά τα δεδομένα τροφοδοτούν κλινικές αποφάσεις, αναφορές τμήματος, εθνικούς δείκτες υγείας και έρευνα. Τα σφάλματα συσσωρεύονται. Τα καλά δεδομένα ξεκινούν από το σημείο εισαγωγής — και αυτός είστε εσείς. Ο τομέας καλύπτει επίσης τη διακυβέρνηση: κατανόηση δικαιωμάτων δεδομένων ασθενούς, τι απαιτεί ο GDPR στην πράξη και πώς χρησιμοποιούνται τα δεδομένα υγείας πέρα από την κλίνη.",
+    name: `Τομέας Γ: Ποιότητα Δεδομένων και Διακυβέρνηση Πληροφορίας`,
+    goal: `Οι επαγγελματίες υγείας καταγράφουν ακριβή δεδομένα υγείας, κατανοούν πώς διακυβερνώνται και χρησιμοποιούνται, και αντιμετωπίζουν την ποιότητα των δεδομένων ως υποχρέωση ασφάλειας του ασθενούς.`,
+    context: `Κάθε φορά που εισάγετε δεδομένα σε ένα κλινικό σύστημα, συμβάλλετε σε κάτι πολύ μεγαλύτερο από ένα μεμονωμένο αρχείο ασθενούς. Αυτά τα δεδομένα τροφοδοτούν κλινικές αποφάσεις, αναφορές τμήματος, εθνικούς δείκτες υγείας και έρευνα. Τα σφάλματα συσσωρεύονται. Τα καλά δεδομένα ξεκινούν από το σημείο εισαγωγής — και αυτός είστε εσείς. Ο τομέας καλύπτει επίσης τη διακυβέρνηση: κατανόηση δικαιωμάτων δεδομένων ασθενούς, τι απαιτεί ο GDPR στην πράξη και πώς χρησιμοποιούνται τα δεδομένα υγείας πέρα από την κλίνη.`,
     letter: "Γ", letterClass: "dc",
     questions: [
-      { code:"C1", statement:"Αναλαμβάνω την ευθύνη για την καταγραφή ακριβών, πλήρων και έγκαιρων δεδομένων υγείας, κατανοώντας ότι η ποιότητα δεδομένων αποτελεί άμεση υποχρέωση ασφάλειας ασθενούς.", keyPoints:"• Γνωρίζω πώς να χρησιμοποιώ σωστά όλα τα κλινικά και διοικητικά συστήματα\n• Κατανοώ ότι ανακριβή δεδομένα βλάπτουν την ασφάλεια ασθενούς και τις αποφάσεις φροντίδας\n• Εφαρμόζω συνεπή προσέγγιση για ελαχιστοποίηση σφαλμάτων εισαγωγής\n• Κατανοώ πώς τα δεδομένα μου τροφοδοτούν μεταγενέστερες κλινικές αποφάσεις" },
-      { code:"C2", statement:"Κατανοώ ορολογία ψηφιακής υγείας σχετική με την καταγραφή, διακυβέρνηση και χρήση δεδομένων, και την εφαρμόζω στην καθημερινή πράξη.", keyPoints:"• Γνωρίζω βασικούς όρους: Ηλεκτρονικός Φάκελος Υγείας (EHR), διαλειτουργικότητα, ελαχιστοποίηση δεδομένων, ψευδωνυμοποίηση\n• Κατανοώ πρότυπα κωδικοποίησης (ICD-11, SNOMED CT)\n• Γνωρίζω τη διαφορά μεταξύ δεδομένων, πληροφοριών και γνώσης\n• Παραμένω ενημερωμένος μέσω επαγγελματικών δικτύων και πόρων Ακαδημίας" },
-      { code:"C3", statement:"Κατανοώ πώς τα δεδομένα υγείας ρέουν στο σύστημα — από το σημείο καταγραφής έως την αναφορά ποιότητας, τους κλινικούς ελέγχους και τη βελτίωση υπηρεσιών.", keyPoints:"• Γνωρίζω πού πηγαίνουν τα δεδομένα μόλις καταγραφούν — τοπικό αρχείο, εθνικό μητρώο, ανωνυμοποιημένη αναφορά\n• Κατανοώ πώς τα δεδομένα μου τροφοδοτούν ταμπλό ποιότητας και κλινικούς ελέγχους\n• Γνωρίζω τη διαφορά πρωτογενούς χρήσης (άμεση φροντίδα) και δευτερογενούς χρήσης\n• Κατανοώ τις πολιτικές διατήρησης δεδομένων (GDPR, εθνική νομοθεσία)" },
-      { code:"C4", statement:"Αναγνωρίζω πώς τα ακριβή, δομημένα δεδομένα πληροφορούν αποφάσεις σε κάθε επίπεδο — και κατανοώ ότι τα κακής ποιότητας δεδομένα παράγουν άμεσα κακής ποιότητας αποτελέσματα.", keyPoints:"• Κατανοώ πώς πολλαπλές πηγές δεδομένων παράγουν κλινικές και λειτουργικές πληροφορίες\n• Διαβάζω απλά ταμπλό και εξάγω σχετικά συμπεράσματα\n• Αναγνωρίζω πότε ανωμαλίες δεδομένων υποδηλώνουν ζήτημα ποιότητας ή ασφάλειας\n• Γνωρίζω ότι κακά δεδομένα = κακά αποτελέσματα σε επίπεδο ασθενούς, ομάδας και συστήματος" },
-      { code:"C5", statement:"Κατανοώ τα οφέλη και τους περιορισμούς των δεδομένων που παράγονται από ασθενείς και γνωρίζω πώς να τα αξιολογώ και να τα ενσωματώνω κατάλληλα στη φροντίδα.", keyPoints:"• Γνωρίζω πηγές δεδομένων ασθενούς: wearables, εφαρμογές, οικιακοί μετρητές, ημερολόγια\n• Αξιολογώ προσεκτικά καταναλωτικές συσκευές — χαμηλότερα πρότυπα ακρίβειας\n• Κατανοώ πώς να ενσωματώνω δεδομένα ασθενούς κατάλληλα στο σχέδιο φροντίδας\n• Γνωρίζω ότι ασθενείς έχουν δικαιώματα GDPR για πρόσβαση, διόρθωση και κοινοποίηση" }
+      { code:"C1", statement:`Αναλαμβάνω την ευθύνη για την καταγραφή ακριβών, πλήρων και έγκαιρων δεδομένων υγείας, κατανοώντας ότι η ποιότητα των δεδομένων αποτελεί άμεση υποχρέωση ασφάλειας του ασθενούς.`, keyPoints:`• Γνωρίζω πώς να χρησιμοποιώ σωστά όλα τα κλινικά και διοικητικά συστήματα στον χώρο εργασίας μου
+• Κατανοώ ότι η ποιότητα των δεδομένων επηρεάζει άμεσα την ασφάλεια του ασθενούς — τα ανακριβή αρχεία μπορούν να βλάψουν την ασφάλεια των ασθενών, την κλινική αναφορά και τις αποφάσεις φροντίδας
+• Εφαρμόζω συνεπή προσωπική προσέγγιση για την ελαχιστοποίηση σφαλμάτων καταχώρισης δεδομένων, όπως πρωτόκολλα και διπλός έλεγχος
+• Κατανοώ πώς τα δεδομένα που τεκμηριώνω τροφοδοτούν τις μεταγενέστερες κλινικές αποφάσεις και τις αναφορές του οργανισμού` },
+      { code:"C2", statement:`Κατανοώ την ορολογία της ψηφιακής υγείας που σχετίζεται με την καταγραφή, τη διακυβέρνηση και τη χρήση δεδομένων, και την εφαρμόζω στην καθημερινή πρακτική.`, keyPoints:`• Γνωρίζω βασικούς όρους δεδομένων: Ηλεκτρονικός Φάκελος Υγείας (EHR / ΗΦΥ), διαλειτουργικότητα, διακυβέρνηση δεδομένων, ελαχιστοποίηση δεδομένων, ψευδωνυμοποίηση
+• Κατανοώ πρότυπα καταχώρισης δεδομένων που σχετίζονται με το πλαίσιό μου, όπως δομημένη κωδικοποίηση, ICD-11 — Διεθνής Ταξινόμηση Νοσημάτων, 11η Αναθεώρηση· SNOMED CT — Systematized Nomenclature of Medicine Clinical Terms
+• Γνωρίζω τη διαφορά μεταξύ δεδομένων, πληροφορίας και γνώσης — και πώς χρησιμοποιείται το καθένα στην υγειονομική περίθαλψη
+• Παραμένω ενημερωμένος για την εξελισσόμενη ορολογία μέσω επαγγελματικών δικτύων και πόρων της Ακαδημίας` },
+      { code:"C3", statement:`Κατανοώ πώς τα δεδομένα υγείας ρέουν μέσα στο σύστημα — από το σημείο καταγραφής έως την αναφορά ποιότητας, τους κλινικούς ελέγχους και τη βελτίωση υπηρεσιών.`, keyPoints:`• Γνωρίζω πού καταλήγουν τα δεδομένα μόλις καταγραφούν — στον τοπικό φάκελο, στο εθνικό μητρώο, σε ανωνυμοποιημένη αναφορά
+• Κατανοώ πώς τα δεδομένα μου τροφοδοτούν πίνακες ελέγχου ποιότητας, δείκτες απόδοσης και κλινικούς ελέγχους
+• Γνωρίζω τη διαφορά μεταξύ πρωτογενούς χρήσης, δηλαδή της άμεσης φροντίδας, και συγκεντρωτικής δευτερογενούς χρήσης σε όλο το σύστημα υγείας
+• Κατανοώ τις πολιτικές του οργανισμού μου για τη διατήρηση και τη διαγραφή δεδομένων, σύμφωνα με τον GDPR και την εθνική νομοθεσία` },
+      { code:"C4", statement:`Αναγνωρίζω πώς τα ακριβή, δομημένα δεδομένα υποστηρίζουν τη λήψη αποφάσεων σε κάθε επίπεδο — και κατανοώ ότι τα κακής ποιότητας δεδομένα οδηγούν άμεσα σε κακής ποιότητας αποτελέσματα.`, keyPoints:`• Κατανοώ πώς πολλαπλές πηγές δεδομένων συνδυάζονται για την παραγωγή κλινικών και λειτουργικών συμπερασμάτων
+• Διαβάζω απλούς πίνακες ελέγχου και αναφορές και εξάγω σχετικά συμπεράσματα για το πεδίο της πρακτικής μου
+• Αναγνωρίζω πότε ανωμαλίες ή ασυνέπειες στα δεδομένα ενδέχεται να υποδηλώνουν ζήτημα ποιότητας ή ασφάλειας
+• Αναγνωρίζω ότι τα κακής ποιότητας δεδομένα οδηγούν σε κακά αποτελέσματα — σε επίπεδο ασθενούς, ομάδας και συστήματος` },
+      { code:"C5", statement:`Κατανοώ τα οφέλη και τους περιορισμούς των δεδομένων που παράγονται από τους ασθενείς και γνωρίζω πώς να τα αξιολογώ και να τα ενσωματώνω κατάλληλα στη φροντίδα.`, keyPoints:`• Γνωρίζω το εύρος των πηγών δεδομένων που παράγονται από τους ασθενείς: wearables, εφαρμογές, οικιακές συσκευές παρακολούθησης και ημερολόγια ασθενούς
+• Αξιολογώ προσεκτικά δεδομένα από συσκευές καταναλωτικής χρήσης — τα πρότυπα ακρίβειας είναι χαμηλότερα από εκείνα του κλινικού εξοπλισμού
+• Κατανοώ πώς να ενσωματώνω κατάλληλα τα δεδομένα που παράγονται από τους ασθενείς σε ένα πλάνο φροντίδας
+• Γνωρίζω ότι οι ασθενείς έχουν δικαιώματα βάσει GDPR για πρόσβαση, διόρθωση και κοινοποίηση των δικών τους δεδομένων υγείας` }
     ]
   },
   {
-    name: "Τομέας Δ: Ανθρωποκεντρική Ψηφιακή Παροχή Φροντίδας",
-    goal: "Οι επαγγελματίες υγείας χρησιμοποιούν ψηφιακά εργαλεία για την παροχή ασφαλούς, ανθρωποκεντρικής φροντίδας — συμπεριλαμβανομένης υποστήριξης κλινικών αποφάσεων, τηλεϋγείας και διασυνοριακού συντονισμού ΕΕ.",
-    context: "Τα ψηφιακά εργαλεία αλλάζουν τον τρόπο — και ολοένα περισσότερο τον τόπο — παροχής φροντίδας. Τηλεϋγεία, εξ αποστάσεως παρακολούθηση, διαγνωστική υποβοηθούμενη από ΤΝ και πύλες ασθενών αποτελούν πλέον μέρος της καθημερινής κλινικής πρακτικής. Ο τομέας καλύπτει τη χρήση αυτών των εργαλείων με ασφάλεια και αποτελεσματικότητα: κριτική αξιολόγηση εξόδων υποστήριξης κλινικών αποφάσεων, υποστήριξη ασθενών μέσω ψηφιακών υπηρεσιών και — στο πλαίσιο ΕΕ — διασυνοριακός συντονισμός φροντίδας.",
+    name: `Τομέας Δ: Ανθρωποκεντρική Ψηφιακή Παροχή Φροντίδας`,
+    goal: `Οι επαγγελματίες υγείας χρησιμοποιούν ψηφιακά εργαλεία για την παροχή ασφαλούς, ανθρωποκεντρικής φροντίδας — συμπεριλαμβανομένης της υποστήριξης κλινικών αποφάσεων, της τηλεϋγείας και του διασυνοριακού συντονισμού στην ΕΕ.`,
+    context: `Τα ψηφιακά εργαλεία αλλάζουν τον τρόπο — και ολοένα περισσότερο τον τόπο — παροχής φροντίδας. Τηλεϋγεία, εξ αποστάσεως παρακολούθηση, διαγνωστική υποβοηθούμενη από ΤΝ και πύλες ασθενών αποτελούν πλέον μέρος της καθημερινής κλινικής πρακτικής. Ο τομέας καλύπτει τη χρήση αυτών των εργαλείων με ασφάλεια και αποτελεσματικότητα: κριτική αξιολόγηση εξόδων υποστήριξης κλινικών αποφάσεων, υποστήριξη ασθενών μέσω ψηφιακών υπηρεσιών και — στο πλαίσιο ΕΕ — διασυνοριακός συντονισμός φροντίδας.`,
     letter: "Δ", letterClass: "dd",
     questions: [
-      { code:"D1", statement:"Κατανοώ πώς η σύνδεση δεδομένων υγείας από διαφορετικές πηγές δημιουργεί μια πιο πλήρη εικόνα του ασθενούς — και τους κινδύνους ιδιωτικότητας και ακρίβειας που συνεπάγεται.", keyPoints:"• Γνωρίζω πώς τα κλινικά συστήματα μοιράζονται δεδομένα για συνδεδεμένο αρχείο υγείας (GP, νοσοκομείο, φαρμακείο)\n• Κατανοώ ότι η σύνδεση δεδομένων βελτιώνει τη συνέχεια αλλά εισάγει κινδύνους ιδιωτικότητας\n• Γνωρίζω ότι σφάλματα ενισχύονται όταν δεδομένα συγκεντρώνονται από πολλά συστήματα\n• Γνωρίζω τις απαιτήσεις συναίνεσης (GDPR)" },
-      { code:"D2", statement:"Αξιολογώ κριτικά ψηφιακά εργαλεία και πηγές δεδομένων — συμπεριλαμβανομένων εξόδων υποστήριξης κλινικών αποφάσεων — και εφαρμόζω επαγγελματική κρίση πριν δράσω.", keyPoints:"• Αξιολογώ εξόδους υποστήριξης κλινικών αποφάσεων — ελέγχω αποδεικτικά στοιχεία πριν δράσω\n• Τα εργαλεία υποστήριξης βοηθούν — δεν αντικαθιστούν — την κλινική κρίση\n• Αξιολογώ κριτικά δεδομένα ασθενούς (wearables, εφαρμογές)\n• Γνωρίζω για SaMD (Λογισμικό ως Ιατροτεχνολογικό Προϊόν) βάσει EU MDR Κανόνας 11 — ρωτώ αν τα εργαλεία είναι πιστοποιημένα" },
-      { code:"D3", statement:"Κατανοώ πώς η ανάλυση δεδομένων πληροφορεί κλινικές αποφάσεις και βελτίωση υπηρεσιών, και γνωρίζω πώς να εκφράσω ανησυχίες όταν τα αναλυτικά στοιχεία έρχονται σε αντίθεση με τις παρατηρήσεις μου.", keyPoints:"• Κατανοώ ότι τα δεδομένα μου συμβάλλουν σε ευρύτερα κλινικά αναλυτικά στοιχεία\n• Διαβάζω και ερμηνεύω βασικά κλινικά ταμπλό\n• Αναγνωρίζω πώς δεδομένα πληροφορούν αλλαγές υπηρεσιών και βελτίωση ποιότητας\n• Γνωρίζω πώς να εκφράσω ανησυχίες όταν αναλυτικά στοιχεία φαίνονται ασυνεπή" },
-      { code:"D4", statement:"Αξιολογώ πώς οι ψηφιακές τεχνολογίες υποστηρίζουν νέα μοντέλα φροντίδας και βελτιώνουν την εμπειρία ασθενούς, και συμβάλλω ενεργά στην υλοποίηση ψηφιακών υπηρεσιών.", keyPoints:"• Εξερευνώ πώς ψηφιακά εργαλεία αλλάζουν την παροχή φροντίδας στην ειδικότητά μου\n• Αξιολογώ εργαλεία από την οπτική του ασθενούς: βελτιώνουν πραγματικά εμπειρία και πρόσβαση;\n• Στηρίζω υλοποίηση νέων ψηφιακών υπηρεσιών — συμμετέχω σε pilots και αξιολογήσεις\n• Γνωρίζω τις διασυνοριακές ψηφιακές υπηρεσίες ΕΕ για ασθενείς (EU Patient Summary, e-prescription)" },
-      { code:"D5", statement:"Αξιολογώ τον αντίκτυπο της ψηφιακής υγείας στους ασθενείς, τους επαγγελματίες υγείας και την ποιότητα υπηρεσιών — και υπερασπίζομαι εργαλεία που πραγματικά βελτιώνουν τη φροντίδα.", keyPoints:"• Κατανοώ πώς ο ρόλος μου έχει αλλάξει — και θα συνεχίσει να αλλάζει — με τα ψηφιακά εργαλεία\n• Αξιολογώ εργαλεία από πολλές οπτικές: ασθενής, κλινικός, οργανισμός, σύστημα υγείας\n• Γνωρίζω πώς να αναφέρω ανησυχίες για εργαλεία που θέτουν σε κίνδυνο ασφάλεια ασθενούς\n• Υπερασπίζομαι εργαλεία που βελτιώνουν ποιότητα φροντίδας — όχι μόνο λειτουργική αποδοτικότητα" }
+      { code:"D1", statement:`Κατανοώ πώς η σύνδεση δεδομένων υγείας από διαφορετικές πηγές δημιουργεί μια πληρέστερη εικόνα του ασθενούς — και τους κινδύνους ιδιωτικότητας και ακρίβειας που συνεπάγεται.`, keyPoints:`• Γνωρίζω πώς τα κλινικά συστήματα μοιράζονται δεδομένα για να διαμορφώσουν έναν συνδεδεμένο φάκελο υγείας, π.χ. Γενικός Ιατρός (GP), νοσοκομείο, φαρμακείο
+• Κατανοώ ότι η σύνδεση δεδομένων βελτιώνει τη συνέχεια της φροντίδας αλλά εισάγει και κινδύνους ιδιωτικότητας και ακρίβειας
+• Γνωρίζω ότι τα σφάλματα σε μεμονωμένα σημεία δεδομένων ενισχύονται όταν τα δεδομένα συγκεντρώνονται από πολλά συστήματα
+• Γνωρίζω τις απαιτήσεις συναίνεσης όταν τα δεδομένα υγείας συνδέονται μεταξύ πλαισίων φροντίδας (GDPR)` },
+      { code:"D2a", statement:`Εφαρμόζω επαγγελματική κρίση πριν ενεργήσω βάσει οποιασδήποτε σύστασης υποστήριξης κλινικών αποφάσεων.`, keyPoints:`• Αξιολογώ τα αποτελέσματα εργαλείων υποστήριξης κλινικών αποφάσεων — ελέγχω τη βάση τεκμηρίωσης πριν δράσω
+• Κατανοώ ότι τα εργαλεία υποστήριξης αποφάσεων βοηθούν — αλλά δεν αντικαθιστούν — την επαγγελματική κλινική κρίση
+• Αξιολογώ κριτικά δεδομένα που παράγονται από τους ασθενείς, όπως φορετές συσκευές (wearables) και εφαρμογές — ενδέχεται να μην πληρούν πρότυπα κλινικής ακρίβειας
+• Τεκμηριώνω πάντα τη δική μου κλινική σκέψη παράλληλα με κάθε σύσταση εργαλείου` },
+      { code:"D2b", statement:`Ελέγχω αν τα ψηφιακά εργαλεία που χρησιμοποιώ είναι πιστοποιημένα ως ιατροτεχνολογικά προϊόντα, όπου απαιτείται (EU MDR).`, keyPoints:`• Γνωρίζω ότι το λογισμικό που υποστηρίζει κλινικές αποφάσεις ενδέχεται να χαρακτηριστεί SaMD, Λογισμικό ως Ιατροτεχνολογικό Προϊόν, βάσει του EU MDR, Κανόνας 11
+• Ρωτώ αν τα εργαλεία που χρησιμοποιώ στην πράξη είναι πιστοποιημένα, και εκφράζω ανησυχίες αν δεν είναι
+• Κατανοώ ότι οι απαιτήσεις πιστοποίησης υπάρχουν για την προστασία της ασφάλειας του ασθενούς
+• Αναφέρω τη χρήση μη επικυρωμένων ή μη πιστοποιημένων εργαλείων μέσω της διαδικασίας διακυβέρνησης του οργανισμού μου` },
+      { code:"D3", statement:`Κατανοώ πώς η ανάλυση δεδομένων υποστηρίζει κλινικές αποφάσεις και τη βελτίωση υπηρεσιών, και γνωρίζω πώς να εκφράσω ανησυχίες όταν τα αναλυτικά στοιχεία έρχονται σε αντίθεση με τις κλινικές μου παρατηρήσεις.`, keyPoints:`• Κατανοώ ότι τα δεδομένα που εισάγω συμβάλλουν σε ευρύτερες κλινικές και οργανωσιακές αναλύσεις
+• Διαβάζω και ερμηνεύω βασικούς κλινικούς πίνακες ελέγχου και αναφορές ποιότητας στο πεδίο της πρακτικής μου
+• Αναγνωρίζω πώς τα δεδομένα υποστηρίζουν αλλαγές υπηρεσιών, ανασχεδιασμό διαδρομών φροντίδας και βελτίωση ποιότητας
+• Γνωρίζω πώς να εκφράσω ανησυχίες όταν δεδομένα ή αναλυτικά στοιχεία φαίνονται ασύμβατα με τις κλινικές μου παρατηρήσεις` },
+      { code:"D4", statement:`Αξιολογώ αν τα ψηφιακά εργαλεία βελτιώνουν πραγματικά τη φροντίδα, και εκφράζω ανησυχίες όταν δεν το κάνουν.`, keyPoints:`• Αξιολογώ ψηφιακά εργαλεία από την οπτική του ασθενούς: βελτιώνουν πραγματικά την εμπειρία και την πρόσβαση;
+• Γνωρίζω τις διασυνοριακές ψηφιακές υπηρεσίες της ΕΕ για ασθενείς, όπως η Ευρωπαϊκή Περίληψη Ασθενούς και η ηλεκτρονική συνταγογράφηση
+• Αξιολογώ εργαλεία από πολλαπλές οπτικές: ασθενής, κλινικός επαγγελματίας, οργανισμός και σύστημα υγείας
+• Γνωρίζω πώς να αναφέρω ανησυχίες για ψηφιακά εργαλεία που ενδέχεται να θέτουν σε κίνδυνο την ασφάλεια του ασθενούς ή την ποιότητα της φροντίδας` }
     ]
   },
   {
-    name: "Τομέας Ε: Ασφάλεια Δεδομένων και Κυβερνοασφάλεια στην Υγεία",
-    goal: "Οι επαγγελματίες υγείας αναγνωρίζουν κυβερνοαπειλές, εφαρμόζουν ασφαλείς ψηφιακές συμπεριφορές και εκπληρώνουν τις κανονιστικές τους υποχρεώσεις για την προστασία ασθενών, συναδέλφων και οργανισμού.",
-    context: "Η υγειονομική περίθαλψη είναι ο πιο στοχευόμενος τομέας για κυβερνοεπιθέσεις στην Ευρώπη. Ransomware, phishing και κλοπή διαπιστευτηρίων δεν είναι αφηρημένα ζητήματα πληροφορικής — κλείνουν νοσοκομεία, καθυστερούν χειρουργεία και θέτουν ασθενείς σε κίνδυνο. Από τον Οκτώβριο 2024, η Οδηγία NIS2 απαιτεί από όλους τους οργανισμούς υγείας να αντιμετωπίζουν την κυβερνοασφάλεια ως ζήτημα κλινικής διακυβέρνησης. Κάθε κλινικός έχει ρόλο: ισχυροί κωδικοί, κλείδωμα οθόνης, αναφορά ύποπτων emails — αυτή δεν είναι μόνο δουλειά του ΙΤ.",
+    name: `Τομέας Ε: Ασφάλεια Δεδομένων και Κυβερνοασφάλεια στην Υγεία`,
+    goal: `Οι επαγγελματίες υγείας αναγνωρίζουν κυβερνοαπειλές, εφαρμόζουν ασφαλείς ψηφιακές συμπεριφορές και ανταποκρίνονται στις κανονιστικές τους υποχρεώσεις για την προστασία ασθενών, συναδέλφων και του οργανισμού τους.`,
+    context: `Η υγειονομική περίθαλψη είναι ο πιο στοχευόμενος τομέας για κυβερνοεπιθέσεις στην Ευρώπη. Ransomware, phishing και κλοπή διαπιστευτηρίων δεν είναι αφηρημένα ζητήματα πληροφορικής — κλείνουν νοσοκομεία, καθυστερούν χειρουργεία και θέτουν ασθενείς σε κίνδυνο. Από τον Οκτώβριο 2024, η Οδηγία NIS2 απαιτεί από όλους τους οργανισμούς υγείας να αντιμετωπίζουν την κυβερνοασφάλεια ως ζήτημα κλινικής διακυβέρνησης. Κάθε κλινικός έχει ρόλο: ισχυροί κωδικοί, κλείδωμα οθόνης, αναφορά ύποπτων emails — αυτή δεν είναι μόνο δουλειά του ΙΤ.`,
     letter: "Ε", letterClass: "de",
     questions: [
-      { code:"E1", statement:"Κατανοώ το τοπίο κυβερνοαπειλών στην υγεία — phishing, ransomware, social engineering — και αναγνωρίζω ότι κάθε εργαζόμενος στον τομέα υγείας μοιράζεται την ευθύνη για την κυβερνοασφάλεια.", keyPoints:"• Γνωρίζω τις πιο κοινές απειλές: phishing, ransomware, κλοπή διαπιστευτηρίων, social engineering\n• Αντιμετωπίζω παραβίαση κυβερνοασφάλειας ως κλινικό κίνδυνο — μπορεί να σταματήσει τη φροντίδα άμεσα\n• Γνωρίζω ότι όλοι μοιράζονται ευθύνη — όχι μόνο ΙΤ (NIS2· GDPR, Άρθρο 32)\n• Αναφέρω άμεσα ύποπτα emails, ασυνήθιστη συμπεριφορά συστημάτων ή πιθανές παραβιάσεις" },
-      { code:"E2", statement:"Εφαρμόζω ασφαλείς ψηφιακές συμπεριφορές καθημερινά — ισχυρή διαχείριση διαπιστευτηρίων, κατάλληλη διαχείριση δεδομένων και επίγνωση κινδύνων από προσωπικές συσκευές και συνδεδεμένες τεχνολογίες.", keyPoints:"• Χρησιμοποιώ ισχυρούς, μοναδικούς κωδικούς και ενεργοποιώ MFA (έλεγχος ταυτότητας πολλαπλών παραγόντων — π.χ. κωδικός SMS) όπου υποστηρίζεται\n• Διατηρώ δεδομένα ασθενούς εκτός προσωπικών συσκευών — μόνο εγκεκριμένα εργαλεία\n• Εφαρμόζω πρακτικές καθαρής θέσης — κλειδώνω οθόνη, δεν αφήνω ορατές πληροφορίες ασθενούς\n• Είμαι προσεκτικός με συνδεδεμένες συσκευές (IoT) — αναφέρω στο ΙΤ αμέσως" },
-      { code:"E3", statement:"Συμμορφώνομαι με τη νομοθεσία ασφάλειας δεδομένων και οργανωσιακή πολιτική — GDPR Άρθρο 32 και Οδηγία NIS2 — και κατανοώ την προσωπική μου ευθύνη για μη συμμόρφωση.", keyPoints:"• Γνωρίζω τις πολιτικές ασφάλειας δεδομένων του οργανισμού μου\n• Γνωρίζω ότι GDPR Άρθρο 32 απαιτεί κατάλληλα τεχνικά και οργανωτικά μέτρα ασφάλειας\n• Γνωρίζω τις απαιτήσεις NIS2 για την υγεία ως βασική οντότητα\n• Γνωρίζω ότι ισχύει προσωπική ευθύνη σε περίπτωση αμελούς συμπεριφοράς" },
-      { code:"E4", statement:"Μπορώ να αναγνωρίσω και να αναφέρω περιστατικό κυβερνοασφάλειας ή παραβίαση δεδομένων — και κατανοώ την υποχρέωση κοινοποίησης εντός 72 ωρών βάσει GDPR.", keyPoints:"• Γνωρίζω τη διαδικασία αναφοράς και τα στοιχεία του Υπεύθυνου Προστασίας Δεδομένων (DPO)\n• Γνωρίζω τι συνιστά παραβίαση προσωπικών δεδομένων: μη εξουσιοδοτημένη πρόσβαση, αποκάλυψη, απώλεια ή τροποποίηση\n• Αναφέρω εσωτερικά αμέσως· GDPR Άρθρο 33 ενδέχεται να απαιτεί κοινοποίηση εντός 72 ωρών\n• Δεν προσπαθώ ποτέ να αποκρύψω παραβίαση — πάντα κλιμακώνω μέσω σωστής διαδρομής" },
-      { code:"E5", statement:"Γνωρίζω πώς να διατηρώ ασφαλή φροντίδα ασθενούς κατά τη διάρκεια κυβερνοπεριστατικού, και συμβάλλω ενεργά σε κουλτούρα ασφάλειας χωρίς κατηγορίες.", keyPoints:"• Γνωρίζω τη χειροκίνητη διαδικασία του οργανισμού μου για όταν τα συστήματα δεν είναι διαθέσιμα\n• Καλλιεργώ κουλτούρα αναφοράς χωρίς κατηγορίες — η καθυστέρηση επιδεινώνει τα περιστατικά\n• Στηρίζω συναδέλφους που αναφέρουν ανησυχίες\n• Αναγνωρίζω ότι η κουλτούρα ασφάλειας είναι κοινή ευθύνη ομάδας, όχι μόνο ΙΤ" }
+      { code:"E1", statement:`Κατανοώ το τοπίο των κυβερνοαπειλών στην υγειονομική περίθαλψη — συμπεριλαμβανομένων του ηλεκτρονικού ψαρέματος (phishing), του κλειδώματος των δεδομένων και της απαίτησης λύτρων για την απελευθέρωσή τους, καθώς και της κακόβουλης χειραγώγησης μέσω κοινωνικών δικτύων — και αναγνωρίζω ότι κάθε εργαζόμενος στον τομέα της υγείας έχει μερίδιο ευθύνης για την κυβερνοασφάλεια.`, keyPoints:`• Γνωρίζω τις πιο κοινές κυβερνοαπειλές: emails ηλεκτρονικού ψαρέματος (phishing), κλείδωμα δεδομένων και απαίτηση λύτρων για την απελευθέρωσή τους, κλοπή διαπιστευτηρίων, κακόβουλη χειραγώγηση μέσω κοινωνικών δικτύων
+• Αντιμετωπίζω μια παραβίαση κυβερνοασφάλειας ως κλινικό κίνδυνο — μπορεί να διακόψει άμεσα τη φροντίδα και να θέσει σε κίνδυνο την ασφάλεια του ασθενούς
+• Γνωρίζω ότι όλοι οι εργαζόμενοι στον τομέα της υγείας έχουν μερίδιο ευθύνης για την κυβερνοασφάλεια — όχι μόνο οι ομάδες πληροφορικής (ΙΤ) (NIS2 — Οδηγία Ασφάλειας Δικτύων και Πληροφοριών 2· GDPR, Άρθρο 32)
+• Αναφέρω αμέσως ύποπτα emails, ασυνήθιστη συμπεριφορά συστημάτων ή πιθανές παραβιάσεις μέσω της προβλεπόμενης διαδικασίας του οργανισμού μου` },
+      { code:"E2", statement:`Εφαρμόζω ασφαλείς ψηφιακές συμπεριφορές καθημερινά — συμπεριλαμβανομένης της ισχυρής διαχείρισης διαπιστευτηρίων, του κατάλληλου χειρισμού δεδομένων και της επίγνωσης κινδύνων από προσωπικές συσκευές και συνδεδεμένες τεχνολογίες.`, keyPoints:`• Χρησιμοποιώ ισχυρούς, μοναδικούς κωδικούς πρόσβασης και ενεργοποιώ έλεγχο ταυτότητας πολλαπλών παραγόντων (MFA — ένα δεύτερο βήμα επαλήθευσης, π.χ. κωδικός που αποστέλλεται στο τηλέφωνό μου) όπου τα συστήματα το υποστηρίζουν
+• Δεν διατηρώ δεδομένα ασθενών σε προσωπικές συσκευές ή μη εγκεκριμένα συστήματα — χρησιμοποιώ μόνο εγκεκριμένα εργαλεία του οργανισμού μου
+• Εφαρμόζω πρακτικές καθαρής θέσης εργασίας — κλειδώνω την οθόνη μου όταν απουσιάζω, δεν αφήνω ποτέ ορατές πληροφορίες ασθενούς
+• Δείχνω προσοχή στις συνδεδεμένες συσκευές (Διαδίκτυο των Πραγμάτων (Internet of Things — IoT), ιατρικές συσκευές) — αναφέρω αμέσως ασυνήθιστη συμπεριφορά στο τμήμα πληροφορικής (ΙΤ)` },
+      { code:"E3", statement:`Συμμορφώνομαι με τη νομοθεσία ασφάλειας δεδομένων και τις πολιτικές του οργανισμού — συμπεριλαμβανομένων του Άρθρου 32 του GDPR και της Οδηγίας NIS2 — και κατανοώ την προσωπική μου ευθύνη σε περίπτωση μη συμμόρφωσης.`, keyPoints:`• Γνωρίζω τις πολιτικές ασφάλειας δεδομένων του οργανισμού μου και τις συνέπειες της μη συμμόρφωσης
+• Γνωρίζω ότι το Άρθρο 32 του GDPR (Γενικός Κανονισμός Προστασίας Δεδομένων) απαιτεί κατάλληλα τεχνικά και οργανωτικά μέτρα ασφάλειας
+• Γνωρίζω τις απαιτήσεις της Οδηγίας NIS2 (Οδηγία Ασφάλειας Δικτύων και Πληροφοριών 2) για την υγειονομική περίθαλψη ως ουσιώδη οντότητα
+• Γνωρίζω ότι μπορεί να υπάρξει προσωπική ευθύνη σε περίπτωση παραβίασης που οφείλεται σε αμελή ή μη συμμορφούμενη συμπεριφορά` },
+      { code:"E4", statement:`Μπορώ να αναγνωρίσω και να αναφέρω ένα περιστατικό κυβερνοασφάλειας ή παραβίαση δεδομένων — και κατανοώ την υποχρέωση γνωστοποίησης εντός 72 ωρών που αυτό μπορεί να ενεργοποιήσει βάσει GDPR.`, keyPoints:`• Γνωρίζω τη διαδικασία αναφοράς περιστατικών και τα στοιχεία επικοινωνίας του Υπεύθυνου Προστασίας Δεδομένων (DPO)
+• Γνωρίζω τι συνιστά παραβίαση προσωπικών δεδομένων: οποιαδήποτε μη εξουσιοδοτημένη πρόσβαση, γνωστοποίηση, απώλεια ή αλλοίωση δεδομένων υγείας
+• Αναφέρω εσωτερικά αμέσως· το Άρθρο 33 του GDPR ενδέχεται να απαιτεί γνωστοποίηση στην εποπτική αρχή εντός 72 ωρών
+• Δεν προσπαθώ ποτέ να διαχειριστώ ή να αποκρύψω μια παραβίαση αυτόνομα — πάντα την κλιμακώνω μέσω του σωστού διαύλου` },
+      { code:"E5", statement:`Γνωρίζω πώς να διατηρώ ασφαλή τη φροντίδα του ασθενούς κατά τη διάρκεια ενός κυβερνοπεριστατικού, και συμβάλλω ενεργά σε κουλτούρα ασφάλειας χωρίς επίρριψη ευθυνών, όπου οι ανησυχίες αναφέρονται άμεσα.`, keyPoints:`• Γνωρίζω τη διαδικασία χειροκίνητης λειτουργίας του οργανισμού μου όταν τα ψηφιακά συστήματα δεν είναι διαθέσιμα
+• Καλλιεργώ κουλτούρα αναφοράς χωρίς επίρριψη ευθυνών — η καθυστερημένη αναφορά επιδεινώνει σταθερά τα περιστατικά και θέτει τους ασθενείς σε κίνδυνο
+• Υποστηρίζω συναδέλφους που αναφέρουν ανησυχίες — δεν αποθαρρύνω ποτέ την αναφορά ζητημάτων ασφάλειας, ακόμη και αν η ανησυχία αποδειχθεί μικρής σημασίας
+• Αναγνωρίζω ότι μια ισχυρή κουλτούρα ασφάλειας είναι κοινή ευθύνη της ομάδας και όχι μόνο αρμοδιότητα του ΙΤ` }
     ]
   },
   {
-    name: "Τομέας ΣΤ: Τεχνητή Νοημοσύνη στην Κλινική Πράξη",
-    goal: "Οι επαγγελματίες υγείας αναπτύσσουν εγγραμματισμό στην ΤΝ, κατανοούν ηθικές και κανονιστικές υποχρεώσεις και εμπλέκονται κριτικά με την ΤΝ — ανεξαρτήτως αν χρησιμοποιείται ήδη στο κλινικό τους περιβάλλον.",
-    context: "Η τεχνητή νοημοσύνη (ΤΝ) εισάγεται σε περιβάλλοντα υγείας με διαφορετικές ταχύτητες σε όλη την Ευρώπη. Μερικοί οργανισμοί τη χρησιμοποιούν ήδη σε διαγνωστική απεικόνιση, υποστήριξη κλινικών αποφάσεων και τεκμηρίωση. Άλλοι εξερευνούν ή βρίσκονται σε pilot. Όπου και αν βρίσκεστε σε αυτή την πορεία, τα θεμέλια έχουν σημασία: τι μπορεί και τι δεν μπορεί να κάνει η ΤΝ, οι ηθικές αρχές που διέπουν τη χρήση της, και το κανονιστικό τοπίο — ώστε να είστε έτοιμοι να εμπλακείτε με κριτική σκέψη και ασφάλεια.",
+    name: `Τομέας ΣΤ: Τεχνητή Νοημοσύνη στην Κλινική Πράξη`,
+    goal: `Οι επαγγελματίες υγείας αναπτύσσουν εγγραμματισμό στην ΤΝ, κατανοούν ηθικές και κανονιστικές υποχρεώσεις και εμπλέκονται κριτικά με την ΤΝ — ανεξαρτήτως αν χρησιμοποιείται ήδη στο κλινικό τους περιβάλλον.`,
+    context: `Η τεχνητή νοημοσύνη (ΤΝ) εισάγεται σε περιβάλλοντα υγείας με διαφορετικές ταχύτητες σε όλη την Ευρώπη. Μερικοί οργανισμοί τη χρησιμοποιούν ήδη σε διαγνωστική απεικόνιση, υποστήριξη κλινικών αποφάσεων και τεκμηρίωση. Άλλοι εξερευνούν ή βρίσκονται σε pilot. Όπου και αν βρίσκεστε σε αυτή την πορεία, τα θεμέλια έχουν σημασία: τι μπορεί και τι δεν μπορεί να κάνει η ΤΝ, οι ηθικές αρχές που διέπουν τη χρήση της, και το κανονιστικό τοπίο — ώστε να είστε έτοιμοι να εμπλακείτε με κριτική σκέψη και ασφάλεια.`,
     letter: "ΣΤ", letterClass: "df",
     questions: [
-      { code:"F1", statement:"Κατανοώ βασικές έννοιες τεχνητής νοημοσύνης (ΤΝ) — μηχανική μάθηση, παραγωγική ΤΝ — και αξιολογώ κριτικά εργαλεία ΤΝ ως προς τις δυνατότητες, τους περιορισμούς και την πιθανή μεροληψία τους.", keyPoints:"• Κατανοώ τη διαφορά μεταξύ μηχανικής μάθησης, βαθιάς μάθησης και παραγωγικής ΤΝ\n• Γνωρίζω ότι εργαλεία ΤΝ μπορούν να παράγουν ανακριβείς ή κατασκευασμένες εξόδους (hallucinations) — πάντα επαληθεύω\n• Αξιολογώ εργαλεία ΤΝ με βάση κλινικά αποδεικτικά στοιχεία: είναι επικυρωμένο; Σε ποιον πληθυσμό;\n• Γνωρίζω ότι μεροληπτικά δεδομένα εκπαίδευσης παράγουν μεροληπτικά αποτελέσματα" },
-      { code:"F2", statement:"Κατανοώ τις ηθικές αρχές που διέπουν την ΤΝ στην υγεία — διαφάνεια, δικαιοσύνη, ανθρώπινη εποπτεία — και διασφαλίζω ότι η ΤΝ δεν αντικαθιστά ποτέ την κλινική μου κρίση.", keyPoints:"• Κατανοώ ότι η ΤΝ ενισχύει — δεν αντικαθιστά — κλινική κρίση· παραμένω πλήρως υπεύθυνος\n• Ελέγχω για δικαιοσύνη: εργαλεία ΤΝ πρέπει να λειτουργούν ισότιμα\n• Διατηρώ διαφάνεια: κατανοώ πώς χρησιμοποιείται ΤΝ στη διαδρομή φροντίδας\n• Γνωρίζω ότι ανθρώπινη εποπτεία υψηλού κινδύνου ΤΝ απαιτείται από EU AI Act — δεν είναι προαιρετική" },
-      { code:"F3", statement:"Κατανοώ το κανονιστικό τοπίο για την ΤΝ στην υγεία — ταξινομήσεις κινδύνου EU AI Act, δικαιώματα GDPR για αυτοματοποιημένες αποφάσεις, και πότε η ΤΝ χαρακτηρίζεται ιατροτεχνολογικό προϊόν.", keyPoints:"• Γνωρίζω ότι EU AI Act ταξινομεί την κλινική ΤΝ ως υψηλού κινδύνου — σήμανση CE απαιτείται\n• Γνωρίζω ότι GDPR Άρθρο 22 παρέχει δικαίωμα μη αυτοματοποιημένων αποφάσεων\n• Γνωρίζω ότι εργαλεία ΤΝ ενδέχεται να χαρακτηριστούν SaMD βάσει EU MDR\n• Κατανοώ ότι επαγγελματική ευθύνη παραμένει στον κλινικό ακόμη και όταν ΤΝ συνεισφέρει σε σφάλμα" },
-      { code:"F4", statement:"Όπου εργαλεία ΤΝ είναι διαθέσιμα στο περιβάλλον μου, τα χρησιμοποιώ αποτελεσματικά και επικυρώνω τις εξόδους τους — διατηρώντας επαγγελματική κρίση και ασφάλεια ασθενούς στο επίκεντρο.", keyPoints:"• Γνωρίζω πώς να χρησιμοποιώ σωστά τα εργαλεία ΤΝ στον χώρο εργασίας μου\n• Πάντα συγκρίνω εξόδους ΤΝ με επαγγελματική γνώση και κλινικά αποδεικτικά στοιχεία\n• Ελέγχω εξόδους παραγωγικής ΤΝ για hallucinations (κατασκευασμένες αναφορές, λανθασμένες δοσολογίες)\n• Παραμένω υπεύθυνος για κάθε απόφαση ακόμη και όταν ΤΝ βοηθά — τεκμηριώνω πάντα" },
-      { code:"F5", statement:"Εμπλέκομαι εποικοδομητικά με την ΤΝ στο περιβάλλον μου — είτε διερευνάται, είτε δοκιμάζεται σε pilot, είτε έχει αναπτυχθεί — στηρίζω συναδέλφους και συμβάλλω σε ασφαλή, υπεύθυνη χρήση ΤΝ.", keyPoints:"• Εμπλέκομαι με τις εξελίξεις ΤΝ στο πλαίσιό μου — εξερεύνηση, pilot ή ενεργή χρήση\n• Στηρίζω συναδέλφους που ανησυχούν ή αμφιταλαντεύονται για ΤΝ\n• Διασφαλίζω ότι ασθενείς ενημερώνονται για συνεισφορά ΤΝ στη φροντίδα (EU AI Act· GDPR)\n• Συμμετέχω σε αξιολόγηση ή διακυβέρνηση εργαλείων ΤΝ — αξιολόγηση κινδύνου, ανατροφοδότηση" }
+      { code:"F1", statement:`Κατανοώ βασικές έννοιες τεχνητής νοημοσύνης (ΤΝ) — συμπεριλαμβανομένης της μηχανικής μάθησης και της παραγωγικής ΤΝ — και μπορώ να αξιολογώ κριτικά εργαλεία ΤΝ ως προς τις δυνατότητες, τους περιορισμούς και την πιθανή μεροληψία τους στην υγειονομική περίθαλψη.`, keyPoints:`• Κατανοώ τη διαφορά μεταξύ μηχανικής μάθησης, βαθιάς μάθησης και παραγωγικής ΤΝ (τεχνητή νοημοσύνη) — και πώς εφαρμόζεται καθεμία στην υγειονομική περίθαλψη
+• Γνωρίζω ότι τα εργαλεία ΤΝ μπορούν να παράγουν ανακριβή, μεροληπτικά ή κατασκευασμένα αποτελέσματα (γνωστά ως 'hallucinations') — πάντα επαληθεύω πριν δράσω
+• Αξιολογώ εργαλεία ΤΝ με βάση κλινική τεκμηρίωση: είναι επικυρωμένο; Σε ποιον πληθυσμό; Ποιοι είναι οι γνωστοί τρόποι αποτυχίας;
+• Γνωρίζω ότι τα μεροληπτικά δεδομένα εκπαίδευσης παράγουν μεροληπτικά αποτελέσματα — με πραγματικές συνέπειες για την ισότητα στην υγεία` },
+      { code:"F2", statement:`Κατανοώ τις ηθικές αρχές που διέπουν την ΤΝ (τεχνητή νοημοσύνη) στην υγειονομική περίθαλψη — διαφάνεια, δικαιοσύνη και ανθρώπινη εποπτεία — και διασφαλίζω ότι η ΤΝ δεν αντικαθιστά ποτέ την κλινική μου κρίση.`, keyPoints:`• Κατανοώ ότι η ΤΝ (τεχνητή νοημοσύνη) ενισχύει — δεν αντικαθιστά — την επαγγελματική κλινική κρίση· παραμένω πλήρως υπεύθυνος για κάθε απόφαση
+• Ελέγχω για δικαιοσύνη: τα εργαλεία ΤΝ πρέπει να λειτουργούν ισότιμα σε διαφορετικούς πληθυσμούς ασθενών
+• Διατηρώ διαφάνεια: κατανοώ πώς χρησιμοποιείται η ΤΝ στη διαδρομή φροντίδας μου και την αμφισβητώ όπου είναι ασαφής
+• Γνωρίζω ότι η ανθρώπινη εποπτεία της ΤΝ υψηλού κινδύνου είναι νομική απαίτηση βάσει EU AI Act — δεν είναι προαιρετική` },
+      { code:"F3a", statement:`Γνωρίζω ότι η χρήση ΤΝ στη φροντίδα ασθενών ρυθμίζεται από τον EU AI Act, με νομικές απαιτήσεις ανθρώπινης εποπτείας.`, keyPoints:`• Γνωρίζω ότι ο EU AI Act ταξινομεί το μεγαλύτερο μέρος της κλινικής ΤΝ ως υψηλού κινδύνου — απαιτώντας σήμανση CE (Conformité Européenne — η πιστοποίηση ασφάλειας ΕΕ), διαφάνεια και ανθρώπινη εποπτεία
+• Γνωρίζω ότι τα εργαλεία ΤΝ που χρησιμοποιούνται σε κλινικά περιβάλλοντα ενδέχεται να χαρακτηριστούν SaMD (Λογισμικό ως Ιατροτεχνολογικό Προϊόν) βάσει EU MDR — με υποχρεώσεις συμμόρφωσης για τον οργανισμό μου
+• Κατανοώ ότι όταν η ΤΝ συμβάλλει σε κλινικό σφάλμα, η επαγγελματική ευθύνη παραμένει στον κλινικό επαγγελματία
+• Γνωρίζω σε ποιον να απευθυνθώ στον οργανισμό μου αν έχω αμφιβολίες για τη συμμόρφωση ενός εργαλείου ΤΝ` },
+      { code:"F3b", statement:`Γνωρίζω ότι οι ασθενείς έχουν δικαιώματα βάσει GDPR όταν η ΤΝ συμβάλλει σε αποφάσεις για τη φροντίδα τους.`, keyPoints:`• Γνωρίζω ότι το Άρθρο 22 GDPR (Γενικός Κανονισμός Προστασίας Δεδομένων) παρέχει στους ασθενείς το δικαίωμα να μην υπόκεινται αποκλειστικά σε αυτοματοποιημένες αποφάσεις που τους αφορούν
+• Διασφαλίζω ότι οι ασθενείς ενημερώνονται όταν η ΤΝ συμβάλλει σε αποφάσεις για τη φροντίδα τους
+• Γνωρίζω πώς να εξηγώ, με απλά λόγια, πότε και πώς χρησιμοποιείται η ΤΝ στη διαδρομή φροντίδας ενός ασθενούς
+• Κλιμακώνω ανησυχίες ή αντιρρήσεις ασθενών σχετικά με αυτοματοποιημένη λήψη αποφάσεων μέσω της σωστής διαδικασίας` },
+      { code:"F4", statement:`Όπου εργαλεία ΤΝ (τεχνητής νοημοσύνης) είναι διαθέσιμα στο περιβάλλον μου, τα χρησιμοποιώ αποτελεσματικά και επικυρώνω τα αποτελέσματά τους — διατηρώντας επαγγελματική κρίση και διατηρώντας την ασφάλεια του ασθενούς στο επίκεντρο ανά πάσα στιγμή.`, keyPoints:`• Αν εργαλεία ΤΝ είναι διαθέσιμα στον χώρο εργασίας μου (υποστήριξη αποφάσεων, ΤΝ τεκμηρίωσης, ΤΝ διαχείρισης), γνωρίζω πώς να τα χρησιμοποιώ σωστά
+• Πάντα συγκρίνω τα αποτελέσματα ΤΝ με την επαγγελματική μου γνώση και την τρέχουσα κλινική τεκμηρίωση
+• Ελέγχω ειδικά τα αποτελέσματα παραγωγικής ΤΝ για hallucinations (κατασκευασμένες αναφορές, λανθασμένες δοσολογίες, ανακριβή στοιχεία)
+• Παραμένω υπεύθυνος για κάθε απόφαση ακόμη και όταν η ΤΝ βοηθά — πάντα τεκμηριώνω την κλινική μου σκέψη` },
+      { code:"F5", statement:`Εμπλέκομαι εποικοδομητικά με την ΤΝ (τεχνητή νοημοσύνη) στο περιβάλλον μου — είτε διερευνάται, είτε δοκιμάζεται σε pilot, είτε έχει ήδη αναπτυχθεί — στηρίζοντας τους συναδέλφους και συμβάλλοντας σε ασφαλή, υπεύθυνη χρήση ΤΝ.`, keyPoints:`• Εμπλέκομαι με τις εξελίξεις ΤΝ στο πλαίσιό μου — είτε διερευνώ, είτε δοκιμάζω σε pilot, είτε χρησιμοποιώ ενεργά εργαλεία ΤΝ
+• Υποστηρίζω συναδέλφους που ενδέχεται να ανησυχούν ή να αμφιταλαντεύονται ως προς την υιοθέτηση ΤΝ
+• Όπου χρησιμοποιείται ΤΝ: διασφαλίζω ότι οι ασθενείς ενημερώνονται όταν η ΤΝ συμβάλλει σε αποφάσεις για τη φροντίδα τους (EU AI Act· GDPR)
+• Συμμετέχω στην αξιολόγηση ή διακυβέρνηση εργαλείων ΤΝ όπου υπάρχει ευκαιρία — αξιολόγηση κινδύνου, ανατροφοδότηση, πολιτική` }
     ]
-  }
+  },
 ];
 
 const el_ratingScale = [
@@ -3508,7 +3724,7 @@ function el_completeDomain(id) {
 function el_updateProgress() {
   let done = 0;
   for (let i=1; i<=6; i++) {
-    if (el_responses[i] && Object.keys(el_responses[i]).length === 5) done++;
+    if (el_responses[i] && Object.keys(el_responses[i]).length === el_assessmentData[i-1].questions.length) done++;
   }
   const pct = (done/6)*100;
   document.getElementById('progressFill-el').style.width = pct + '%';
@@ -3530,17 +3746,36 @@ function el_showResults() {
   const today = new Date();
   document.getElementById('completionDate-el').textContent = 'Ολοκληρώθηκε: ' + today.toLocaleDateString('el-GR',{year:'numeric',month:'long',day:'numeric'});
 
-  let total = 0;
+  const domainAvgs = [];
   const domainLevels = [];
   for (let i=1; i<=6; i++) {
     const vals  = Object.values(el_responses[i]);
     const avg   = vals.reduce((a,b)=>a+b,0)/vals.length;
-    total += avg;
+    domainAvgs.push(avg);
     domainLevels.push({avg, level:el_getLevel(avg), colors:el_getLevelColors(el_getLevel(avg))});
   }
-  const overallAvg   = total/6;
-  const overallLevel = el_getLevel(overallAvg);
-  const overallColors= el_getLevelColors(overallLevel);
+
+  // ─── ΣΥΝΟΛΙΚΗ ΒΑΘΜΟΛΟΓΙΑ: στάθμιση προς τα άκρα, με ανώτατο όριο βάσει
+  // του χαμηλότερου τομέα ── Ένας απλός μέσος όρος επιτρέπει σε έναν αδύναμο
+  // τομέα να «κρυφτεί» πίσω από πέντε ισχυρούς. Ο χαμηλότερος και ο
+  // υψηλότερος τομέας μετρούν 1,5x· οι υπόλοιποι τέσσερις μετρούν κανονικά.
+  // Ένα ανώτατο όριο διασφαλίζει ότι το συνολικό επίπεδο δεν μπορεί να
+  // υπερβεί κατά περισσότερο από ένα επίπεδο τον χαμηλότερο μεμονωμένο τομέα.
+  const sortedAvgs  = [...domainAvgs].sort((a,b)=>a-b);
+  const lowestAvg   = sortedAvgs[0];
+  const highestAvg  = sortedAvgs[sortedAvgs.length-1];
+  const middleSum   = sortedAvgs.slice(1,-1).reduce((a,b)=>a+b,0);
+  const weightedAvg = (1.5*lowestAvg + 1.5*highestAvg + middleSum) / 7;
+
+  const TIER_RANK  = { Formative:0, Intermediate:1, Proficient:2 };
+  const RANK_TIER  = ['Formative','Intermediate','Proficient'];
+  const capRank    = Math.min(TIER_RANK[el_getLevel(lowestAvg)] + 1, 2);
+
+  let overallLevel = el_getLevel(weightedAvg);
+  if (TIER_RANK[overallLevel] > capRank) overallLevel = RANK_TIER[capRank];
+
+  const overallAvg    = weightedAvg;
+  const overallColors = el_getLevelColors(overallLevel);
 
   // Overall achievement badge image
   document.getElementById('badgeImage-el').src = el_BADGE_URLS[overallLevel.toLowerCase()];
